@@ -35,7 +35,7 @@ export function SentView(v: Props) {
           <div style={{ fontSize: 15, marginTop: 4 }}>{v.message}</div>
         </div>
       )}
-      <div style={{ fontSize: 14, color: '#5F6266' }}>This quotation is locked while {v.agent} reviews it. To change anything else, reply to {v.agentPossessive} email.</div>
+      <div style={{ fontSize: 14, color: '#5F6266' }}>{`This quotation is locked while ${v.agent} reviews it. To change anything else, reply to ${v.agentPossessive} email.`}</div>
       <button onClick={v.restart} style={linkButton({ fontSize: 15, fontWeight: 500 })}>Restart prototype</button>
     </div>
   );

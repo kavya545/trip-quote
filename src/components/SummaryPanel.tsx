@@ -13,14 +13,14 @@ export function SummaryPanel(v: Props) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24, position: 'sticky', top: 24, flex: '1 1 min(100%,340px)', maxWidth: 400, minWidth: 0, maxHeight: 'calc(100vh - 48px)', overflowY: 'auto', overscrollBehavior: 'contain', scrollbarWidth: 'thin', paddingBottom: 4 }}>
       <div style={{ background: '#FFFFFF', borderRadius: 20, padding: '24px 26px', display: 'grid', gridTemplateColumns: '130px minmax(0,1fr)', gap: '18px 18px', alignItems: 'center' }}>
         <span style={{ ...legendPill, background: '#EBEBEA' }}>Locked price</span><span style={legendText}>Swap freely, this price is held for you</span>
-        <span style={{ ...legendPill, background: '#1E1F21', color: '#FFFFFF' }}>{v.agent} will confirm</span><span style={legendText}>Depends on availability, price may shift</span>
+        <span style={{ ...legendPill, background: '#1E1F21', color: '#FFFFFF' }}>{`${v.agent} will confirm`}</span><span style={legendText}>Depends on availability, price may shift</span>
         <span style={{ ...legendPill, background: '#EBEBEA', color: '#5F6266' }}>Included</span><span style={legendText}>Flights and transfers are booked as planned</span>
-        <span style={{ fontSize: 13, fontWeight: 600, color: '#197047', textAlign: 'center' }}>↓ Lower</span><span style={legendText}>Cheaper than {v.agent}’s original quote</span>
-        <span style={{ fontSize: 13, fontWeight: 600, color: '#B8433B', textAlign: 'center' }}>↑ Higher</span><span style={legendText}>Costs more than {v.agent}’s original quote</span>
+        <span style={{ fontSize: 13, fontWeight: 600, color: '#197047', textAlign: 'center' }}>↓ Lower</span><span style={legendText}>{`Cheaper than ${v.agent}’s original quote`}</span>
+        <span style={{ fontSize: 13, fontWeight: 600, color: '#B8433B', textAlign: 'center' }}>↑ Higher</span><span style={legendText}>{`Costs more than ${v.agent}’s original quote`}</span>
       </div>
       <div style={{ background: '#FFFFFF', borderRadius: 20, padding: '30px 30px 18px', display: 'flex', flexDirection: 'column', gap: 22 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-          <span style={{ fontSize: 20, fontWeight: 700 }}>Your trip total</span><span style={{ fontSize: 12, color: '#5F6266' }}>{v.adultsLabel} · incl. GST</span>
+          <span style={{ fontSize: 20, fontWeight: 700 }}>Your trip total</span><span style={{ fontSize: 12, color: '#5F6266' }}>{`${v.adultsLabel} · incl. GST`}</span>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 12 }}>
           <div>
@@ -29,10 +29,10 @@ export function SummaryPanel(v: Props) {
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontFamily: MONO, fontSize: 34, fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.01em' }}>{v.total}</div>
-            {v.hasChanges && <div style={{ fontSize: 13, color: '#5F6266' }}><span style={{ fontFamily: MONO, fontWeight: 700, color: v.totalDelta.color }}>{v.totalDelta.head}</span> · was {v.origTotal}</div>}
+            {v.hasChanges && <div style={{ fontSize: 13, color: '#5F6266' }}><span style={{ fontFamily: MONO, fontWeight: 700, color: v.totalDelta.color }}>{v.totalDelta.head}</span>{` · was ${v.origTotal}`}</div>}
           </div>
         </div>
-        {v.hasAwaiting && <div style={{ fontFamily: MONO, fontSize: 13, color: '#5F6266', marginTop: -8 }}>Includes {v.awaitingTxt} awaiting {v.agent}’s confirmation.</div>}
+        {v.hasAwaiting && <div style={{ fontFamily: MONO, fontSize: 13, color: '#5F6266', marginTop: -8 }}>Includes {v.awaitingTxt}{` awaiting ${v.agent}’s confirmation.`}</div>}
         {v.hasChanges && <button onClick={v.goReview} className="hover-bg-3e" style={{ height: 56, border: 0, borderRadius: 999, background: '#1E1F21', color: '#FFFFFF', fontSize: 16, fontWeight: 600, cursor: 'pointer' }}>Review changes ({v.changeCount})</button>}
         {v.noChanges && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>

@@ -11,7 +11,7 @@ export function TopBar({ agent, validUntil, daysLeft, user }: Props) {
         <span title={daysLeftLabel(daysLeft)}>Valid until <strong style={{ color: '#1E1F21', fontWeight: 700 }}>{validUntil}</strong></span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 14, fontWeight: 600, whiteSpace: 'nowrap', marginLeft: 'auto' }}>
-        <button className="hover-underline" style={{ background: 'none', border: 0, padding: 0, fontSize: 14, fontWeight: 600, color: '#1E1F21', cursor: 'pointer' }}>Message {agent}</button>
+        <button className="hover-underline" style={{ background: 'none', border: 0, padding: 0, fontSize: 14, fontWeight: 600, color: '#1E1F21', cursor: 'pointer' }}>{`Message ${agent}`}</button>
         <span style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ width: 36, height: 36, borderRadius: '50%', background: '#EBEBEA', display: 'grid', placeItems: 'center', fontSize: 12, fontWeight: 700 }}>{user.initials}</span>{user.name}
         </span>

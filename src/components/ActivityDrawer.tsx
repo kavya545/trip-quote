@@ -34,7 +34,7 @@ export function ActivityDrawer({ ad, adultsLabel }: { ad: ActDrawerView; adultsL
             <div style={{ textAlign: 'right', flex: 'none', lineHeight: 1.3 }}>
               <div style={{ fontFamily: MONO, fontSize: 18, fontWeight: 500, color: '#B8433B' }}>{o.deltaTxt}</div>
               <div style={{ fontSize: 13, color: '#B8433B' }}>Higher</div>
-              <div style={{ fontSize: 12, color: '#5F6266' }}>for {adultsLabel}</div>
+              <div style={{ fontSize: 12, color: '#5F6266' }}>{`for ${adultsLabel}`}</div>
             </div>
           </div>
           <div style={blurb}>{o.blurb}</div>
