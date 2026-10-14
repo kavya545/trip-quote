@@ -23,18 +23,18 @@ export function Sidebar({ open, onToggle, user }: Props) {
   return (
     <aside style={{ background: '#FFFFFF', borderRight: '1px solid #E4E4E2', padding: `24px ${padX}`, display: 'flex', flexDirection: 'column', gap: 28, overflow: 'hidden', position: 'sticky', top: 0, height: '100vh' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: justify, gap: 10, minHeight: 40, padding: '0 4px' }}>
-        <span style={{ width: 40, height: 40, borderRadius: 12, background: '#1E1F21', color: '#FFFFFF', display: 'grid', placeItems: 'center', fontSize: 20, fontWeight: 700, flex: 'none' }}>≈</span>
-        {open && <div style={{ display: 'flex', alignItems: 'center', gap: 10, whiteSpace: 'nowrap' }}><span style={{ fontFamily: SERIF, fontSize: 26, lineHeight: 1 }}>monsoon trails</span></div>}
+        <span style={{ width: 40, height: 40, borderRadius: 12, background: '#1E1F21', color: '#FFFFFF', display: 'grid', placeItems: 'center', fontSize: '1.25rem', fontWeight: 700, flex: 'none' }}>≈</span>
+        {open && <div style={{ display: 'flex', alignItems: 'center', gap: 10, whiteSpace: 'nowrap' }}><span style={{ fontFamily: SERIF, fontSize: '1.625rem', lineHeight: 1 }}>monsoon trails</span></div>}
       </div>
       <nav style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        {open && <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: '#98989B', padding: '0 8px 6px' }}>MENU</div>}
+        {open && <div style={{ fontSize: '0.8125rem', fontWeight: 600, letterSpacing: '0.08em', color: '#98989B', padding: '0 8px 6px' }}>MENU</div>}
         {NAV.map(item => (
           <a
             key={item.label}
             href="#"
             title={item.label}
             className={item.active ? undefined : 'hover-bg-f2'}
-            style={{ display: 'flex', alignItems: 'center', justifyContent: justify, gap: 12, padding: '10px 12px', borderRadius: 10, textDecoration: 'none', fontSize: 14, fontWeight: item.active ? 600 : 500, color: item.active ? '#FFFFFF' : '#1E1F21', ...(item.active ? { background: '#1E1F21' } : {}) }}
+            style={{ display: 'flex', alignItems: 'center', justifyContent: justify, gap: 12, padding: '10px 12px', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: item.active ? 600 : 500, color: item.active ? '#FFFFFF' : '#1E1F21', ...(item.active ? { background: '#1E1F21' } : {}) }}
           >
             {item.icon}
             {open && <span style={{ whiteSpace: 'nowrap' }}>{item.label}</span>}
@@ -47,8 +47,8 @@ export function Sidebar({ open, onToggle, user }: Props) {
         </button>
       </div>
       <div style={{ borderTop: '1px solid #E4E4E2', padding: '16px 0 0', display: 'flex', alignItems: 'center', justifyContent: justify, gap: 10 }}>
-        <span style={{ width: 32, height: 32, borderRadius: '50%', background: '#EBEBEA', display: 'grid', placeItems: 'center', fontSize: 12, fontWeight: 700 }}>{user?.initials}</span>
-        {open && user && <div style={{ whiteSpace: 'nowrap' }}><div style={{ fontSize: 14, fontWeight: 700 }}>{user.name}</div><div style={{ fontSize: 12, color: '#5F6266' }}>{user.subtitle}</div></div>}
+        <span style={{ width: 32, height: 32, borderRadius: '50%', background: '#EBEBEA', display: 'grid', placeItems: 'center', fontSize: '0.8125rem', fontWeight: 700 }}>{user?.initials}</span>
+        {open && user && <div style={{ whiteSpace: 'nowrap' }}><div style={{ fontSize: '0.875rem', fontWeight: 700 }}>{user.name}</div><div style={{ fontSize: '0.875rem', color: '#5F6266' }}>{user.subtitle}</div></div>}
       </div>
     </aside>
   );

@@ -10,8 +10,8 @@ function Endpoint({ city, date }: { city: string; date: string }) {
   return (
     <div style={{ ...col, gap: 4, minWidth: 80 }}>
       <span style={{ width: 12, height: 12, border: '1.5px solid #1E1F21', borderRadius: '50%', margin: '8px 0 6px' }} />
-      <span style={{ fontSize: 15, fontWeight: 600 }}>{city}</span>
-      <span style={{ fontSize: 12, color: '#5F6266' }}>{date}</span>
+      <span style={{ fontSize: '0.9375rem', fontWeight: 600 }}>{city}</span>
+      <span style={{ fontSize: '0.875rem', color: '#5F6266' }}>{date}</span>
     </div>
   );
 }
@@ -19,9 +19,9 @@ function Endpoint({ city, date }: { city: string; date: string }) {
 function City({ name, dates, badge }: { name: string; dates: string; badge: Badge }) {
   return (
     <div style={{ ...col, gap: 4, minWidth: 96 }}>
-      <span style={{ fontFamily: SERIF, fontSize: 32, lineHeight: 1 }}>{name}</span>
-      <span style={{ fontSize: 13, color: '#5F6266' }}>{dates}</span>
-      {badge.has && <span style={{ background: '#1E1F21', color: '#FFFFFF', borderRadius: 999, padding: '2px 10px', fontSize: 11, fontWeight: 600, whiteSpace: 'nowrap' }}>{badge.label}</span>}
+      <span style={{ fontFamily: SERIF, fontSize: '2rem', lineHeight: 1 }}>{name}</span>
+      <span style={{ fontSize: '0.875rem', color: '#5F6266' }}>{dates}</span>
+      {badge.has && <span style={{ background: '#1E1F21', color: '#FFFFFF', borderRadius: 999, padding: '2px 10px', fontSize: '0.8125rem', fontWeight: 600, whiteSpace: 'nowrap' }}>{badge.label}</span>}
     </div>
   );
 }
@@ -32,10 +32,10 @@ function Connector({ label, when, nowrap }: { label: string; when: string; nowra
     <div style={{ ...col, gap: 6, paddingTop: 6 }}>
       <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
         {rule}
-        <span style={{ background: '#EBEBEA', borderRadius: 999, padding: '3px 10px', fontSize: 12, fontWeight: 600, whiteSpace: 'nowrap' }}>{label}</span>
+        <span style={{ background: '#EBEBEA', borderRadius: 999, padding: '3px 10px', fontSize: '0.8125rem', fontWeight: 600, whiteSpace: 'nowrap' }}>{label}</span>
         {rule}
       </div>
-      <span style={{ fontSize: 12, color: '#5F6266', ...(nowrap ? { whiteSpace: 'nowrap' } : {}) }}>{when}</span>
+      <span style={{ fontSize: '0.875rem', color: '#5F6266', ...(nowrap ? { whiteSpace: 'nowrap' } : {}) }}>{when}</span>
     </div>
   );
 }

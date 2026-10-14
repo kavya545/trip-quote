@@ -45,9 +45,9 @@ export function StatusMessage({ kind, title, children, action }: MessageProps) {
         <span style={{ width: 56, height: 56, borderRadius: '50%', background: kind === 'error' ? '#FBE9E7' : '#F2F2F0', color: kind === 'error' ? '#B8433B' : '#1E1F21', display: 'grid', placeItems: 'center' }}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[kind]}</svg>
         </span>
-        <h1 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: 'clamp(28px,4vw,36px)', lineHeight: 1.1 }}>{title}</h1>
-        <div style={{ fontSize: 15, lineHeight: 1.6, color: '#5F6266', textWrap: 'pretty' }}>{children}</div>
-        {action && <button onClick={action.onClick} className="hover-bg-3e" style={{ marginTop: 8, height: 48, padding: '0 22px', border: 0, borderRadius: 999, background: '#1E1F21', color: '#FFFFFF', fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>{action.label}</button>}
+        <h1 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: 'clamp(1.75rem,4vw,2.25rem)', lineHeight: 1.1 }}>{title}</h1>
+        <div style={{ fontSize: '0.9375rem', lineHeight: 1.6, color: '#5F6266', textWrap: 'pretty' }}>{children}</div>
+        {action && <button onClick={action.onClick} className="hover-bg-3e" style={{ marginTop: 8, height: 48, padding: '0 22px', border: 0, borderRadius: 999, background: '#1E1F21', color: '#FFFFFF', fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer' }}>{action.label}</button>}
       </div>
     </main>
   );
