@@ -58,8 +58,10 @@ export function StopCard({ block: b }: { block: StopBlock }) {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14, minWidth: 0, flex: '1 1 280px' }}>
                   <div style={{ fontSize: 15, fontWeight: 600 }}>{d.title}</div>
                   {d.empty && <div style={{ fontSize: 13, color: '#5F6266' }}>Free time. No activities planned.</div>}
-                  {d.acts.map(a => (
-                    <div key={a.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 14, flexWrap: 'wrap', background: '#FAFAF9', border: '1px solid #E4E4E2', borderRadius: 16, padding: 'clamp(12px,2vw,16px) clamp(14px,2vw,20px)' }}>
+                  {/* Keyed by position, like the prototype: rows are reused in place when an activity is added,
+                      so the browser doesn't scroll-anchor the page behind an open side panel. */}
+                  {d.acts.map((a, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 14, flexWrap: 'wrap', background: '#FAFAF9', border: '1px solid #E4E4E2', borderRadius: 16, padding: 'clamp(12px,2vw,16px) clamp(14px,2vw,20px)' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 14, minWidth: 0 }}>
                         <span style={{ width: 56, height: 56, borderRadius: 12, background: a.thumb, flex: 'none', opacity: a.thumbOpacity }} />
                         <div style={{ minWidth: 0 }}><div style={{ fontFamily: MONO, fontSize: 13, color: '#5F6266' }}>Activity · {a.time}</div><div style={{ fontSize: 16, color: a.nameColor }}>{a.name}</div></div>
