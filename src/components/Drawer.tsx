@@ -2,27 +2,28 @@ import type { TripView } from '../model/useTripQuote';
 import { SERIF } from '../styles';
 import { ActivityDrawer } from './ActivityDrawer';
 import { HotelDrawer } from './HotelDrawer';
+import { alpha, color } from '../tokens';
 
 type Props = Pick<TripView, 'drawerW' | 'drawerTitle' | 'drawerSub' | 'closeDrawer' | 'hd' | 'ad' | 'adultsLabel'>;
 
-const segmented = { display: 'flex', background: '#EBEBEA', borderRadius: 999, padding: 4 } as const;
-const segBtn = (bg: string) => ({ border: 0, borderRadius: 999, padding: '8px 18px', fontSize: '0.9375rem', fontWeight: 500, color: '#1E1F21', cursor: 'pointer', whiteSpace: 'nowrap', background: bg } as const);
-const hint = { fontSize: '0.875rem', color: '#5F6266' } as const;
+const segmented = { display: 'flex', background: color.chip, borderRadius: 999, padding: 4 } as const;
+const segBtn = (bg: string) => ({ border: 0, borderRadius: 999, padding: '8px 18px', fontSize: '0.9375rem', fontWeight: 500, color: color.ink, cursor: 'pointer', whiteSpace: 'nowrap', background: bg } as const);
+const hint = { fontSize: '0.875rem', color: color.textSecondary } as const;
 const toolbar = { display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' } as const;
 
 export function Drawer({ drawerW, drawerTitle, drawerSub, closeDrawer, hd, ad, adultsLabel }: Props) {
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', justifyContent: 'flex-end' }}>
-      <div onClick={closeDrawer} style={{ position: 'absolute', inset: 0, background: 'rgba(30,31,33,.45)' }} />
-      <div style={{ position: 'relative', width: `min(${drawerW},100%)`, height: '100%', background: '#F5F5F4', display: 'flex', flexDirection: 'column', boxShadow: '-12px 0 40px rgba(30,31,33,.18)' }}>
-        <div style={{ background: '#FAFAF9', borderBottom: '1px solid #E4E4E2', padding: 'clamp(20px,3vw,32px) clamp(16px,3vw,36px) 24px', display: 'flex', flexDirection: 'column', gap: 22 }}>
+      <div onClick={closeDrawer} style={{ position: 'absolute', inset: 0, background: alpha(color.ink, 0.45) }} />
+      <div style={{ position: 'relative', width: `min(${drawerW},100%)`, height: '100%', background: color.drawer, display: 'flex', flexDirection: 'column', boxShadow: `-12px 0 40px ${alpha(color.ink, 0.18)}` }}>
+        <div style={{ background: color.surfaceRaised, borderBottom: `1px solid ${color.border}`, padding: 'clamp(20px,3vw,32px) clamp(16px,3vw,36px) 24px', display: 'flex', flexDirection: 'column', gap: 22 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
             <div>
               <div style={{ fontFamily: SERIF, fontSize: 'clamp(1.625rem,4vw,2rem)', lineHeight: 1.05 }}>{drawerTitle}</div>
-              <div style={{ fontSize: '0.875rem', color: '#5F6266', marginTop: 6 }}>{drawerSub}</div>
+              <div style={{ fontSize: '0.875rem', color: color.textSecondary, marginTop: 6 }}>{drawerSub}</div>
             </div>
-            <button onClick={closeDrawer} aria-label="Close" style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid #CFCFCD', background: '#FFFFFF', display: 'grid', placeItems: 'center', cursor: 'pointer', flex: 'none' }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E1F21" strokeWidth="1.8"><path d="M18 6 6 18M6 6l12 12" /></svg>
+            <button onClick={closeDrawer} aria-label="Close" style={{ width: 44, height: 44, borderRadius: '50%', border: `1px solid ${color.borderStrong}`, background: color.white, display: 'grid', placeItems: 'center', cursor: 'pointer', flex: 'none' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color.ink} strokeWidth="1.8"><path d="M18 6 6 18M6 6l12 12" /></svg>
             </button>
           </div>
           {hd?.canSplit && (

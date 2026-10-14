@@ -6,6 +6,7 @@ import { Sidebar } from './components/Sidebar';
 import { QuoteSkeleton, StatusMessage } from './components/StatusViews';
 import { TripQuote } from './components/TripQuote';
 import type { TripQuoteProps } from './model/useTripQuote';
+import { color } from './tokens';
 
 export interface AppProps extends TripQuoteProps {
   quoteId: string;
@@ -24,7 +25,7 @@ export default function App({ quoteId, scenario, delayMs, saveMode = 'ok', ...pr
   const user = data && { ...data.user, subtitle: `${data.id} · ${data.region}` };
 
   return (
-    <div className="app-shell" data-nav={navOpen ? 'open' : 'closed'} style={{ minHeight: '100vh', background: '#F2F2F2', color: '#1E1F21', fontFamily: 'Manrope,system-ui,sans-serif' }}>
+    <div className="app-shell" data-nav={navOpen ? 'open' : 'closed'} style={{ minHeight: '100vh', background: color.page, color: color.ink, fontFamily: 'Manrope,system-ui,sans-serif' }}>
       <Sidebar open={navOpen} onToggle={() => setNavOpen(o => !o)} user={user} />
       {q.status === 'loading' && <QuoteSkeleton />}
       {q.status === 'error' && (

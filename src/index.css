@@ -1,6 +1,6 @@
 *{box-sizing:border-box}
-body{margin:0;background:#F2F2F2;color:#1E1F21;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#1E1F21} a:hover{color:#5F6266}
+body{margin:0;background:var(--color-page);color:var(--color-ink);font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--color-ink)} a:hover{color:var(--color-text-secondary)}
 button,select,textarea,input{font-family:inherit}
 button{transition:background-color .15s ease,box-shadow .15s ease,transform .08s ease}
 button:not(:disabled):active{transform:scale(.97)}
@@ -10,12 +10,12 @@ button:not(:disabled):active{filter:brightness(.85)}
 button:disabled{opacity:.55}
 a{transition:background-color .15s ease}
 button:disabled{cursor:not-allowed}
-button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid #1E1F21;outline-offset:2px}
+button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--color-ink);outline-offset:2px}
 
 /* Hover states. The prototype's style-hover attributes override inline styles, hence !important. */
-.hover-bg-f2:hover{background:#F2F2F2 !important}
-.hover-bg-3e:hover{background:#3E4145 !important}
-.hover-bg-e4:hover{background:#E4E4E2 !important}
+.hover-bg-f2:hover{background:var(--color-page) !important}
+.hover-bg-3e:hover{background:var(--color-ink-soft) !important}
+.hover-bg-e4:hover{background:var(--color-border) !important}
 .hover-underline:hover{text-decoration:underline !important}
 
 /* Loading placeholders */
@@ -30,7 +30,7 @@ button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible
 /* Below 700px the expanded menu slides over the page instead of squeezing it. */
 @media (max-width:699.98px){
   .app-shell[data-nav="open"]{grid-template-columns:80px minmax(0,1fr)}
-  .app-shell[data-nav="open"]>aside{width:232px;z-index:60;box-shadow:12px 0 40px rgba(30,31,33,.18)}
+  .app-shell[data-nav="open"]>aside{width:232px;z-index:60;box-shadow:12px 0 40px color-mix(in srgb,var(--color-ink) 18%,transparent)}
 }
 
 /* Itinerary and price summary. Breakpoints use the width the content area actually gets,
@@ -46,5 +46,5 @@ button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible
 
 /* Save indicator */
 @keyframes save-spin{to{transform:rotate(360deg)}}
-.save-spinner{width:16px;height:16px;flex:none;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#FFFFFF;animation:save-spin .8s linear infinite}
+.save-spinner{width:16px;height:16px;flex:none;border-radius:50%;border:2px solid color-mix(in srgb,var(--color-white) 35%,transparent);border-top-color:var(--color-white);animation:save-spin .8s linear infinite}
 @media (prefers-reduced-motion: reduce){.save-spinner{animation:none}}

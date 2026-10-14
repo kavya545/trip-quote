@@ -5,6 +5,8 @@ A traveller reviews a travel agent's quotation for a Kerala trip, edits it (hote
 ## Stack and commands
 Vite 8 + React 19 + TypeScript 5.9, zod 4. Styling is inline `style` objects plus a few classes in `src/index.css` (hover states, layout breakpoints, skeleton/spinner). No CSS framework, no router, no test runner.
 - `npm run dev` (dev server) · `npm run build` (type-check + build to `dist/`) · `npm run preview` (serve the build)
+- `npm run check:tokens` (also part of `build`) fails on any hardcoded colour or a stale `tokens.css`.
+- `npm run tokens` regenerates `src/tokens.css` and `design-tokens.json` after editing `src/tokens.ts`.
 - `npm run schema` regenerates `src/data/schema/*.schema.json` after editing `src/api/schema.ts`.
 
 ## Layout
@@ -25,23 +27,24 @@ Vite 8 + React 19 + TypeScript 5.9, zod 4. Styling is inline `style` objects plu
 Push to `real-data` (the default branch) → `.github/workflows/deploy-pages.yml` builds and publishes https://kavya545.github.io/trip-quote/. Also runnable from Actions → **Run workflow**. `vite.config.ts` uses `base: './'` so the build works from the `/trip-quote/` sub-path.
 
 ## Standing rules
-1. **Design tokens, no new hardcoded colours.** Use only the palette below by its token name. Known debt: the existing components still inline these hex values and there is no `src/tokens.ts` yet; moving them there is a separate change that must pass the screenshot comparison.
+1. **Design tokens, no hardcoded colours.** Colours live only in `src/tokens.ts`; use `color.<token>` (and `alpha(color.ink, 0.45)` for translucency) in code and `var(--color-<token>)` in CSS. Each token is bound to a variable in the Fleeguide Figma file (name and id in `tokens.ts`). To add or change one: edit `tokens.ts`, run `npm run tokens` (regenerates `src/tokens.css` and `design-tokens.json`), and update the matching Figma variable.
 2. **Rupees** always go through `R()` in `src/model/data.ts` (`₹` + `toLocaleString('en-IN')`, rounded, e.g. ₹1,02,400). Never format amounts by hand. Differences use `dl()`.
 3. **Every change goes on a new branch** cut from `real-data`, then is merged into `real-data` only when asked. Commit messages explain why, not just what.
 4. **Re-run the screenshot comparison before every push** and report the result.
 
 ## Palette (tokens)
-| Token | Hex | Use |
-| --- | --- | --- |
-| ink | `#1E1F21` | primary text, dark buttons, step bar, toast |
-| text-secondary | `#5F6266` | secondary text (4.8–6.1:1 on light surfaces) |
-| text-muted | `#6B6E72` | lightest grey allowed for text (≥ 4.57:1 on white, `#FAFAF9`, `#F2F2F2`) |
-| disabled | `#98989B` | disabled controls and borders only, never readable text |
-| on-dark-muted | `#B5B7BA` | muted text on `ink` |
-| border / border-strong | `#E4E4E2` / `#CFCFCD` | card and input borders |
-| surface | `#FFFFFF`, `#FAFAF9`, `#F2F2F2` (page), `#EBEBEA`, `#F2F2F0` | cards, panels, chips |
-| lower / higher | `#197047` / `#B8433B` (error bg `#FBE9E7`) | cheaper / costlier, errors |
-| success | `#3DAA4F` | confirmation icons |
+Source of truth: `src/tokens.ts` (22 tokens; `design-tokens.json` lists the Figma variable for each). Main ones:
+| Token | Hex | Figma variable | Use |
+| --- | --- | --- | --- |
+| ink | `#1E1F21` | project/gray-950 | primary text, dark buttons, step bar, toast |
+| textSecondary | `#5F6266` | project/gray-600 | secondary text (4.8–6.1:1 on light surfaces) |
+| textMuted | `#6B6E72` | color/text-muted | lightest grey allowed for text (≥ 4.57:1) |
+| disabled | `#98989B` | color/disabled | disabled controls and borders only, never readable text |
+| onDarkMuted | `#B5B7BA` | project/gray-400 | muted text on `ink` |
+| border / borderStrong | `#E4E4E2` / `#CFCFCD` | project/gray-200 / gray-300 | card and input borders |
+| page, white, surfaceRaised | `#F2F2F2`, `#FFFFFF`, `#FAFAF9` | color/page, project/white, gray-25 | page, cards, rows |
+| lower / higher | `#197047` / `#B8433B` | color/positive/600 / negative/600 | cheaper / costlier, errors |
+| success | `#3DAA4F` | color/success | confirmation icons |
 
 ## Type scale and contrast
 - Font sizes in `rem` (px ÷ 16) so the reader's browser text size applies. Fonts: Manrope (text), Instrument Serif (headings), IBM Plex Mono (prices, times).

@@ -8,6 +8,7 @@ import { demoChanges } from './demoChanges';
 import { acceptQuote, resetProgress, submitRevision, type SaveMode } from '../api/progressApi';
 import type { Draft, Progress } from '../api/schema';
 import type { Autosave } from '../api/useAutosave';
+import { alpha, color } from '../tokens';
 
 export interface HotelCfg { mode: 'one' | 'split'; hotel: string; room: string; rooms: number; split: string[] }
 type View = 'trip' | 'changes' | 'review' | 'sent';
@@ -130,7 +131,7 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
   const gallery = (a: Activity, s: Stop) => {
     const gal = a.images.length ? a.images : [s.img];
     const pi = (S.photoIdx[a.id] || 0) % gal.length;
-    return { url: gal[pi], dots: gal.map((_, i) => ({ bg: i === pi ? '#FFFFFF' : 'rgba(255,255,255,.5)' })), next: () => setState(st => ({ photoIdx: { ...st.photoIdx, [a.id]: (pi + 1) % gal.length } })) };
+    return { url: gal[pi], dots: gal.map((_, i) => ({ bg: i === pi ? color.white : alpha(color.white, 0.5) })), next: () => setState(st => ({ photoIdx: { ...st.photoIdx, [a.id]: (pi + 1) % gal.length } })) };
   };
   const dayOf = (a: Activity) => a.included ? a.day : (S.actDay[a.id] || a.day);
   const conflict = (o: Activity, dd?: number) => { const d = dd || dayOf(o); return D.acts.find(a => dayOf(a) === d && a.id !== o.id && active(a) && a.start < o.end && o.start < a.end); };
@@ -163,7 +164,7 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
   const stepIdx = { trip: 0, changes: 0, review: 1, sent: 2 }[S.view];
   const steps = ['Make it yours', 'Review', `Sent to ${agent}`].map((label, i) => {
     const done = i < stepIdx, cur = i === stepIdx;
-    return { label, mark: done ? '✓' : String(i + 1), bg: done || cur ? '#FFFFFF' : '#5F6266', fg: done || cur ? '#1E1F21' : '#E4E4E2', labelColor: cur || done ? '#FFFFFF' : '#B5B7BA', labelWeight: cur ? 700 : 500, notLast: i < 2 };
+    return { label, mark: done ? '✓' : String(i + 1), bg: done || cur ? color.white : color.textSecondary, fg: done || cur ? color.ink : color.border, labelColor: cur || done ? color.white : color.onDarkMuted, labelWeight: cur ? 700 : 500, notLast: i < 2 };
   });
 
   const stopCount = (id: string) => { const n = changes.filter(c => c.stop === id).length; return { has: n > 0, label: n + ' change' + (n > 1 ? 's' : '') }; };
@@ -174,7 +175,7 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
   });
   const catCount = (k: string) => changes.filter(c => c.cat === k).length;
   const filters = ([['all', 'All', nCh], ['hotels', 'Hotels', catCount('hotels')], ['transfers', 'Transfers', catCount('transfers')], ['activities', 'Activities', catCount('activities')]] as const)
-    .map(([id, label, count]) => { const on = S.filter === id; return { id, label, count, hasCount: count > 0, active: on, bg: on ? '#1E1F21' : '#FFFFFF', fg: on ? '#FFFFFF' : '#1E1F21', bd: on ? '#1E1F21' : '#CFCFCD', badgeBg: on ? '#FFFFFF' : '#1E1F21', badgeFg: on ? '#1E1F21' : '#FFFFFF', pick: () => setState({ filter: id }) }; });
+    .map(([id, label, count]) => { const on = S.filter === id; return { id, label, count, hasCount: count > 0, active: on, bg: on ? color.ink : color.white, fg: on ? color.white : color.ink, bd: on ? color.ink : color.borderStrong, badgeBg: on ? color.white : color.ink, badgeFg: on ? color.ink : color.white, pick: () => setState({ filter: id }) }; });
   const F = S.filter;
 
   const blocks = D.order.map(key => {
@@ -199,12 +200,12 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
     const remaining = D.acts.filter(a => a.stop === sid && !a.included && !S.added[a.id]).length;
     const open = !S.closedStops[sid];
     return { isSeg: false as const, key, kicker: `${s.label} · ${pl(s.nights)}`, name: s.name, showHotel: showHotel && open, showDays: showDays && open, dates: s.dates, dayRange: `${pl(s.nights)} · ${s.dayRange}`,
-      photo: `linear-gradient(180deg, rgba(30,31,33,0) 30%, rgba(30,31,33,.72) 100%), url(${s.img})`, chevRot: open ? 'none' : 'rotate(-90deg)',
+      photo: `linear-gradient(180deg, ${alpha(color.ink, 0)} 30%, ${alpha(color.ink, 0.72)} 100%), url(${s.img})`, chevRot: open ? 'none' : 'rotate(-90deg)',
       toggle: () => setState(st2 => ({ closedStops: { ...st2.closedStops, [sid]: !st2.closedStops[sid] } })),
       hotel: { name: c.mode === 'split' && c.split[0] !== c.split[1] ? hotelOf(s, c.split[0]).name + ' + ' + hotelOf(s, c.split[1]).name : h.name,
         meta: c.mode === 'split' && c.split[0] !== c.split[1] ? 'Split stay · one night each' : h.meta,
         room: c.mode === 'split' ? 'Standard room each night' : roomOf(h, c.room).name + (c.rooms > 1 ? ' × ' + c.rooms : ''),
-        thumb: `#3E4145 center/cover url(${h.img || s.img})`, border: ch ? '#98989B' : '#E4E4E2', meals: h.meals, nightsTxt: `${pl(s.nights)} · ${s.range}`, changed: ch, was: origLabel(s), stLabel: st.label, stBg: st.bg, stFg: st.fg,
+        thumb: `${color.inkSoft} center/cover url(${h.img || s.img})`, border: ch ? color.disabled : color.border, meals: h.meals, nightsTxt: `${pl(s.nights)} · ${s.range}`, changed: ch, was: origLabel(s), stLabel: st.label, stBg: st.bg, stFg: st.fg,
         canSplit: s.nights > 1, changeLabel: 'Change ' + s.noun,
         price: R(price(s, c)), hasDelta: hd.has, deltaTxt: hd.txt, deltaWord: hd.word, deltaColor: hd.color,
         open: () => openHotel(sid, false), openSplit: () => openHotel(sid, true) },
@@ -212,9 +213,9 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
         const acts = D.acts.filter(a => dayOf(a) === day.n && (a.included || S.added[a.id])).sort((a, b) => a.start < b.start ? -1 : 1).map(a => {
           const rem = !!(a.included && S.removed[a.id]);
           const sa = ST[a.status || 'included'];
-          return { id: a.id, thumb: `#3E4145 center/cover url(${a.images[0] || s.img})`, name: a.name, time: `${a.start}–${a.end}`, isIncluded: !!a.included, isAdded: !a.included,
+          return { id: a.id, thumb: `${color.inkSoft} center/cover url(${a.images[0] || s.img})`, name: a.name, time: `${a.start}–${a.end}`, isIncluded: !!a.included, isAdded: !a.included,
             priceLabel: rem ? 'Removed · ' + (a.credit ? R(a.credit) + ' credit' : 'no credit') : R(a.price) + ' · Included',
-            thumbOpacity: rem ? 0.45 : 1, nameColor: rem ? '#6B6E72' : '#1E1F21',
+            thumbOpacity: rem ? 0.45 : 1, nameColor: rem ? color.textMuted : color.ink,
             stLabel: sa.label, stBg: sa.bg, stFg: sa.fg, deltaTxt: '↑ ' + R(a.price),
             actionLabel: rem ? 'Undo' : 'Remove',
             onAction: () => act(rem ? `${a.name} is back in your trip` : `${a.name} removed` + (a.included ? (a.credit ? ` · ${R(a.credit)} credit` : ' · no credit') : ''), st2 => a.included ? { removed: { ...st2.removed, [a.id]: !st2.removed[a.id] } } : { added: { ...st2.added, [a.id]: false } }) };
@@ -247,7 +248,7 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
     toggle: () => setState(st => ({ collapsed: { ...st.collapsed, [k.id]: !st.collapsed[k.id] } })) }));
   const reviewCats = catDefs.map(k => ({ id: k.id, title: k.title, lines: k.lines.map(l => {
     const hl = l.forceChanged || !!l.desc;
-    return { ...l, priceWeight: hl ? 700 : 400, hasDesc: !!l.desc, hasStatus: !!l.st, stLabel: l.st ? l.st.label : '', stBg: l.st ? l.st.bg : '', stFg: l.st ? l.st.fg : '', bg: hl ? '#F4F4F3' : 'transparent' };
+    return { ...l, priceWeight: hl ? 700 : 400, hasDesc: !!l.desc, hasStatus: !!l.st, stLabel: l.st ? l.st.label : '', stBg: l.st ? l.st.bg : '', stFg: l.st ? l.st.fg : '', bg: hl ? color.rowHighlight : 'transparent' };
   }) }));
 
   // comparison
@@ -263,19 +264,19 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
       if (!g.legs.some(l => S.notes[l.id])) return;
       compare.push({ kicker: g.mode, title: g.title, dates: g.kicker.split(' · ').slice(0, 2).join(' · '), rows: g.legs.map(l => {
         const n = S.notes[l.id];
-        return { label: `${l.mode} · ${l.t1}–${l.t2}`, chip: 'Note added', hasChip: !!n, chipBg: '#F2F2F0', chipFg: '#1E1F21', origDeco: 'none', orig: l.cmp, rev: l.cmp.split(' · ')[0], revWeight: n ? 500 : 400, revNote: n || '', hasRevNote: !!n, diffTxt: '', diffWord: '', diffColor: FLAT, bg: n ? '#F8F8F7' : '#FFFFFF' };
+        return { label: `${l.mode} · ${l.t1}–${l.t2}`, chip: 'Note added', hasChip: !!n, chipBg: color.surfaceAlt, chipFg: color.ink, origDeco: 'none', orig: l.cmp, rev: l.cmp.split(' · ')[0], revWeight: n ? 500 : 400, revNote: n || '', hasRevNote: !!n, diffTxt: '', diffWord: '', diffColor: FLAT, bg: n ? color.rowChanged : color.white };
       }) });
       return;
     }
     stopNo++;
     const sid = id;
     const s = stopOf(sid), c = S.hotels[sid], ch = changed(s, c), hx = dl(price(s, c) - origPrice(s));
-    const rows: (typeof compare)[number]['rows'] = [{ label: `${s.noun === 'houseboat' ? 'Houseboat' : 'Hotel'} · ${pl(s.nights)}`, chip: 'Changed', hasChip: ch, chipBg: '#1E1F21', chipFg: '#FFFFFF', origDeco: ch ? 'line-through' : 'none', orig: origLabel(s), rev: hLabel(s, c), revWeight: ch ? 500 : 400, revNote: '', hasRevNote: false, diffTxt: ch ? hx.txt : '', diffWord: ch ? hx.word : '', diffColor: hx.color, bg: ch ? '#F8F8F7' : '#FFFFFF' }];
+    const rows: (typeof compare)[number]['rows'] = [{ label: `${s.noun === 'houseboat' ? 'Houseboat' : 'Hotel'} · ${pl(s.nights)}`, chip: 'Changed', hasChip: ch, chipBg: color.ink, chipFg: color.white, origDeco: ch ? 'line-through' : 'none', orig: origLabel(s), rev: hLabel(s, c), revWeight: ch ? 500 : 400, revNote: '', hasRevNote: false, diffTxt: ch ? hx.txt : '', diffWord: ch ? hx.word : '', diffColor: hx.color, bg: ch ? color.rowChanged : color.white }];
     D.acts.filter(a => a.stop === sid && (a.included || S.added[a.id])).sort((a, b) => dayOf(a) - dayOf(b) || (a.start < b.start ? -1 : 1)).forEach(a => {
       const rem = !!(a.included && S.removed[a.id]), add = !a.included;
       const x = rem ? dl(-(a.credit || 0)) : add ? dl(a.price) : dl(0);
-      rows.push({ label: `Day ${dayOf(a)} · ${a.start}–${a.end}`, chip: rem ? 'Removed' : 'Added', hasChip: rem || add, chipBg: '#F2F2F0', chipFg: '#1E1F21', origDeco: 'none', orig: add ? '—' : a.name, rev: rem ? '—' : a.name, revWeight: add ? 500 : 400, revNote: '', hasRevNote: false,
-        diffTxt: rem ? (a.credit ? x.txt : '₹0') : add ? x.txt : '', diffWord: rem ? (a.credit ? x.word : '') : add ? x.word : '', diffColor: x.color, bg: rem || add ? '#F8F8F7' : '#FFFFFF' });
+      rows.push({ label: `Day ${dayOf(a)} · ${a.start}–${a.end}`, chip: rem ? 'Removed' : 'Added', hasChip: rem || add, chipBg: color.surfaceAlt, chipFg: color.ink, origDeco: 'none', orig: add ? '—' : a.name, rev: rem ? '—' : a.name, revWeight: add ? 500 : 400, revNote: '', hasRevNote: false,
+        diffTxt: rem ? (a.credit ? x.txt : '₹0') : add ? x.txt : '', diffWord: rem ? (a.credit ? x.word : '') : add ? x.word : '', diffColor: x.color, bg: rem || add ? color.rowChanged : color.white });
     });
     compare.push({ kicker: `Stop ${stopNo} · ${pl(s.nights)}`, title: s.name, dates: s.dates, rows });
   });
@@ -287,7 +288,7 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
     const s = stopOf(DR.stop), c = S.hotels[DR.stop], cur = price(s, c), one = c.mode === 'one';
     drawerTitle = `Choose your stay in ${s.name}`;
     drawerSub = `${pl(s.nights)} · ${s.subRange} · ${adultsLabel}`;
-    hd = { canSplit: s.nights > 1, modeOne: one, modeSplit: !one, oneBg: one ? '#FFFFFF' : 'transparent', splitBg: one ? 'transparent' : '#FFFFFF', rooms: c.rooms,
+    hd = { canSplit: s.nights > 1, modeOne: one, modeSplit: !one, oneBg: one ? color.white : 'transparent', splitBg: one ? 'transparent' : color.white, rooms: c.rooms,
       splitHint: one ? `Staying in two places? Split the ${s.nights} nights.` : 'Pick a place for each night.',
       // Keep the room only if the first night's hotel has it; otherwise use that hotel's first room.
       setOne: () => one ? null : setCfg(DR.stop, { mode: 'one', hotel: c.split[0], room: roomOf(hotelOf(s, c.split[0]), c.room).id }, 'Back to one hotel'),
@@ -305,7 +306,7 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
         const st = ST[h.status];
         const isOrig = h.id === s.orig.hotel;
         const gal = [...new Set([h.img || s.img, s.img, D.heroImage])]; const pi = (S.photoIdx[h.id] || 0) % gal.length;
-        return { id: h.id, photo: `url(${gal[pi]})`, dots: gal.map((_, i) => ({ bg: i === pi ? '#FFFFFF' : 'rgba(255,255,255,.5)' })), nextPhoto: () => setState(st2 => ({ photoIdx: { ...st2.photoIdx, [h.id]: (pi + 1) % gal.length } })), priceTotal: R(p), hasChip: sel || isOrig, chip: sel ? 'Selected' : 'In your quotation', hasVs: vs.has, border: sel ? '2px solid #1E1F21' : '1px solid #E4E4E2', name: h.name, meta: h.meta, meals: h.meals, blurb: h.blurb, features: h.features, stLabel: st.label, stBg: st.bg, stFg: st.fg, roomId, selected: sel, notSelected: !sel, chooseLabel: 'Choose this ' + s.noun,
+        return { id: h.id, photo: `url(${gal[pi]})`, dots: gal.map((_, i) => ({ bg: i === pi ? color.white : alpha(color.white, 0.5) })), nextPhoto: () => setState(st2 => ({ photoIdx: { ...st2.photoIdx, [h.id]: (pi + 1) % gal.length } })), priceTotal: R(p), hasChip: sel || isOrig, chip: sel ? 'Selected' : 'In your quotation', hasVs: vs.has, border: sel ? `2px solid ${color.ink}` : `1px solid ${color.border}`, name: h.name, meta: h.meta, meals: h.meals, blurb: h.blurb, features: h.features, stLabel: st.label, stBg: st.bg, stFg: st.fg, roomId, selected: sel, notSelected: !sel, chooseLabel: 'Choose this ' + s.noun,
           vsTxt: sel ? `${vs.txt} ${vs.word.toLowerCase()} than original` : `${vs.txt} ${vs.word.toLowerCase()}`, vsColor: vs.color,
           roomOpts: h.rooms.map(r => ({ id: r.id, label: `${r.name} · ${R(r.rate)}/night` })),
           onRoom: (e: ChangeEvent<HTMLSelectElement>) => { const v = e.target.value; if (sel) setCfg(DR.stop, { room: v }, 'Room type updated · ' + roomOf(h, v).name); else setState(st2 => ({ draftRooms: { ...st2.draftRooms, [h.id]: v } })); },
@@ -320,12 +321,12 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
     drawerSub = `${s.dayRange} · ${s.dates} · prices for ${adultsLabel}`;
     const inc = D.acts.filter(a => a.stop === s.id && a.included), opts = D.acts.filter(a => a.stop === s.id && !a.included);
     ad = { city: s.name, multiDay: dys.length > 1,
-      tabs: dys.map(x => ({ label: `Day ${x.n} · ${x.date}`, bg: x.n === cur.n ? '#FFFFFF' : 'transparent', pick: () => setState({ drawer: { ...DR, day: x.n } }) })),
+      tabs: dys.map(x => ({ label: `Day ${x.n} · ${x.date}`, bg: x.n === cur.n ? color.white : 'transparent', pick: () => setState({ drawer: { ...DR, day: x.n } }) })),
       included: inc.map(a => { const rem = !!S.removed[a.id]; const g = gallery(a, s); return { id: a.id, photo: `url(${g.url})`, dots: g.dots, nextPhoto: g.next, photoOpacity: rem ? 0.5 : 1, dayLabel: `Day ${a.day}`, name: a.name, time: `${a.start}–${a.end}`, blurb: a.blurb, price: R(a.price), deco: rem ? 'line-through' : 'none',
         creditTxt: rem ? (a.credit ? `Removed · ${R(a.credit)} credit` : 'Removed · no credit') : (a.credit ? `${R(a.credit)} credit if removed` : 'No credit if removed'),
         btn: rem ? 'Undo' : 'Remove', onToggle: () => act(rem ? `${a.name} is back in your trip` : `${a.name} removed` + (a.credit ? ` · ${R(a.credit)} credit` : ' · no credit'), st2 => ({ removed: { ...st2.removed, [a.id]: !st2.removed[a.id] } })) }; }),
       options: opts.map(o => { const added = !!S.added[o.id], own = dayOf(o), here = added && own === cur.n, cf = conflict(o, cur.n), st = ST[o.status!];
-        const g = gallery(o, s); return { id: o.id, photo: `url(${g.url})`, dots: g.dots, nextPhoto: g.next, border: here ? '2px solid #1E1F21' : '1px solid #E4E4E2', extraSuffix: o.extra ? ' · ' + o.extra : '', addBg: cf ? '#98989B' : '#1E1F21', addCursor: cf ? 'not-allowed' : 'pointer', name: o.name, time: `${o.start}–${o.end}`, blurb: o.blurb, stLabel: st.label, stBg: st.bg, stFg: st.fg, warn: o.warn || '', hasWarn: !!o.warn,
+        const g = gallery(o, s); return { id: o.id, photo: `url(${g.url})`, dots: g.dots, nextPhoto: g.next, border: here ? `2px solid ${color.ink}` : `1px solid ${color.border}`, extraSuffix: o.extra ? ' · ' + o.extra : '', addBg: cf ? color.disabled : color.ink, addCursor: cf ? 'not-allowed' : 'pointer', name: o.name, time: `${o.start}–${o.end}`, blurb: o.blurb, stLabel: st.label, stBg: st.bg, stFg: st.fg, warn: o.warn || '', hasWarn: !!o.warn,
           dayShort: 'Day ' + own, deltaTxt: '↑ ' + R(o.price), added, notAdded: !added, canMove: added && !here, hasConflict: !!cf && !here,
           conflict: cf && !here ? `Overlaps with ${cf.name} on Day ${cur.n} (${cf.start}–${cf.end}). Try another day.` : '',
           onAdd: () => act(`${o.name} added to Day ${cur.n} · ↑ ${R(o.price)}`, st2 => ({ added: { ...st2.added, [o.id]: true }, actDay: { ...st2.actDay, [o.id]: cur.n } })),
@@ -334,7 +335,7 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
   }
 
   const nConfirm = changes.filter(c => c.status === 'confirm').length;
-  const sentList = changes.map(c => { const x = dl(c.delta); const st = c.status === 'confirm' ? { label: 'Awaiting confirmation', bg: '#1E1F21', fg: '#FFFFFF' } : ST[c.status];
+  const sentList = changes.map(c => { const x = dl(c.delta); const st = c.status === 'confirm' ? { label: 'Awaiting confirmation', bg: color.ink, fg: color.white } : ST[c.status];
     return { head: c.head, detail: c.detail, stLabel: st.label, stBg: st.bg, stFg: st.fg, txt: c.status === 'note' ? '—' : (c.delta ? x.txt : '₹0'), word: x.word, color: x.color }; });
 
   return {
@@ -346,7 +347,7 @@ export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote)
     totalDelta: { ...dd, head: dd.has ? `${dd.txt} ${dd.word.toLowerCase()}` : '' },
     hasAwaiting: awaiting > 0, awaitingTxt: '↑ ' + R(awaiting),
     isPlanner: S.view === 'trip' || S.view === 'changes', isTrip: S.view === 'trip', isChanges: S.view === 'changes', isReview: S.view === 'review', isSent: S.view === 'sent',
-    tabTripBg: S.view === 'trip' ? '#FFFFFF' : 'transparent', tabChangesBg: S.view === 'changes' ? '#FFFFFF' : 'transparent', tabTripSh: S.view === 'trip' ? '0 1px 3px rgba(30,31,33,.12)' : 'none', tabChangesSh: S.view === 'changes' ? '0 1px 3px rgba(30,31,33,.12)' : 'none',
+    tabTripBg: S.view === 'trip' ? color.white : 'transparent', tabChangesBg: S.view === 'changes' ? color.white : 'transparent', tabTripSh: S.view === 'trip' ? `0 1px 3px ${alpha(color.ink, 0.12)}` : 'none', tabChangesSh: S.view === 'changes' ? `0 1px 3px ${alpha(color.ink, 0.12)}` : 'none',
     goTrip: go('trip'), goChanges: go('changes'), goReview: go('review'),
     hasChanges: hasCh, noChanges: !hasCh, changeCount: nCh, filters, blocks, compare, cats, reviewCats,
     toggleAllLabel: allCollapsed ? 'Expand all' : 'Collapse all',
