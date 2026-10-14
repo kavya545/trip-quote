@@ -1,0 +1,26 @@
+<!doctype html><html><body style="margin:0;background:#888">
+<div id="info" style="font:14px monospace;background:#fff;padding:6px;white-space:pre-wrap">loading</div>
+<div id="out"></div>
+<script type="module">
+const q=new URLSearchParams(location.search);
+const f = q.get('f')||'p03'; const sc=+(q.get('s')||1.0); const v=q.get('v')||'5.4.149';
+const info=document.getElementById('info');
+try{
+const pdfjs = await import(`https://cdn.jsdelivr.net/npm/pdfjs-dist@${v}/build/pdf.min.mjs`);
+pdfjs.GlobalWorkerOptions.workerSrc=`https://cdn.jsdelivr.net/npm/pdfjs-dist@${v}/build/pdf.worker.min.mjs`;
+const doc = await pdfjs.getDocument({url:f+'.pdf', wasmUrl:`https://cdn.jsdelivr.net/npm/pdfjs-dist@${v}/wasm/`, standardFontDataUrl:`https://cdn.jsdelivr.net/npm/pdfjs-dist@${v}/standard_fonts/`, cMapUrl:`https://cdn.jsdelivr.net/npm/pdfjs-dist@${v}/cmaps/`, cMapPacked:true, useWasm:false, isImageDecoderSupported:false, isOffscreenCanvasSupported:false}).promise;
+const page = await doc.getPage(1);
+const vp = page.getViewport({scale:sc});
+const c = document.createElement('canvas'); c.width=vp.width; c.height=vp.height; c.style.display='block';
+document.getElementById('out').appendChild(c);
+const t0=performance.now();
+const task = page.render({canvas:c, canvasContext:c.getContext('2d'), viewport:vp});
+await Promise.race([task.promise, new Promise(r=>setTimeout(r,170000))]);
+info.textContent='render ms '+Math.round(performance.now()-t0);
+c.style.display='none';
+const d=document.createElement('canvas'); d.width=920; d.height=540; d.style.display='block'; document.body.prepend(d);
+window.crop=(x,y,w)=>{ const k=sc; const h=w*540/920; const ctx=d.getContext('2d'); ctx.fillStyle='#fff';ctx.fillRect(0,0,920,540); ctx.drawImage(c,x*k,y*k,w*k,h*k,0,0,920,540); info.style.display='none'; window.scrollTo(0,0); };
+window.crop(0,0,1672);
+window.__done=true;
+}catch(e){info.textContent+='\nERR '+e.message}
+</script></body></html>

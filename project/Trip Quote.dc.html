@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/industry-f266ae52-1f46-4e01-bcee-79e8fc34bf83/styles.css">
+<script src="_ds/industry-f266ae52-1f46-4e01-bcee-79e8fc34bf83/_ds_bundle.js"></script>
+<style>
+body{margin:0;background:var(--color-bg)}
+a{color:var(--color-accent)} a:hover{color:var(--color-accent-700)}
+select.input{appearance:auto}
+.tag,.seg-opt,.btn{white-space:nowrap;flex:none}
+</style>
+</helmet>
+<div style="display:grid;grid-template-columns:196px minmax(0,1fr);min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body)">
+
+<aside style="border-right:1px solid var(--color-divider);padding:20px 16px;display:flex;flex-direction:column;gap:28px;position:sticky;top:0;height:100vh">
+  <div style="font-family:var(--font-heading);font-weight:600;font-size:22px;letter-spacing:-0.01em;display:flex;align-items:center;gap:8px"><span style="color:var(--color-accent)">≈</span><span>monsoon trails</span></div>
+  <nav style="display:flex;flex-direction:column;gap:2px">
+    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:8px">Menu</div>
+    <a href="#" style="padding:8px 10px;color:var(--color-text);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-text) 6%,transparent)">Trips</a>
+    <a href="#" style="padding:8px 10px;color:var(--color-accent-800);text-decoration:none;font-size:14px;font-weight:500;background:var(--color-accent-100);border-left:2px solid var(--color-accent)">Quotes</a>
+    <a href="#" style="padding:8px 10px;color:var(--color-text);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-text) 6%,transparent)">Saved</a>
+    <a href="#" style="padding:8px 10px;color:var(--color-text);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-text) 6%,transparent)">Messages</a>
+    <a href="#" style="padding:8px 10px;color:var(--color-text);text-decoration:none;font-size:14px" style-hover="background:color-mix(in srgb,var(--color-text) 6%,transparent)">Profile</a>
+  </nav>
+</aside>
+
+<main style="min-width:0">
+  <div style="display:flex;align-items:center;gap:24px;padding:12px 32px;border-bottom:1px solid var(--color-divider);flex-wrap:wrap">
+    <div style="font-family:var(--font-heading);font-weight:600;font-size:16px;color:var(--color-neutral-700)">Q-2481 · Kerala</div>
+    <div style="display:flex;align-items:center;gap:14px;margin:0 auto;flex-wrap:wrap">
+      <sc-for list="{{steps}}" as="st" hint-placeholder-count="3">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="width:24px;height:24px;display:grid;place-items:center;font-size:12px;font-weight:500;border:1px solid var(--color-accent);background:{{st.bg}};color:{{st.fg}}">{{st.mark}}</span>
+          <span style="font-size:13px;white-space:nowrap;color:{{st.labelColor}}">{{st.label}}</span>
+          <sc-if value="{{st.notLast}}" hint-placeholder-val="{{true}}"><span style="width:36px;height:1px;background:var(--color-divider)"></span></sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px">
+      <span style="width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--color-accent-200);color:var(--color-accent-800);font-size:12px;font-weight:500">AR</span>
+      <span>Ananya</span>
+    </div>
+  </div>
+
+  <div style="padding:28px 32px 64px;max-width:1440px;display:flex;flex-direction:column;gap:28px">
+
+    <section class="blueprint" style="padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px">
+      <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+        <div style="display:flex;gap:10px;align-items:center;font-size:13px;color:var(--color-neutral-700);flex-wrap:wrap">
+          <span style="white-space:nowrap">Your trip plan from <strong style="color:var(--color-text);font-weight:500">Priya</strong></span>
+          <span style="color:var(--color-divider)">|</span>
+          <span style="white-space:nowrap">Valid until <strong style="color:var(--color-text);font-weight:500">Tue 6 Oct</strong></span>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px">Your 6-day escape to Kerala</div>
+          <h1 style="margin:0;font-size:44px;text-wrap:pretty">Kerala: coast, tea hills &amp; backwaters</h1>
+          <div style="font-size:14px;color:var(--color-neutral-700);margin-top:6px">Prepared for Ananya &amp; Rohan by Priya Nair · Sent Mon 28 Sep</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--color-divider);padding-top:14px;gap:14px">
+          <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Duration</div><div style="font-size:14px;margin-top:2px">6 days · 5 nights</div></div>
+          <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Dates</div><div style="font-size:14px;margin-top:2px">Tue 10 – Sun 15 Nov 2026</div></div>
+          <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Travellers</div><div style="font-size:14px;margin-top:2px">2 adults</div></div>
+          <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Includes</div><div style="font-size:14px;margin-top:2px">Flights, stays, transfers, activities</div></div>
+        </div>
+      </div>
+      <div style="border-left:1px solid var(--color-divider);padding-left:24px;display:flex;flex-direction:column;justify-content:space-between;gap:16px">
+        <div>
+          <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">{{quoteLabel}}</div>
+          <div style="font-family:var(--font-heading);font-weight:600;font-size:38px;line-height:1.1;margin-top:4px">{{perPerson}} <span style="font-size:18px;color:var(--color-neutral-700)">/ person</span></div>
+          <div style="font-size:13px;color:var(--color-neutral-700)">{{totalLine}}</div>
+        </div>
+        <button class="btn btn-secondary" style="align-self:flex-start">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+          Message Priya
+        </button>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:auto minmax(40px,1fr) auto minmax(40px,1fr) auto minmax(40px,1fr) auto minmax(40px,1fr) auto;align-items:center;gap:10px;overflow-x:auto;padding:4px 2px">
+      <div style="display:flex;flex-direction:column;gap:2px;min-width:90px"><div style="font-family:var(--font-heading);font-weight:600;font-size:18px">Bengaluru</div><div style="font-size:12px;color:var(--color-neutral-700)">Tue 10 Nov</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="font-size:11px;color:var(--color-neutral-700);white-space:nowrap">Flight · 1h 10m</div><div style="height:1px;width:100%;border-top:1px dashed var(--color-neutral-500)"></div><div style="font-size:11px;color:var(--color-neutral-600);white-space:nowrap">10 Nov · 10:50</div></div>
+      <div class="blueprint" style="padding:8px 12px;min-width:110px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><div style="font-family:var(--font-heading);font-weight:600;font-size:18px">Kochi</div><div style="font-size:12px;color:var(--color-neutral-700)">10–12 Nov</div><sc-if value="{{routeKochi.has}}" hint-placeholder-val="{{false}}"><div style="font-size:11px;color:var(--color-accent-700);margin-top:2px">● {{routeKochi.label}}</div></sc-if></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="font-size:11px;color:var(--color-neutral-700);white-space:nowrap">Car · 4.5 h</div><div style="height:1px;width:100%;border-top:1px dashed var(--color-neutral-500)"></div><div style="font-size:11px;color:var(--color-neutral-600)">12 Nov</div></div>
+      <div class="blueprint" style="padding:8px 12px;min-width:110px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><div style="font-family:var(--font-heading);font-weight:600;font-size:18px">Munnar</div><div style="font-size:12px;color:var(--color-neutral-700)">12–14 Nov</div><sc-if value="{{routeMunnar.has}}" hint-placeholder-val="{{false}}"><div style="font-size:11px;color:var(--color-accent-700);margin-top:2px">● {{routeMunnar.label}}</div></sc-if></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="font-size:11px;color:var(--color-neutral-700);white-space:nowrap">Car + cruise · 6 h</div><div style="height:1px;width:100%;border-top:1px dashed var(--color-neutral-500)"></div><div style="font-size:11px;color:var(--color-neutral-600)">14 Nov</div></div>
+      <div class="blueprint" style="padding:8px 12px;min-width:110px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><div style="font-family:var(--font-heading);font-weight:600;font-size:18px">Alleppey</div><div style="font-size:12px;color:var(--color-neutral-700)">14–15 Nov</div><sc-if value="{{routeAlleppey.has}}" hint-placeholder-val="{{false}}"><div style="font-size:11px;color:var(--color-accent-700);margin-top:2px">● {{routeAlleppey.label}}</div></sc-if></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="font-size:11px;color:var(--color-neutral-700);white-space:nowrap">Train + flight</div><div style="height:1px;width:100%;border-top:1px dashed var(--color-neutral-500)"></div><div style="font-size:11px;color:var(--color-neutral-600);white-space:nowrap">15 Nov · 14:20</div></div>
+      <div style="display:flex;flex-direction:column;gap:2px;min-width:90px"><div style="font-family:var(--font-heading);font-weight:600;font-size:18px">Bengaluru</div><div style="font-size:12px;color:var(--color-neutral-700)">Sun 15 Nov</div></div>
+    </section>
+
+    <sc-if value="{{isPlanner}}" hint-placeholder-val="{{true}}">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--color-divider)">
+          <div style="display:flex;gap:4px">
+            <button onClick="{{goTrip}}" style="background:none;border:0;border-bottom:2px solid {{tabTripLine}};padding:10px 14px;font-family:var(--font-heading);font-weight:600;font-size:18px;color:var(--color-text);cursor:pointer;margin-bottom:-1px">My trip</button>
+            <button onClick="{{goChanges}}" style="background:none;border:0;border-bottom:2px solid {{tabChangesLine}};padding:10px 14px;font-family:var(--font-heading);font-weight:600;font-size:18px;color:var(--color-text);cursor:pointer;margin-bottom:-1px;display:flex;gap:8px;align-items:center">What’s changed<sc-if value="{{hasChanges}}" hint-placeholder-val="{{false}}"><span class="tag tag-accent" style="font-family:var(--font-body)">{{changeCount}}</span></sc-if></button>
+          </div>
+          <sc-if value="{{isTrip}}" hint-placeholder-val="{{true}}">
+            <div style="display:flex;align-items:center;gap:10px;padding-bottom:8px">
+              <span style="font-size:13px;color:var(--color-neutral-700)">Show</span>
+              <div class="seg">
+                <sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+                  <label class="seg-opt"><input type="radio" name="filter" checked="{{f.active}}" onChange="{{f.pick}}"><span>{{f.label}}</span><sc-if value="{{f.hasCount}}" hint-placeholder-val="{{false}}"><span style="font-size:11px;padding:0 5px;border:1px solid currentColor;opacity:0.8">{{f.count}}</span></sc-if></label>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px 20px">
+          <div style="display:flex;flex-direction:column;gap:4px"><span class="tag tag-accent" style="align-self:flex-start">Locked price</span><span style="font-size:12px;color:var(--color-neutral-700)">Swap freely, this price is held for you</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span class="tag tag-outline" style="align-self:flex-start">Priya will confirm</span><span style="font-size:12px;color:var(--color-neutral-700)">Depends on availability, price may shift</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span class="tag tag-neutral" style="align-self:flex-start">Included</span><span style="font-size:12px;color:var(--color-neutral-700)">Flights and transfers are booked as planned</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:500;color:var(--color-accent-700)">↓ Lower</span><span style="font-size:12px;color:var(--color-neutral-700)">Cheaper than Priya’s original quote</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:500;color:var(--color-text)">↑ Higher</span><span style="font-size:12px;color:var(--color-neutral-700)">Costs more than Priya’s original quote</span></div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:28px;min-width:0">
+
+          <sc-if value="{{isTrip}}" hint-placeholder-val="{{true}}">
+            <sc-for list="{{blocks}}" as="b" hint-placeholder-count="3">
+              <sc-if value="{{b.isSeg}}" hint-placeholder-val="{{false}}">
+                <div class="blueprint" style="padding:20px;display:flex;flex-direction:column;gap:14px">
+                  <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+                  <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline">
+                    <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">{{b.kicker}}</div><h3 style="margin:2px 0 0">{{b.title}}</h3></div>
+                    <div style="display:flex;gap:8px;align-items:center"><span style="font-size:13px;color:var(--color-neutral-700)">{{b.mode}}</span><span class="tag tag-neutral">Included</span></div>
+                  </div>
+                  <sc-for list="{{b.legs}}" as="l" hint-placeholder-count="2">
+                    <div style="border-top:1px solid var(--color-divider);padding-top:12px;display:flex;flex-direction:column;gap:8px">
+                      <div style="display:grid;grid-template-columns:minmax(110px,1fr) minmax(120px,1.4fr) minmax(110px,1fr) minmax(160px,1.2fr);gap:14px;align-items:center">
+                        <div><div style="font-family:var(--font-heading);font-weight:600;font-size:20px">{{l.fromCode}}</div><div style="font-size:12px;color:var(--color-neutral-700)">{{l.fromTime}}</div></div>
+                        <div style="display:flex;flex-direction:column;align-items:center;gap:3px"><span style="font-size:12px;color:var(--color-neutral-700)">{{l.dur}}</span><span style="height:1px;width:100%;border-top:1px dashed var(--color-neutral-500)"></span></div>
+                        <div><div style="font-family:var(--font-heading);font-weight:600;font-size:20px">{{l.toCode}}</div><div style="font-size:12px;color:var(--color-neutral-700)">{{l.toTime}}</div></div>
+                        <div style="text-align:right"><div style="font-weight:500">{{l.price}}</div><div style="font-size:12px;color:var(--color-neutral-700)">{{l.desc}}</div></div>
+                      </div>
+                      <sc-if value="{{l.hasNote}}" hint-placeholder-val="{{false}}">
+                        <div style="display:flex;gap:10px;align-items:flex-start;background:var(--color-accent-100);padding:8px 12px;font-size:13px;color:var(--color-accent-900)"><span style="flex:1;text-wrap:pretty"><strong style="font-weight:500">Your note:</strong> {{l.note}}</span><button class="btn btn-ghost" onClick="{{l.onEdit}}" style="font-size:13px;padding:0 4px">Edit</button><button class="btn btn-ghost" onClick="{{l.onRemove}}" style="font-size:13px;padding:0 4px">Remove</button></div>
+                      </sc-if>
+                      <sc-if value="{{l.isEditing}}" hint-placeholder-val="{{false}}">
+                        <div style="display:flex;flex-direction:column;gap:8px">
+                          <textarea class="input" placeholder="This part is booked as planned. Ask Priya about timing, flexibility or special requests." value="{{draft}}" onChange="{{onDraft}}" style="min-height:70px"></textarea>
+                          <div style="display:flex;gap:8px"><button class="btn btn-primary" onClick="{{l.onSave}}">Save note</button><button class="btn btn-secondary" onClick="{{cancelNote}}">Cancel</button></div>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{l.showAdd}}" hint-placeholder-val="{{true}}">
+                        <button class="btn btn-ghost" onClick="{{l.onEdit}}" style="align-self:flex-start;font-size:13px">+ Add a note</button>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{b.isStop}}" hint-placeholder-val="{{true}}">
+                <div style="display:flex;flex-direction:column;gap:14px">
+                  <div><div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">{{b.kicker}}</div><h2 style="margin:2px 0 0">{{b.name}}</h2></div>
+                  <sc-if value="{{b.showHotel}}" hint-placeholder-val="{{true}}">
+                    <div class="blueprint" style="padding:20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px">
+                      <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+                      <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                        <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Where you’ll stay</div>
+                        <div><h3 style="margin:0">{{b.hotel.name}}</h3><div style="font-size:13px;color:var(--color-neutral-700)">{{b.hotel.meta}}</div></div>
+                        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;border-top:1px solid var(--color-divider);padding-top:10px">
+                          <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Room</div><div style="font-size:14px">{{b.hotel.room}}</div></div>
+                          <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Meals</div><div style="font-size:14px">{{b.hotel.meals}}</div></div>
+                          <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Nights</div><div style="font-size:14px">{{b.hotel.nightsTxt}}</div></div>
+                        </div>
+                        <sc-if value="{{b.hotel.changed}}" hint-placeholder-val="{{false}}">
+                          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--color-neutral-700)"><span>Was <span style="text-decoration:line-through">{{b.hotel.was}}</span></span><span class="{{b.hotel.stCls}}">{{b.hotel.stLabel}}</span></div>
+                        </sc-if>
+                      </div>
+                      <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:12px;text-align:right;min-width:170px">
+                        <div><div style="font-size:14px">{{b.hotel.dates}}</div><div style="font-size:12px;color:var(--color-neutral-700)">{{b.hotel.dayRange}}</div></div>
+                        <div style="display:flex;gap:8px;align-items:center">
+                          <sc-if value="{{b.hotel.canSplit}}" hint-placeholder-val="{{true}}"><button class="btn btn-ghost" onClick="{{b.hotel.openSplit}}">Split stay</button></sc-if>
+                          <button class="btn btn-secondary" onClick="{{b.hotel.open}}">{{b.hotel.changeLabel}}</button>
+                        </div>
+                        <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Price</div><div style="font-family:var(--font-heading);font-weight:600;font-size:24px">{{b.hotel.price}}</div><sc-if value="{{b.hotel.hasDelta}}" hint-placeholder-val="{{false}}"><div style="font-size:13px;font-weight:500;color:{{b.hotel.deltaColor}}">{{b.hotel.deltaTxt}} {{b.hotel.deltaWord}}</div></sc-if></div>
+                      </div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{b.showDays}}" hint-placeholder-val="{{true}}">
+                    <div style="display:flex;flex-direction:column">
+                      <sc-for list="{{b.days}}" as="d" hint-placeholder-count="2">
+                        <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:14px 0;border-top:1px solid var(--color-divider)">
+                          <div><div style="font-family:var(--font-heading);font-weight:600;font-size:20px">Day {{d.n}}</div><div style="font-size:12px;color:var(--color-neutral-700)">{{d.date}}</div></div>
+                          <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+                            <div style="font-family:var(--font-heading);font-weight:600;font-size:17px">{{d.title}}</div>
+                            <sc-if value="{{d.empty}}" hint-placeholder-val="{{false}}"><div style="font-size:13px;color:var(--color-neutral-700)">Free time. No activities planned.</div></sc-if>
+                            <sc-for list="{{d.acts}}" as="a" hint-placeholder-count="1">
+                              <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 12px;border:1px solid var(--color-divider);background:{{a.bg}}">
+                                <div style="min-width:0"><div style="font-size:14px;font-weight:500;text-decoration:{{a.deco}};color:{{a.nameColor}}"><span style="color:var(--color-accent)">◆</span> {{a.name}}</div><div style="font-size:12px;color:var(--color-neutral-700)">Activity · {{a.time}}</div></div>
+                                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                                  <sc-if value="{{a.isIncluded}}" hint-placeholder-val="{{true}}"><span style="font-size:13px;color:var(--color-neutral-700)">{{a.priceLabel}}</span></sc-if>
+                                  <sc-if value="{{a.isAdded}}" hint-placeholder-val="{{false}}"><span class="{{a.stCls}}">{{a.stLabel}}</span><span style="font-size:13px;font-weight:500">{{a.deltaTxt}} Higher</span></sc-if>
+                                  <button class="btn btn-ghost" onClick="{{a.onAction}}" style="font-size:13px">{{a.actionLabel}}</button>
+                                </div>
+                              </div>
+                            </sc-for>
+                          </div>
+                        </div>
+                      </sc-for>
+                      <sc-if value="{{b.hasAdd}}" hint-placeholder-val="{{true}}">
+                        <button class="btn btn-secondary" onClick="{{b.openAdd}}" style="align-self:flex-start;margin-left:140px">{{b.addLabel}}</button>
+                      </sc-if>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-if>
+            </sc-for>
+          </sc-if>
+
+          <sc-if value="{{isChanges}}" hint-placeholder-val="{{false}}">
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap">
+                <h3 style="margin:0">Original quotation v1 vs. your revised version</h3>
+                <sc-if value="{{noChanges}}" hint-placeholder-val="{{false}}"><span style="font-size:13px;color:var(--color-neutral-700)">No changes yet — you’re looking at Priya’s plan as sent.</span></sc-if>
+              </div>
+              <div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr) 140px;gap:14px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600);padding:0 12px 6px;border-bottom:1px solid var(--color-divider)"><span></span><span>Original · v1</span><span>Revised</span><span style="text-align:right">Difference</span></div>
+              <sc-for list="{{compare}}" as="c" hint-placeholder-count="3">
+                <div class="blueprint" style="padding:16px 0 4px">
+                  <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;padding:0 12px 10px;gap:12px"><div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">{{c.kicker}}</div><div style="font-family:var(--font-heading);font-weight:600;font-size:22px">{{c.title}}</div></div><span style="font-size:13px;color:var(--color-neutral-700)">{{c.dates}}</span></div>
+                  <sc-for list="{{c.rows}}" as="r" hint-placeholder-count="2">
+                    <div style="display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr) 140px;gap:14px;padding:10px 12px;border-top:1px solid var(--color-divider);background:{{r.bg}};font-size:14px;align-items:start">
+                      <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-start"><span style="font-size:13px;color:var(--color-neutral-700)">{{r.label}}</span><sc-if value="{{r.hasChip}}" hint-placeholder-val="{{false}}"><span class="tag tag-accent">{{r.chip}}</span></sc-if></div>
+                      <div style="color:var(--color-neutral-700)">{{r.orig}}</div>
+                      <div><div style="font-weight:{{r.revWeight}}">{{r.rev}}</div><sc-if value="{{r.hasRevNote}}" hint-placeholder-val="{{false}}"><div style="font-size:13px;color:var(--color-accent-800);margin-top:2px">Note: “{{r.revNote}}”</div></sc-if></div>
+                      <div style="text-align:right;font-weight:500;color:{{r.diffColor}}">{{r.diffTxt}} <span style="font-weight:400">{{r.diffWord}}</span></div>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <aside class="blueprint" style="position:sticky;top:20px;padding:20px;display:flex;flex-direction:column;gap:14px">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:var(--font-heading);font-weight:600;font-size:18px">Your trip total</span><span style="font-size:12px;color:var(--color-neutral-700)">2 adults · incl. GST</span></div>
+          <div>
+            <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">{{totalWord}}</div>
+            <div style="font-family:var(--font-heading);font-weight:600;font-size:40px;line-height:1.05">{{total}}</div>
+            <div style="display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-top:4px;flex-wrap:wrap"><span style="font-weight:500;color:{{totalDelta.color}}">{{totalDelta.line}}</span><span style="color:var(--color-neutral-700)">{{perPerson}} per person</span></div>
+            <sc-if value="{{hasAwaiting}}" hint-placeholder-val="{{false}}"><div style="font-size:12px;color:var(--color-neutral-700);margin-top:6px;padding:6px 8px;border:1px dashed var(--color-accent)">Includes {{awaitingTxt}} awaiting Priya’s confirmation.</div></sc-if>
+          </div>
+          <sc-if value="{{hasChanges}}" hint-placeholder-val="{{false}}"><button class="btn btn-primary blueprint" onClick="{{goReview}}" style="width:100%;padding:12px;font-size:16px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Review changes ({{changeCount}})</button></sc-if>
+          <sc-if value="{{noChanges}}" hint-placeholder-val="{{true}}">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <button class="btn btn-primary" disabled style="width:100%;padding:12px;font-size:16px">Make a change to review</button>
+              <button class="btn btn-secondary" onClick="{{accept}}" style="width:100%;padding:10px">Accept quotation as sent</button>
+            </div>
+          </sc-if>
+          <div style="display:flex;justify-content:flex-end;border-top:1px solid var(--color-divider);padding-top:10px"><button class="btn btn-ghost" onClick="{{toggleAll}}" style="font-size:13px">{{toggleAllLabel}}</button></div>
+          <sc-for list="{{cats}}" as="k" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--color-divider)">
+              <button onClick="{{k.toggle}}" style="display:flex;justify-content:space-between;align-items:center;background:none;border:0;padding:0;cursor:pointer;color:var(--color-text);font-family:var(--font-heading);font-weight:600;font-size:16px;text-align:left">
+                <span>{{k.title}}</span>
+                <span style="display:flex;gap:8px;align-items:center"><sc-if value="{{k.collapsed}}" hint-placeholder-val="{{false}}"><span style="font-family:var(--font-body);font-weight:500;font-size:14px">{{k.total}}</span></sc-if><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="transform:{{k.rot}}"><path d="m6 9 6 6 6-6"></path></svg></span>
+              </button>
+              <sc-if value="{{k.expanded}}" hint-placeholder-val="{{true}}">
+                <sc-for list="{{k.lines}}" as="ln" hint-placeholder-count="2">
+                  <div style="display:flex;justify-content:space-between;gap:10px;font-size:13px">
+                    <div style="min-width:0"><div>{{ln.label}}</div><div style="font-size:12px;color:var(--color-neutral-700)">{{ln.sub}}</div><sc-if value="{{ln.changed}}" hint-placeholder-val="{{false}}"><div style="font-size:12px;font-weight:500;color:{{ln.wasColor}}">{{ln.wasTxt}}</div></sc-if></div>
+                    <div style="font-weight:500;white-space:nowrap">{{ln.price}}</div>
+                  </div>
+                </sc-for>
+              </sc-if>
+            </div>
+          </sc-for>
+        </aside>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isReview}}" hint-placeholder-val="{{false}}">
+      <div style="display:flex;flex-direction:column;gap:20px;max-width:1080px">
+        <button class="btn btn-ghost" onClick="{{goTrip}}" style="align-self:flex-start">← Back to itinerary</button>
+        <div><h2 style="margin:0">Review your changes</h2><div style="font-size:14px;color:var(--color-neutral-700)">Your revised quotation next to Priya’s original. Changed lines are highlighted.</div></div>
+        <div class="blueprint" style="padding:0">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) 130px 130px 130px;gap:14px;padding:12px 16px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600);border-bottom:1px solid var(--color-divider)"><span></span><span style="text-align:right">Priya’s plan</span><span style="text-align:right">Your version</span><span style="text-align:right">Difference</span></div>
+          <sc-for list="{{reviewCats}}" as="k" hint-placeholder-count="4">
+            <div style="padding:12px 16px 4px;font-family:var(--font-heading);font-weight:600;font-size:18px">{{k.title}}</div>
+            <sc-for list="{{k.lines}}" as="ln" hint-placeholder-count="2">
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) 130px 130px 130px;gap:14px;padding:10px 16px;border-top:1px solid color-mix(in srgb,var(--color-text) 8%,transparent);background:{{ln.bg}};font-size:14px;align-items:start">
+                <div style="min-width:0;display:flex;flex-direction:column;gap:3px">
+                  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span style="font-weight:500">{{ln.label}}</span><sc-if value="{{ln.hasStatus}}" hint-placeholder-val="{{false}}"><span class="{{ln.stCls}}">{{ln.stLabel}}</span></sc-if></div>
+                  <div style="font-size:13px;color:var(--color-neutral-700)">{{ln.sub}}</div>
+                  <sc-if value="{{ln.hasDesc}}" hint-placeholder-val="{{false}}"><div style="font-size:13px;color:var(--color-accent-800)">{{ln.desc}}</div></sc-if>
+                </div>
+                <div style="text-align:right;color:var(--color-neutral-700)">{{ln.orig}}</div>
+                <div style="text-align:right;font-weight:500">{{ln.price}}</div>
+                <div style="text-align:right;font-weight:500;color:{{ln.diffColor}}">{{ln.diffTxt}} <span style="font-weight:400">{{ln.diffWord}}</span></div>
+              </div>
+            </sc-for>
+          </sc-for>
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) 130px 130px 130px;gap:14px;padding:14px 16px;border-top:1px solid var(--color-divider);align-items:baseline">
+            <div><span style="font-family:var(--font-heading);font-weight:600;font-size:20px">Trip total</span> <span style="font-size:12px;color:var(--color-neutral-700)">2 adults · incl. GST</span></div>
+            <div style="text-align:right;color:var(--color-neutral-700)">₹93,200</div>
+            <div style="text-align:right;font-family:var(--font-heading);font-weight:600;font-size:22px">{{total}}</div>
+            <div style="text-align:right;font-weight:500;color:{{totalDelta.color}}">{{totalDelta.txt}} <span style="font-weight:400">{{totalDelta.word}}</span></div>
+          </div>
+        </div>
+        <sc-if value="{{hasNotes}}" hint-placeholder-val="{{false}}">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h4 style="margin:0">Your notes for Priya</h4>
+            <sc-for list="{{notesList}}" as="n" hint-placeholder-count="1">
+              <div style="border:1px solid var(--color-divider);padding:10px 12px"><div style="font-size:12px;color:var(--color-neutral-700)">{{n.where}}</div><div style="font-size:14px">“{{n.text}}”</div></div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div class="field">
+          <label>Message to Priya (optional)</label>
+          <textarea class="input" placeholder="Anything Priya should know, e.g. flexibility on dates or a budget limit" value="{{message}}" onChange="{{onMessage}}"></textarea>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <button class="btn btn-primary blueprint" onClick="{{send}}" style="padding:12px 20px;font-size:16px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Send revised quotation to Priya</button>
+          <button class="btn btn-secondary" onClick="{{goTrip}}" style="padding:12px 18px">Keep editing</button>
+          <span style="font-size:13px;color:var(--color-neutral-700)">You won’t be charged. Priya confirms before anything is booked.</span>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isSent}}" hint-placeholder-val="{{false}}">
+      <div class="blueprint" style="padding:32px;display:flex;flex-direction:column;gap:20px;max-width:880px">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <span style="width:44px;height:44px;display:grid;place-items:center;background:var(--color-accent);color:var(--color-bg)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6 9 17l-5-5"></path></svg></span>
+        <div><h2 style="margin:0">{{sentTitle}}</h2><p style="font-size:15px;color:var(--color-neutral-800);margin:6px 0 0;text-wrap:pretty">{{sentPara}}</p></div>
+        <sc-if value="{{hasChanges}}" hint-placeholder-val="{{true}}">
+          <div style="display:flex;flex-direction:column">
+            <sc-for list="{{sentList}}" as="s" hint-placeholder-count="3">
+              <div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--color-divider);flex-wrap:wrap">
+                <div style="min-width:0"><div style="font-size:12px;color:var(--color-neutral-700)">{{s.head}}</div><div style="font-size:15px">{{s.detail}}</div></div>
+                <div style="display:flex;gap:12px;align-items:center"><span class="{{s.stCls}}">{{s.stLabel}}</span><span style="font-weight:500;min-width:100px;text-align:right;color:{{s.color}}">{{s.txt}} <span style="font-weight:400">{{s.word}}</span></span></div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);padding-top:12px"><span style="font-size:14px">{{sentTotalLabel}}</span><span style="font-family:var(--font-heading);font-weight:600;font-size:28px">{{total}}</span></div>
+        <sc-if value="{{hasMessage}}" hint-placeholder-val="{{false}}">
+          <div style="background:var(--color-accent-100);padding:12px 14px"><div style="font-size:12px;color:var(--color-accent-800)">Your note</div><div style="font-size:14px;color:var(--color-accent-900)">{{message}}</div></div>
+        </sc-if>
+        <div style="font-size:13px;color:var(--color-neutral-700)">This quotation is locked while Priya reviews it. To change anything else, reply to her email.</div>
+        <button class="btn btn-secondary" onClick="{{restart}}" style="align-self:flex-start">Restart prototype</button>
+      </div>
+    </sc-if>
+  </div>
+</main>
+
+<sc-if value="{{drawerOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end">
+    <div onClick="{{closeDrawer}}" style="position:absolute;inset:0;background:color-mix(in srgb,var(--color-neutral-900) 45%,transparent)"></div>
+    <div style="position:relative;width:min(580px,100%);height:100%;background:var(--color-bg);box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:20px 24px;border-bottom:1px solid var(--color-divider)">
+        <div><h3 style="margin:0">{{drawerTitle}}</h3><div style="font-size:13px;color:var(--color-neutral-700)">{{drawerSub}}</div></div>
+        <button class="btn btn-icon btn-secondary" onClick="{{closeDrawer}}" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:18px">
+
+        <sc-if value="{{isHotelDrawer}}" hint-placeholder-val="{{false}}">
+          <sc-if value="{{hd.canSplit}}" hint-placeholder-val="{{false}}">
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+              <div class="seg" style="flex:none">
+                <label class="seg-opt"><input type="radio" name="mode" checked="{{hd.modeOne}}" onChange="{{hd.setOne}}"><span>One hotel</span></label>
+                <label class="seg-opt"><input type="radio" name="mode" checked="{{hd.modeSplit}}" onChange="{{hd.setSplit}}"><span>Split stay</span></label>
+              </div>
+              <span style="font-size:13px;color:var(--color-neutral-700)">{{hd.splitHint}}</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{hd.modeSplit}}" hint-placeholder-val="{{false}}">
+            <div class="blueprint" style="padding:16px;display:flex;flex-direction:column;gap:12px">
+              <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+              <div style="font-family:var(--font-heading);font-weight:600;font-size:17px">Night by night</div>
+              <sc-for list="{{hd.nights}}" as="nt" hint-placeholder-count="2">
+                <div class="field" style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center">
+                  <label style="margin:0">{{nt.label}}</label>
+                  <select class="input" value="{{nt.value}}" onChange="{{nt.onChange}}">
+                    <sc-for list="{{hd.nightOpts}}" as="o" hint-placeholder-count="2"><option value="{{o.id}}">{{o.label}}</option></sc-for>
+                  </select>
+                </div>
+              </sc-for>
+              <div style="font-size:13px;color:var(--color-neutral-700)">{{hd.splitCalc}}</div>
+            </div>
+          </sc-if>
+          <sc-for list="{{hd.options}}" as="h" hint-placeholder-count="2">
+            <div class="blueprint" style="padding:16px;display:flex;flex-direction:column;gap:10px;background:{{h.bg}}">
+              <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+                <div style="font-family:var(--font-heading);font-weight:600;font-size:20px">{{h.name}}</div>
+                <span style="font-size:13px;font-weight:500;color:{{h.vsColor}};white-space:nowrap">{{h.vsTxt}}</span>
+              </div>
+              <div style="font-size:13px;color:var(--color-neutral-700)">{{h.meta}} · {{h.meals}}</div>
+              <div style="font-size:14px;text-wrap:pretty">{{h.blurb}}</div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="{{h.stCls}}">{{h.stLabel}}</span><sc-for list="{{h.features}}" as="ft" hint-placeholder-count="2"><span class="tag tag-neutral">{{ft}}</span></sc-for></div>
+              <sc-if value="{{hd.modeOne}}" hint-placeholder-val="{{true}}">
+                <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end">
+                  <div class="field"><label>Room type</label><select class="input" value="{{h.roomId}}" onChange="{{h.onRoom}}"><sc-for list="{{h.roomOpts}}" as="ro" hint-placeholder-count="2"><option value="{{ro.id}}">{{ro.label}}</option></sc-for></select></div>
+                  <div class="field"><label>Rooms</label><div style="display:flex;align-items:center;border:1px solid var(--color-divider);height:36px"><button class="btn" onClick="{{hd.dec}}" style="border:0;height:100%;width:34px">−</button><span style="width:28px;text-align:center">{{hd.rooms}}</span><button class="btn" onClick="{{hd.inc}}" style="border:0;height:100%;width:34px">+</button></div></div>
+                </div>
+                <div style="font-size:13px;color:var(--color-neutral-700)">{{h.calc}}</div>
+                <sc-if value="{{h.selected}}" hint-placeholder-val="{{false}}"><div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--color-accent-700)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6 9 17l-5-5"></path></svg>Selected</div></sc-if>
+                <sc-if value="{{h.notSelected}}" hint-placeholder-val="{{true}}"><button class="btn btn-secondary" onClick="{{h.choose}}" style="align-self:flex-start">{{h.chooseLabel}}</button></sc-if>
+              </sc-if>
+            </div>
+          </sc-for>
+        </sc-if>
+
+        <sc-if value="{{isActDrawer}}" hint-placeholder-val="{{false}}">
+          <sc-if value="{{ad.multiDay}}" hint-placeholder-val="{{false}}">
+            <div style="display:flex;flex-wrap:wrap;border:1px solid var(--color-divider);align-self:flex-start">
+              <sc-for list="{{ad.tabs}}" as="t" hint-placeholder-count="2"><button onClick="{{t.pick}}" style="border:0;padding:7px 12px;font:inherit;font-size:13px;white-space:nowrap;cursor:pointer;background:{{t.bg}};color:{{t.fg}}">{{t.label}}</button></sc-for>
+            </div>
+          </sc-if>
+          <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-600)">In your quotation</div>
+          <sc-if value="{{ad.noIncluded}}" hint-placeholder-val="{{false}}"><div style="font-size:13px;color:var(--color-neutral-700)">Free time — nothing planned this day.</div></sc-if>
+          <sc-for list="{{ad.included}}" as="a" hint-placeholder-count="1">
+            <div class="blueprint" style="padding:14px;display:flex;justify-content:space-between;gap:12px">
+              <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+              <div style="min-width:0"><div style="font-size:12px;color:var(--color-neutral-700)">{{a.time}}</div><div style="font-family:var(--font-heading);font-weight:600;font-size:18px;text-decoration:{{a.deco}}">{{a.name}}</div><div style="font-size:13px;text-wrap:pretty">{{a.blurb}}</div></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right"><span class="tag tag-neutral">In your quotation</span><span style="font-weight:500">{{a.price}}</span><span style="font-size:12px;color:var(--color-neutral-700)">{{a.creditTxt}}</span><button class="btn btn-secondary" onClick="{{a.onToggle}}" style="font-size:13px">{{a.btn}}</button></div>
+            </div>
+          </sc-for>
+          <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:6px">Add to this day</div>
+          <sc-if value="{{ad.noOptions}}" hint-placeholder-val="{{false}}"><div style="font-size:13px;color:var(--color-neutral-700)">No add-ons for this day. Try another day, or message Priya.</div></sc-if>
+          <sc-for list="{{ad.options}}" as="o" hint-placeholder-count="2">
+            <div class="blueprint" style="padding:14px;display:flex;flex-direction:column;gap:8px;background:{{o.bg}}">
+              <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+              <div style="display:flex;justify-content:space-between;gap:12px">
+                <div style="min-width:0"><div style="font-size:12px;color:var(--color-neutral-700)">{{o.time}}</div><div style="font-family:var(--font-heading);font-weight:600;font-size:18px">{{o.name}}</div></div>
+                <div style="text-align:right;white-space:nowrap"><div style="font-weight:500">{{o.deltaTxt}} Higher</div><div style="font-size:12px;color:var(--color-neutral-700)">for 2 adults</div></div>
+              </div>
+              <div style="font-size:13px;text-wrap:pretty">{{o.blurb}}</div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"><span class="{{o.stCls}}">{{o.stLabel}}</span><sc-if value="{{o.hasExtra}}" hint-placeholder-val="{{false}}"><span style="font-size:12px;color:var(--color-neutral-700)">· {{o.extra}}</span></sc-if></div>
+              <sc-if value="{{o.hasWarn}}" hint-placeholder-val="{{false}}"><div style="font-size:12px;color:var(--color-neutral-700)">{{o.warn}}</div></sc-if>
+              <sc-if value="{{o.hasConflict}}" hint-placeholder-val="{{false}}"><div style="font-size:13px;padding:8px 10px;border:1px solid var(--color-text);display:flex;gap:8px;align-items:flex-start"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex:none;margin-top:2px"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"></path><path d="M12 9v4M12 17h.01"></path></svg><span>{{o.conflict}}</span></div></sc-if>
+              <div style="display:flex;gap:8px">
+                <sc-if value="{{o.notAdded}}" hint-placeholder-val="{{true}}"><button class="btn btn-primary" onClick="{{o.onAdd}}" disabled="{{o.hasConflict}}">Add · {{o.deltaTxt}}</button></sc-if>
+                <sc-if value="{{o.added}}" hint-placeholder-val="{{false}}"><span style="display:flex;align-items:center;gap:6px;font-weight:500;color:var(--color-accent-700);font-size:14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6 9 17l-5-5"></path></svg>Added</span><button class="btn btn-ghost" onClick="{{o.onRemove}}">Remove</button></sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </sc-if>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 24px;border-top:1px solid var(--color-divider)">
+        <div><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600)">Estimated total</div><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-family:var(--font-heading);font-weight:600;font-size:24px">{{total}}</span><span style="font-size:13px;font-weight:500;color:{{totalDelta.color}}">{{totalDelta.short}}</span></div></div>
+        <button class="btn btn-primary blueprint" onClick="{{closeDrawer}}" style="padding:10px 24px;font-size:15px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Done</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startWithChanges&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Prototype&quot;},&quot;summaryCollapsed&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Prototype&quot;}}">
+const R = n => '₹' + Math.round(Math.abs(n)).toLocaleString('en-IN');
+const ORIG_TOTAL = 93200;
+const ST = {
+  locked: { label: 'Locked price', cls: 'tag tag-accent' },
+  confirm: { label: 'Priya will confirm', cls: 'tag tag-outline' },
+  included: { label: 'Included', cls: 'tag tag-neutral' },
+  note: { label: 'Note sent', cls: 'tag tag-neutral' }
+};
+const LOWER = 'var(--color-accent-700)', HIGHER = 'var(--color-text)', FLAT = 'var(--color-neutral-700)';
+const dl = d => !d ? { txt: '—', word: '', color: FLAT, has: false } : d < 0 ? { txt: '↓ ' + R(d), word: 'Lower', color: LOWER, has: true } : { txt: '↑ ' + R(d), word: 'Higher', color: HIGHER, has: true };
+const pl = n => n + ' night' + (n > 1 ? 's' : '');
+
+const STOPS = [
+  { id: 'kochi', name: 'Kochi', label: 'First stop', nights: 2, dates: 'Tue 10 – Thu 12 Nov', range: '10 Nov–12 Nov', dayRange: 'Days 1–2', subRange: 'Tue 10 Nov to Thu 12 Nov', nightDates: ['Tue 10 Nov', 'Wed 11 Nov'], days: [1, 2], noun: 'hotel', orig: { hotel: 'harbour', room: 'deluxe' },
+    hotels: [
+      { id: 'harbour', name: 'Harbour House', meta: '4★ heritage · Fort Kochi heritage quarter', meals: 'Breakfast', status: 'locked', blurb: 'A restored colonial house a short walk from the Chinese fishing nets.', features: ['Sea view', 'Walk to sights'], rooms: [{ id: 'deluxe', name: 'Deluxe sea-facing', rate: 9500 }, { id: 'court', name: 'Heritage courtyard room', rate: 8200 }] },
+      { id: 'lagoon', name: 'Lagoon View Inn', meta: '3★ · Willingdon Island, 10 min drive', meals: 'Breakfast', status: 'locked', blurb: 'A quiet, modern inn on the island with a pool, a short drive from the old town.', features: ['Pool', 'Quiet'], rooms: [{ id: 'std', name: 'Standard double', rate: 7400 }, { id: 'sup', name: 'Superior lagoon-facing', rate: 8600 }] }
+    ] },
+  { id: 'munnar', name: 'Munnar', label: 'Next stop', nights: 2, dates: 'Thu 12 – Sat 14 Nov', range: '12 Nov–14 Nov', dayRange: 'Days 3–4', subRange: 'Thu 12 Nov to Sat 14 Nov', nightDates: ['Thu 12 Nov', 'Fri 13 Nov'], days: [3, 4], noun: 'hotel', orig: { hotel: 'teaRidge', room: 'valley' },
+    hotels: [
+      { id: 'teaRidge', name: 'Tea Ridge Resort', meta: '4★ · Chithirapuram, 15 min from town', meals: 'Breakfast', status: 'locked', blurb: 'A hillside resort with terraced rooms looking over the tea valley.', features: ['Valley view', 'Restaurant'], rooms: [{ id: 'valley', name: 'Valley-view room', rate: 11000 }, { id: 'suite', name: 'Valley suite', rate: 13800 }] },
+      { id: 'misty', name: 'Misty Hills Plantation Bungalow', meta: 'Boutique · Pothamedu, on a cardamom estate', meals: 'Breakfast & dinner', status: 'confirm', blurb: 'Four cottages on a working cardamom estate, with estate walks and dinner on the verandah.', features: ['Estate walks', 'Very quiet'], rooms: [{ id: 'cottage', name: 'Private cottage', rate: 16800 }] }
+    ] },
+  { id: 'alleppey', name: 'Alleppey', label: 'Last stop', nights: 1, dates: 'Sat 14 – Sun 15 Nov', range: '14 Nov–15 Nov', dayRange: 'Day 5', subRange: 'Sat 14 Nov to Sun 15 Nov', nightDates: ['Sat 14 Nov'], days: [5], noun: 'houseboat', orig: { hotel: 'kettu', room: 'one' },
+    hotels: [
+      { id: 'kettu', name: 'Kettuvallam houseboat', meta: 'Private boat · Vembanad Lake', meals: 'All meals', status: 'locked', blurb: 'A private rice-barge houseboat with its own crew and cook, moored overnight on the lake.', features: ['Private crew', 'Lake views'], rooms: [{ id: 'one', name: '1-bedroom boat', rate: 12500 }, { id: 'deck', name: '1-bedroom boat with upper deck', rate: 15200 }] },
+      { id: 'kayal', name: 'Kayal Lakeside Villas', meta: '4★ · Punnamada, on the lakefront', meals: 'Breakfast', status: 'confirm', blurb: 'Stay on land instead: villas on the lake edge, with a sunset shikara ride included.', features: ['Pool', 'Shikara ride'], rooms: [{ id: 'villa', name: 'Lake-view villa', rate: 11200 }] }
+    ] }
+];
+const DAYS = [
+  { n: 1, date: 'Tue 10 Nov', title: 'Arrive and settle in', stop: 'kochi' },
+  { n: 2, date: 'Wed 11 Nov', title: 'Old Fort Kochi', stop: 'kochi' },
+  { n: 3, date: 'Thu 12 Nov', title: 'Afternoon in the tea hills', stop: 'munnar' },
+  { n: 4, date: 'Fri 13 Nov', title: 'Parks and plantations', stop: 'munnar' },
+  { n: 5, date: 'Sat 14 Nov', title: 'On the backwaters', stop: 'alleppey' }
+];
+const ACTS = [
+  { id: 'kathakali', day: 1, stop: 'kochi', name: 'Kathakali performance', start: '18:00', end: '19:30', price: 2400, credit: 0, included: true, blurb: 'Classical dance-drama at a small Fort Kochi theatre; come early to watch the make-up.' },
+  { id: 'harbourCruise', day: 1, stop: 'kochi', name: 'Sunset harbour cruise', start: '16:30', end: '17:45', price: 2200, status: 'locked', blurb: 'An hour on the harbour, past the Chinese fishing nets as the light goes.' },
+  { id: 'heritage', day: 2, stop: 'kochi', name: 'Fort Kochi heritage walk', start: '08:30', end: '11:00', price: 1800, credit: 0, included: true, blurb: 'A guided walk through the Dutch Palace lanes, old churches and spice warehouses.' },
+  { id: 'cooking', day: 2, stop: 'kochi', name: 'Kerala home cooking class', start: '17:00', end: '19:30', price: 3200, status: 'locked', blurb: 'Cook and share a Kerala dinner with a family in Mattancherry.' },
+  { id: 'tea', day: 3, stop: 'munnar', name: 'Tea museum & factory visit', start: '15:00', end: '16:30', price: 1000, credit: 1000, included: true, blurb: 'See leaf turn into tea at a working factory, then taste the estate’s grades.' },
+  { id: 'eravikulam', day: 4, stop: 'munnar', name: 'Eravikulam National Park', start: '09:00', end: '12:00', price: 1600, credit: 1600, included: true, blurb: 'Park shuttle and entry to the Nilgiri tahr grasslands.' },
+  { id: 'jeep', day: 4, stop: 'munnar', name: 'Sunrise jeep & trek, Kolukkumalai', start: '04:30', end: '10:00', price: 6400, status: 'confirm', extra: 'few spots', warn: 'Weather-dependent; the operator confirms the day before.', blurb: 'A jeep up to Kolukkumalai for sunrise over the tea estates, then a guided trek.' },
+  { id: 'spice', day: 4, stop: 'munnar', name: 'Cardamom estate walk', start: '15:00', end: '17:00', price: 1400, status: 'locked', blurb: 'A planter walks you through cardamom, pepper and coffee growing under shade trees.' },
+  { id: 'canoe', day: 5, stop: 'alleppey', name: 'Village canoe ride', start: '16:00', end: '17:30', price: 1800, status: 'confirm', extra: 'paddled by a local boatman', blurb: 'A narrow canoe through village canals too small for the houseboats.' }
+];
+const SEGS = [
+  { id: 'arr', after: null, title: 'Arrive in Kochi', kicker: 'Day 1 · Tue 10 Nov · Included in your trip', mode: 'Flight + airport pickup', cat: 'flights', sumLabel: 'Arrival in Kochi', sumSub: 'Flight + Car · Day 1', legs: [
+    { id: 'f1', mode: 'Flight', fromCode: 'BLR', fromPlace: 'Bengaluru', t1: '09:40', toCode: 'COK', toPlace: 'Kochi', t2: '10:50', dur: '1 h 10 min', price: 8600, desc: 'IndiGo · 6E 614 · Economy', cmp: 'Bengaluru → Kochi, IndiGo 6E 614 · economy' },
+    { id: 'c1', mode: 'Car', fromCode: 'COK', fromPlace: 'Kochi airport', t1: '11:30', toCode: 'Fort Kochi', toPlace: 'Your hotel', t2: '12:30', dur: 'about 1 h', price: 1900, desc: 'Sedan · English-speaking driver', cmp: 'Private car, Kochi airport → your hotel' } ] },
+  { id: 'km', title: 'Kochi → Munnar', kicker: 'Day 3 · Thu 12 Nov · Included in your trip', mode: 'By private car', cat: 'transfers', sumLabel: 'Kochi → Munnar', sumSub: 'Car · Day 3', legs: [
+    { id: 'c2', mode: 'Car', fromCode: 'Kochi', fromPlace: 'Your hotel', t1: '08:30', toCode: 'Munnar', toPlace: 'Your hotel', t2: '13:00', dur: '4 h 30 min', price: 4800, desc: 'Private SUV · Waterfall + lunch stop', cmp: 'Private SUV, Kochi → Munnar' } ] },
+  { id: 'ma', title: 'Munnar → Alleppey', kicker: 'Day 5 · Sat 14 Nov · Included in your trip', mode: 'By car, then a backwater cruise', cat: 'transfers', sumLabel: 'Munnar → Alleppey', sumSub: 'Car + Cruise · Day 5', legs: [
+    { id: 'c3', mode: 'Car', fromCode: 'Munnar', fromPlace: 'Your hotel', t1: '07:30', toCode: 'Kottayam', toPlace: 'Boat jetty', t2: '11:00', dur: '3 h 30 min', price: 3600, desc: 'Private SUV · Tea break', cmp: 'Private SUV, Munnar → Kottayam jetty' },
+    { id: 'b1', mode: 'Cruise', fromCode: 'Kottayam', fromPlace: 'Boat jetty', t1: '11:30', toCode: 'Alleppey', toPlace: 'Houseboat', t2: '14:00', dur: '2 h 30 min', price: 1400, desc: 'Shared cruiser · Lunch on board', cmp: 'Shared cruiser, Kottayam → Alleppey' } ] },
+  { id: 'dep', title: 'Fly home from Kochi', kicker: 'Day 6 · Sun 15 Nov · Included in your trip', mode: 'Train, car + flight home', cat: 'flights', sumLabel: 'Departure from Kochi', sumSub: 'Train + Car + Flight · Day 6', legs: [
+    { id: 't1', mode: 'Train', fromCode: 'ALLP', fromPlace: 'Alleppey', t1: '09:05', toCode: 'ERS', toPlace: 'Ernakulam Jn', t2: '10:15', dur: '1 h 10 min', price: 900, desc: 'Intercity Express · AC chair car', cmp: 'Intercity Express, Alleppey → Ernakulam' },
+    { id: 'c4', mode: 'Car', fromCode: 'ERS', fromPlace: 'Ernakulam Jn', t1: '10:30', toCode: 'COK', toPlace: 'Kochi airport', t2: '11:30', dur: 'about 1 h', price: 1600, desc: 'Sedan · English-speaking driver', cmp: 'Private car, Ernakulam → Kochi airport' },
+    { id: 'f2', mode: 'Flight', fromCode: 'COK', fromPlace: 'Kochi', t1: '14:20', toCode: 'BLR', toPlace: 'Bengaluru', t2: '15:30', dur: '1 h 10 min', price: 10100, desc: 'IndiGo · 6E 615 · Economy', cmp: 'Kochi → Bengaluru, IndiGo 6E 615 · economy' } ] }
+];
+const ORDER = ['seg:arr', 'stop:kochi', 'seg:km', 'stop:munnar', 'seg:ma', 'stop:alleppey', 'seg:dep'];
+const segPrice = g => g.legs.reduce((t, l) => t + l.price, 0);
+
+class Component extends DCLogic {
+  state = this.init(!!this.props.startWithChanges);
+
+  init(w) {
+    const cfg = (h, r) => ({ mode: 'one', hotel: h, room: r, rooms: 1, split: [h, h] });
+    const c = !!this.props.summaryCollapsed;
+    return {
+      view: 'trip', accepted: false,
+      hotels: { kochi: w ? cfg('lagoon', 'std') : cfg('harbour', 'deluxe'), munnar: w ? cfg('misty', 'cottage') : cfg('teaRidge', 'valley'), alleppey: cfg('kettu', 'one') },
+      removed: w ? { heritage: true } : {}, added: w ? { cooking: true } : {},
+      notes: w ? { f1: 'Our flight may move to the earlier 07:30 departure. Can the flight and pickup be flexible?' } : {},
+      editing: null, draft: '', drawer: null, draftRooms: {}, filter: 'all',
+      collapsed: { flights: c, hotels: c, transfers: c, activities: c }, message: ''
+    };
+  }
+  componentDidMount() {
+    this._key = e => { if (e.key === 'Escape' && this.state.drawer) this.setState({ drawer: null }); };
+    window.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._key); }
+
+  stop(id) { return STOPS.find(s => s.id === id); }
+  hotelOf(s, id) { return s.hotels.find(h => h.id === id); }
+  roomOf(h, id) { return h.rooms.find(r => r.id === id) || h.rooms[0]; }
+  price(s, c) {
+    if (c.mode === 'split') return c.split.reduce((a, id) => a + this.hotelOf(s, id).rooms[0].rate, 0) * c.rooms;
+    return this.roomOf(this.hotelOf(s, c.hotel), c.room).rate * s.nights * c.rooms;
+  }
+  origPrice(s) { return this.price(s, { mode: 'one', hotel: s.orig.hotel, room: s.orig.room, rooms: 1 }); }
+  origLabel(s) { const h = this.hotelOf(s, s.orig.hotel); return h.name + ' · ' + this.roomOf(h, s.orig.room).name; }
+  changed(s, c) {
+    if (c.mode === 'split') return !(c.split.every(x => x === s.orig.hotel) && this.hotelOf(s, s.orig.hotel).rooms[0].id === s.orig.room && c.rooms === 1);
+    return c.hotel !== s.orig.hotel || c.room !== s.orig.room || c.rooms !== 1;
+  }
+  hLabel(s, c) {
+    if (c.mode === 'split') { const a = this.hotelOf(s, c.split[0]), b = this.hotelOf(s, c.split[1]); return a.id === b.id ? a.name + ' · ' + a.rooms[0].name : a.name + ' + ' + b.name + ' · Split stay'; }
+    const h = this.hotelOf(s, c.hotel); return h.name + ' · ' + this.roomOf(h, c.room).name + (c.rooms > 1 ? ' × ' + c.rooms + ' rooms' : '');
+  }
+  hStatus(s, c) { const ids = c.mode === 'split' ? c.split : [c.hotel]; return ids.some(i => this.hotelOf(s, i).status === 'confirm') ? 'confirm' : 'locked'; }
+  active(a) { return a.included ? !this.state.removed[a.id] : !!this.state.added[a.id]; }
+  actPrice(stopId, orig) {
+    const S = this.state;
+    return ACTS.filter(a => a.stop === stopId).reduce((t, a) => {
+      if (orig) return t + (a.included ? a.price : 0);
+      if (a.included) return t + a.price - (S.removed[a.id] ? a.credit : 0);
+      return t + (S.added[a.id] ? a.price : 0);
+    }, 0);
+  }
+  conflict(o) { return ACTS.find(a => a.day === o.day && a.id !== o.id && this.active(a) && a.start < o.end && o.start < a.end); }
+
+  getChanges() {
+    const S = this.state, out = [];
+    STOPS.forEach(s => {
+      const c = S.hotels[s.id];
+      if (this.changed(s, c)) out.push({ cat: 'hotels', stop: s.id, head: `${s.name} · ${pl(s.nights)} · ${s.noun === 'houseboat' ? 'Stay' : 'Hotel'} swapped`, detail: this.hLabel(s, c), status: this.hStatus(s, c), delta: this.price(s, c) - this.origPrice(s) });
+      ACTS.filter(a => a.stop === s.id).forEach(a => {
+        if (a.included && S.removed[a.id]) out.push({ cat: 'activities', stop: s.id, head: `${s.name} · Day ${a.day} · Activity removed`, detail: 'Remove ' + a.name, status: 'locked', delta: -a.credit, act: a, kind: 'removed' });
+        if (!a.included && S.added[a.id]) out.push({ cat: 'activities', stop: s.id, head: `${s.name} · Day ${a.day} · Activity added`, detail: 'Add ' + a.name, status: a.status, delta: a.price, act: a, kind: 'added' });
+      });
+    });
+    SEGS.forEach(g => g.legs.forEach(l => { if (S.notes[l.id]) out.push({ cat: 'transfers', seg: g.id, head: `${g.title} · ${l.mode} · Note on fixed ${l.mode.toLowerCase()}`, detail: '“' + S.notes[l.id] + '”', status: 'note', delta: 0 }); }));
+    const ord = { hotels: 0, activities: 1, transfers: 2 };
+    return out.sort((a, b) => ord[a.cat] - ord[b.cat]);
+  }
+
+  openHotel(id, split) {
+    this.setState(st => {
+      const s = this.stop(id), c = st.hotels[id];
+      const hotels = split && s.nights > 1 && c.mode !== 'split' ? { ...st.hotels, [id]: { ...c, mode: 'split', split: [c.hotel, c.hotel] } } : st.hotels;
+      return { drawer: { type: 'hotel', stop: id }, draftRooms: {}, hotels };
+    });
+  }
+  setCfg(id, patch) { this.setState(st => ({ hotels: { ...st.hotels, [id]: { ...st.hotels[id], ...patch } } })); }
+
+  renderVals() {
+    const S = this.state;
+    const changes = this.getChanges();
+    const nCh = changes.length;
+    const hotelsTotal = STOPS.reduce((t, s) => t + this.price(s, S.hotels[s.id]), 0);
+    const actsTotal = STOPS.reduce((t, s) => t + this.actPrice(s.id), 0);
+    const total = SEGS.reduce((t, g) => t + segPrice(g), 0) + hotelsTotal + actsTotal;
+    const d = total - ORIG_TOTAL, dd = dl(d);
+    const awaiting = changes.filter(c => c.status === 'confirm' && c.delta > 0).reduce((t, c) => t + c.delta, 0);
+    const hasCh = nCh > 0;
+    const go = view => () => this.setState({ view, drawer: null, editing: null });
+
+    const stepIdx = { trip: 0, changes: 0, review: 1, sent: 2 }[S.view];
+    const steps = ['Make it yours', 'Review', 'Sent to Priya'].map((label, i) => {
+      const done = i < stepIdx, cur = i === stepIdx;
+      return { label, mark: done ? '✓' : String(i + 1), bg: done || cur ? 'var(--color-accent)' : 'transparent', fg: done || cur ? 'var(--color-bg)' : 'var(--color-accent-700)', labelColor: cur ? 'var(--color-text)' : 'var(--color-neutral-700)', notLast: i < 2 };
+    });
+
+    const stopCount = id => { const n = changes.filter(c => c.stop === id).length; return { has: n > 0, label: n + ' change' + (n > 1 ? 's' : '') }; };
+    const catCount = k => changes.filter(c => c.cat === k).length;
+    const filters = [['all', 'All', nCh], ['hotels', 'Hotels', catCount('hotels')], ['transfers', 'Transfers', catCount('transfers')], ['activities', 'Activities', catCount('activities')]]
+      .map(([id, label, count]) => ({ label, count, hasCount: count > 0, active: S.filter === id, pick: () => this.setState({ filter: id }) }));
+    const F = S.filter;
+
+    const blocks = ORDER.map(key => {
+      const [t, id] = key.split(':');
+      if (t === 'seg') {
+        if (!(F === 'all' || F === 'transfers')) return null;
+        const g = SEGS.find(x => x.id === id);
+        return { isSeg: true, isStop: false, title: g.title, kicker: g.kicker, mode: g.mode, legs: g.legs.map(l => {
+          const note = S.notes[l.id] || '', editing = S.editing === l.id;
+          return { ...l, price: R(l.price), dur: `${l.mode} · ${l.dur}`, fromTime: `${l.t1} · ${l.fromPlace}`, toTime: `${l.toPlace} · ${l.t2}`, note, hasNote: !!note && !editing, isEditing: editing, showAdd: !note && !editing,
+            onEdit: () => this.setState({ editing: l.id, draft: note }),
+            onSave: () => this.setState(st => { const notes = { ...st.notes }; const v = st.draft.trim(); if (v) notes[l.id] = v; else delete notes[l.id]; return { notes, editing: null, draft: '' }; }),
+            onRemove: () => this.setState(st => { const notes = { ...st.notes }; delete notes[l.id]; return { notes }; }) };
+        }) };
+      }
+      const s = this.stop(id), c = S.hotels[id];
+      const showHotel = F === 'all' || F === 'hotels', showDays = F === 'all' || F === 'activities';
+      if (!showHotel && !showDays) return null;
+      const h = c.mode === 'split' ? this.hotelOf(s, c.split[0]) : this.hotelOf(s, c.hotel);
+      const ch = this.changed(s, c), hd = dl(this.price(s, c) - this.origPrice(s)), st = ST[this.hStatus(s, c)];
+      const remaining = ACTS.filter(a => a.stop === id && !a.included && !S.added[a.id]).length;
+      return { isSeg: false, isStop: true, kicker: `${s.label} · ${pl(s.nights)}`, name: s.name, showHotel, showDays,
+        hotel: { name: c.mode === 'split' && c.split[0] !== c.split[1] ? this.hotelOf(s, c.split[0]).name + ' + ' + this.hotelOf(s, c.split[1]).name : h.name,
+          meta: c.mode === 'split' && c.split[0] !== c.split[1] ? 'Split stay · one night each' : h.meta,
+          room: c.mode === 'split' ? 'Standard room each night' : this.roomOf(h, c.room).name + (c.rooms > 1 ? ' × ' + c.rooms : ''),
+          meals: h.meals, nightsTxt: `${pl(s.nights)} · ${s.range}`, changed: ch, was: this.origLabel(s), stLabel: st.label, stCls: st.cls,
+          dates: s.dates, dayRange: `${pl(s.nights)} · ${s.dayRange}`, canSplit: s.nights > 1, changeLabel: 'Change ' + s.noun,
+          price: R(this.price(s, c)), hasDelta: hd.has, deltaTxt: hd.txt, deltaWord: hd.word, deltaColor: hd.color,
+          open: () => this.openHotel(id, false), openSplit: () => this.openHotel(id, true) },
+        days: DAYS.filter(x => x.stop === id).map(day => {
+          const acts = ACTS.filter(a => a.day === day.n && (a.included || S.added[a.id])).sort((a, b) => a.start < b.start ? -1 : 1).map(a => {
+            const rem = a.included && S.removed[a.id];
+            const sa = ST[a.status || 'included'];
+            return { name: a.name, time: `${a.start}–${a.end}`, isIncluded: !!a.included, isAdded: !a.included, removed: rem,
+              priceLabel: rem ? 'Removed · ' + (a.credit ? R(a.credit) + ' credit' : 'no credit') : R(a.price) + ' · Included',
+              deco: rem ? 'line-through' : 'none', nameColor: rem ? 'var(--color-neutral-600)' : 'var(--color-text)',
+              bg: !a.included ? 'var(--color-accent-100)' : 'transparent', stLabel: sa.label, stCls: sa.cls, deltaTxt: '↑ ' + R(a.price),
+              actionLabel: rem ? 'Undo' : 'Remove',
+              onAction: () => this.setState(st2 => a.included ? { removed: { ...st2.removed, [a.id]: !st2.removed[a.id] } } : { added: { ...st2.added, [a.id]: false } }) };
+          });
+          return { n: day.n, date: day.date, title: day.title, acts, empty: acts.length === 0 };
+        }),
+        hasAdd: remaining > 0, addLabel: `+ Add an activity · ${remaining} option${remaining > 1 ? 's' : ''}`,
+        openAdd: () => { const first = ACTS.find(a => a.stop === id && !a.included && !S.added[a.id]); this.setState({ drawer: { type: 'act', stop: id, day: first ? first.day : s.days[0] } }); }
+      };
+    }).filter(Boolean);
+
+    const line = (label, sub, p, o) => { const x = dl(p - o); return { label, sub, price: R(p), orig: R(o), changed: p !== o, wasTxt: `${x.txt.slice(0, 1)} ${x.word} · was ${R(o)}`, wasColor: x.color, diffTxt: x.txt, diffWord: x.word, diffColor: x.color, bg: 'transparent' }; };
+    const noteFor = g => g.legs.filter(l => S.notes[l.id]).map(l => `Your note: “${S.notes[l.id]}”`).join(' ');
+    const catDefs = [
+      { id: 'flights', title: 'Flights & arrival', lines: SEGS.filter(g => g.cat === 'flights').map(g => ({ ...line(g.sumLabel, g.sumSub, segPrice(g), segPrice(g)), desc: noteFor(g) })) },
+      { id: 'hotels', title: 'Hotels', lines: STOPS.map(s => { const c = S.hotels[s.id], ch = this.changed(s, c), st = ST[this.hStatus(s, c)]; return { ...line(`${s.name} · ${pl(s.nights)}`, this.hLabel(s, c), this.price(s, c), this.origPrice(s)), forceChanged: ch, desc: ch ? `${s.noun === 'houseboat' ? 'Stay' : 'Hotel'} swapped (was ${this.origLabel(s)})` : '', st: ch ? st : null }; }) },
+      { id: 'transfers', title: 'Getting around', lines: SEGS.filter(g => g.cat === 'transfers').map(g => ({ ...line(g.sumLabel, g.sumSub, segPrice(g), segPrice(g)), desc: noteFor(g) })) },
+      { id: 'activities', title: 'Activities', lines: STOPS.map(s => {
+        const n = ACTS.filter(a => a.stop === s.id && this.active(a)).length;
+        const cs = changes.filter(c => c.cat === 'activities' && c.stop === s.id);
+        const desc = cs.map(c => c.kind === 'added' ? 'Added ' + c.act.name : 'Removed ' + c.act.name + (c.act.credit ? ` (${R(c.act.credit)} credit)` : ' (no credit)')).join(' · ');
+        const st = cs.length ? (cs.some(c => c.status === 'confirm') ? ST.confirm : ST.locked) : null;
+        return { ...line('Activities in ' + s.name, n + ' activit' + (n === 1 ? 'y' : 'ies'), this.actPrice(s.id), this.actPrice(s.id, true)), forceChanged: cs.length > 0, desc, st };
+      }) }
+    ];
+    const allCollapsed = Object.values(S.collapsed).every(Boolean);
+    const cats = catDefs.map(k => ({ title: k.title, lines: k.lines, collapsed: S.collapsed[k.id], expanded: !S.collapsed[k.id], rot: S.collapsed[k.id] ? 'rotate(-90deg)' : 'none',
+      total: R(k.lines.reduce((t, l) => t + Number(l.price.replace(/[^\d]/g, '')), 0)),
+      toggle: () => this.setState(st => ({ collapsed: { ...st.collapsed, [k.id]: !st.collapsed[k.id] } })) }));
+    const reviewCats = catDefs.map(k => ({ title: k.title, lines: k.lines.map(l => {
+      const hl = l.forceChanged || !!l.desc;
+      return { ...l, hasDesc: !!l.desc, hasStatus: !!l.st, stLabel: l.st ? l.st.label : '', stCls: l.st ? l.st.cls : '', bg: hl ? 'var(--color-accent-100)' : 'transparent' };
+    }) }));
+
+    // comparison
+    const compare = [];
+    let stopNo = 0;
+    ORDER.forEach(key => {
+      const [t, id] = key.split(':');
+      if (t === 'seg') {
+        const g = SEGS.find(x => x.id === id);
+        if (!g.legs.some(l => S.notes[l.id])) return;
+        compare.push({ kicker: g.mode, title: g.title, dates: g.kicker.split(' · ').slice(0, 2).join(' · '), rows: g.legs.map(l => {
+          const n = S.notes[l.id];
+          return { label: `${l.mode} · ${l.t1}–${l.t2}`, chip: 'Note added', hasChip: !!n, orig: l.cmp, rev: l.cmp, revWeight: 400, revNote: n || '', hasRevNote: !!n, diffTxt: '', diffWord: '', diffColor: FLAT, bg: n ? 'var(--color-accent-100)' : 'transparent' };
+        }) });
+        return;
+      }
+      stopNo++;
+      const s = this.stop(id), c = S.hotels[id], ch = this.changed(s, c), hx = dl(this.price(s, c) - this.origPrice(s));
+      const rows = [{ label: `${s.noun === 'houseboat' ? 'Houseboat' : 'Hotel'} · ${pl(s.nights)}`, chip: 'Changed', hasChip: ch, orig: this.origLabel(s), rev: this.hLabel(s, c), revWeight: ch ? 500 : 400, revNote: '', hasRevNote: false, diffTxt: ch ? hx.txt : '', diffWord: ch ? hx.word : '', diffColor: hx.color, bg: ch ? 'var(--color-accent-100)' : 'transparent' }];
+      ACTS.filter(a => a.stop === id && (a.included || S.added[a.id])).sort((a, b) => a.day - b.day || (a.start < b.start ? -1 : 1)).forEach(a => {
+        const rem = a.included && S.removed[a.id], add = !a.included;
+        const x = rem ? dl(-a.credit) : add ? dl(a.price) : dl(0);
+        rows.push({ label: `Day ${a.day} · ${a.start}–${a.end}`, chip: rem ? 'Removed' : 'Added', hasChip: rem || add, orig: add ? '—' : a.name, rev: rem ? '—' : a.name, revWeight: add ? 500 : 400, revNote: '', hasRevNote: false,
+          diffTxt: rem ? (a.credit ? x.txt : '₹0') : add ? x.txt : '', diffWord: rem ? (a.credit ? x.word : '') : add ? x.word : '', diffColor: x.color, bg: rem || add ? 'var(--color-accent-100)' : 'transparent' });
+      });
+      compare.push({ kicker: `Stop ${stopNo} · ${pl(s.nights)}`, title: s.name, dates: s.dates, rows });
+    });
+
+    // drawer
+    const D = S.drawer;
+    let hd = {}, ad = {}, drawerTitle = '', drawerSub = '';
+    if (D && D.type === 'hotel') {
+      const s = this.stop(D.stop), c = S.hotels[D.stop], cur = this.price(s, c), one = c.mode === 'one';
+      drawerTitle = `Choose your stay in ${s.name}`;
+      drawerSub = `${pl(s.nights)} · ${s.subRange} · 2 adults`;
+      hd = { canSplit: s.nights > 1, modeOne: one, modeSplit: !one, rooms: c.rooms, noun: s.noun,
+        splitHint: one ? `Staying in two places? Split the ${s.nights} nights.` : 'Pick a place for each night.',
+        setOne: () => this.setCfg(D.stop, { mode: 'one', hotel: c.split[0] }),
+        setSplit: () => this.setCfg(D.stop, { mode: 'split', split: [c.hotel, c.hotel] }),
+        dec: () => this.setCfg(D.stop, { rooms: Math.max(1, c.rooms - 1) }),
+        inc: () => this.setCfg(D.stop, { rooms: Math.min(2, c.rooms + 1) }),
+        nightOpts: s.hotels.map(h => ({ id: h.id, label: `${h.name} · ${R(h.rooms[0].rate)}/night` })),
+        nights: s.nightDates.map((dt, i) => ({ label: `Night ${i + 1} · ${dt}`, value: c.split[i], onChange: e => { const v = e.target.value; const sp = [...c.split]; sp[i] = v; this.setCfg(D.stop, { split: sp }); } })),
+        splitCalc: (() => { const x = dl(cur - this.origPrice(s)); return `${c.split.map(id => R(this.hotelOf(s, id).rooms[0].rate)).join(' + ')} × ${c.rooms} room${c.rooms > 1 ? 's' : ''} = ${R(cur)}` + (x.has ? ` (${x.txt} vs. Priya’s original)` : ''); })(),
+        options: s.hotels.map(h => {
+          const sel = one && c.hotel === h.id;
+          const roomId = sel ? c.room : (S.draftRooms[h.id] || h.rooms[0].id);
+          const room = this.roomOf(h, roomId), p = room.rate * s.nights * c.rooms;
+          const vs = sel ? dl(p - this.origPrice(s)) : dl(p - cur);
+          const st = ST[h.status];
+          return { name: h.name, meta: h.meta, meals: h.meals, blurb: h.blurb, features: h.features, stLabel: st.label, stCls: st.cls, roomId, selected: sel, notSelected: !sel, chooseLabel: 'Choose this ' + s.noun,
+            bg: sel ? 'var(--color-accent-100)' : 'transparent',
+            vsTxt: sel ? (vs.has ? `${vs.txt} ${vs.word.toLowerCase()} than Priya’s original` : 'Priya’s original pick') : (vs.has ? `${vs.txt} ${vs.word.toLowerCase()}` : 'Same price'), vsColor: vs.color,
+            calc: `${R(room.rate)} / night × ${pl(s.nights)} × ${c.rooms} room${c.rooms > 1 ? 's' : ''} = ${R(p)}` + (!sel && vs.has ? ` (${vs.txt} vs. your current pick)` : ''),
+            roomOpts: h.rooms.map(r => ({ id: r.id, label: `${r.name} · ${R(r.rate)}/night` })),
+            onRoom: e => { const v = e.target.value; if (sel) this.setCfg(D.stop, { room: v }); else this.setState(st2 => ({ draftRooms: { ...st2.draftRooms, [h.id]: v } })); },
+            choose: () => this.setCfg(D.stop, { mode: 'one', hotel: h.id, room: roomId }) };
+        }) };
+    }
+    if (D && D.type === 'act') {
+      const s = this.stop(D.stop), day = DAYS.find(x => x.n === D.day);
+      drawerTitle = `Activities on Day ${day.n}`;
+      drawerSub = `${day.date} · ${s.name} · prices for 2 adults`;
+      const inc = ACTS.filter(a => a.day === day.n && a.included), opts = ACTS.filter(a => a.day === day.n && !a.included);
+      ad = { multiDay: s.days.length > 1, noIncluded: inc.length === 0, noOptions: opts.length === 0,
+        tabs: s.days.map(n => { const x = DAYS.find(y => y.n === n); return { label: `Day ${n} · ${x.date}`, active: n === day.n, bg: n === day.n ? 'var(--color-accent)' : 'transparent', fg: n === day.n ? 'var(--color-bg)' : 'var(--color-text)', pick: () => this.setState({ drawer: { ...D, day: n } }) }; }),
+        included: inc.map(a => { const rem = !!S.removed[a.id]; return { name: a.name, time: `${a.start}–${a.end}`, blurb: a.blurb, price: R(a.price), deco: rem ? 'line-through' : 'none',
+          creditTxt: rem ? (a.credit ? `Removed · ${R(a.credit)} credit` : 'Removed · no credit') : (a.credit ? `${R(a.credit)} credit if removed` : 'No credit if removed'),
+          btn: rem ? 'Undo' : 'Remove', onToggle: () => this.setState(st2 => ({ removed: { ...st2.removed, [a.id]: !st2.removed[a.id] } })) }; }),
+        options: opts.map(o => { const added = !!S.added[o.id], cf = this.conflict(o), st = ST[o.status];
+          return { name: o.name, time: `${o.start}–${o.end}`, blurb: o.blurb, stLabel: st.label, stCls: st.cls, extra: o.extra || '', hasExtra: !!o.extra, warn: o.warn || '', hasWarn: !!o.warn,
+            deltaTxt: '↑ ' + R(o.price), added, notAdded: !added, hasConflict: !!cf, conflict: cf ? `Overlaps with ${cf.name} (${cf.start}–${cf.end}). Remove one of them.` : '',
+            bg: added ? 'var(--color-accent-100)' : 'transparent',
+            onAdd: () => this.setState(st2 => ({ added: { ...st2.added, [o.id]: true } })),
+            onRemove: () => this.setState(st2 => ({ added: { ...st2.added, [o.id]: false } })) }; }) };
+    }
+
+    const nConfirm = changes.filter(c => c.status === 'confirm').length;
+    const sentList = changes.map(c => { const x = dl(c.delta); const st = c.status === 'confirm' ? { label: 'Awaiting confirmation', cls: 'tag tag-outline' } : ST[c.status];
+      return { head: c.head, detail: c.detail, stLabel: st.label, stCls: st.cls, txt: c.status === 'note' ? '—' : (c.delta ? x.txt : '₹0'), word: x.word, color: x.color }; });
+
+    return {
+      steps, routeKochi: stopCount('kochi'), routeMunnar: stopCount('munnar'), routeAlleppey: stopCount('alleppey'),
+      quoteLabel: hasCh ? 'Estimated with your changes' : 'Your quotation',
+      perPerson: R(total / 2), totalLine: `${R(total)} total · 2 adults · incl. GST`, total: R(total),
+      totalWord: hasCh ? 'Estimated total' : 'Total',
+      totalDelta: { ...dd, line: dd.has ? `${dd.txt} ${dd.word.toLowerCase()} · was ${R(ORIG_TOTAL)}` : 'Same as Priya’s quote', short: dd.has ? `${dd.txt} ${dd.word.toLowerCase()} than original` : 'Same as original' },
+      hasAwaiting: awaiting > 0, awaitingTxt: '↑ ' + R(awaiting),
+      isPlanner: S.view === 'trip' || S.view === 'changes', isTrip: S.view === 'trip', isChanges: S.view === 'changes', isReview: S.view === 'review', isSent: S.view === 'sent',
+      tabTripLine: S.view === 'trip' ? 'var(--color-accent)' : 'transparent', tabChangesLine: S.view === 'changes' ? 'var(--color-accent)' : 'transparent',
+      goTrip: go('trip'), goChanges: go('changes'), goReview: go('review'),
+      hasChanges: hasCh, noChanges: !hasCh, changeCount: nCh, filters, blocks, compare, cats, reviewCats,
+      toggleAllLabel: allCollapsed ? 'Expand all' : 'Collapse all',
+      toggleAll: () => this.setState({ collapsed: { flights: !allCollapsed, hotels: !allCollapsed, transfers: !allCollapsed, activities: !allCollapsed } }),
+      draft: S.draft, onDraft: e => this.setState({ draft: e.target.value }), cancelNote: () => this.setState({ editing: null, draft: '' }),
+      notesList: SEGS.flatMap(g => g.legs.filter(l => S.notes[l.id]).map(l => ({ where: `${g.title} · ${l.mode} · ${l.t1}–${l.t2}`, text: S.notes[l.id] }))),
+      hasNotes: Object.keys(S.notes).length > 0,
+      message: S.message, onMessage: e => this.setState({ message: e.target.value }), hasMessage: !!S.message.trim(),
+      send: () => { this.setState({ view: 'sent', accepted: false }); window.scrollTo(0, 0); },
+      accept: () => { this.setState({ view: 'sent', accepted: true }); window.scrollTo(0, 0); },
+      restart: () => { this.setState(this.init(false)); window.scrollTo(0, 0); },
+      sentTitle: S.accepted ? 'You’ve accepted Priya’s quotation' : 'Your changes are with Priya',
+      sentPara: S.accepted ? 'Priya will start booking your trip as quoted and send payment details by email, usually within one working day.'
+        : `Revision v2 was sent on Tue 29 Sep at 14:05. ` + (nConfirm ? `Priya will check availability for ${nConfirm} change${nConfirm > 1 ? 's' : ''} marked “awaiting confirmation” and confirm the final price. ` : 'Every change has a locked price, so Priya just needs to confirm. ') + 'You’ll get an email when the updated quotation is ready, usually within one working day.',
+      sentList, sentTotalLabel: S.accepted ? 'Total' : `Estimated total (was ${R(ORIG_TOTAL)})`,
+      drawerOpen: !!D, isHotelDrawer: !!D && D.type === 'hotel', isActDrawer: !!D && D.type === 'act', drawerTitle, drawerSub, hd, ad,
+      closeDrawer: () => this.setState({ drawer: null })
+    };
+  }
+}
+</script>
+</body>
+</html>
