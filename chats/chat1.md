@@ -1,5 +1,7 @@
 # Working prototype request
 
+The full conversation with Claude Design that produced the first Trip Quote prototype.
+
 _Started 2026-10-13 17:47 UTC_
 
 ---
