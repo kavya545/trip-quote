@@ -19,7 +19,7 @@ const QUOTES: Record<string, () => Promise<unknown[]>> = {
   ]).then(mods => mods.map(m => m.default)),
 };
 
-const wait = (ms: number, signal?: AbortSignal) => new Promise<void>((resolve, reject) => {
+export const wait = (ms: number, signal?: AbortSignal) => new Promise<void>((resolve, reject) => {
   const t = setTimeout(resolve, ms);
   signal?.addEventListener('abort', () => { clearTimeout(t); reject(signal.reason); }, { once: true });
 });
@@ -33,14 +33,20 @@ interface FetchOptions { signal?: AbortSignal; delayMs?: number; scenario?: Scen
 export async function fetchQuote(id: string, { signal, delayMs, scenario = 'ok' }: FetchOptions = {}): Promise<QuoteDTO | null> {
   await wait(delayMs ?? 400 + Math.random() * 300, signal);
   if (scenario === 'error') throw new ApiError(503, 'The quotation service is not responding.');
+  if (scenario === 'notfound') return null;
+  const q = await readQuote(id);
+  if (q && scenario === 'empty') return { trip: { ...q.trip, itinerary: [] }, stops: [], activities: [], segments: [] };
+  return q;
+}
+
+/** Server-side read of a quote's JSON files, validated against the schema. Null when the quote doesn't exist. */
+export async function readQuote(id: string): Promise<QuoteDTO | null> {
   const load = QUOTES[id];
-  if (!load || scenario === 'notfound') return null;
+  if (!load) return null;
   const [tripRaw, stopsRaw, activitiesRaw, segmentsRaw] = await load();
   try {
-    const trip = FileSchemas.trip.parse(tripRaw);
-    if (scenario === 'empty') return QuoteSchema.parse({ trip: { ...trip, itinerary: [] }, stops: [], activities: [], segments: [] });
     return QuoteSchema.parse({
-      trip,
+      trip: FileSchemas.trip.parse(tripRaw),
       stops: FileSchemas.stops.parse(stopsRaw).stops,
       activities: FileSchemas.activities.parse(activitiesRaw).activities,
       segments: FileSchemas.segments.parse(segmentsRaw).segments,

@@ -148,3 +148,31 @@ export const FileSchemas = {
   activities: file({ activities: z.array(ActivitySchema) }),
   segments: file({ segments: z.array(SegmentSchema) }),
 };
+
+/** The traveller's edits to a quotation, saved as they make them. */
+export const DraftSchema = z.object({
+  hotels: z.record(id, z.object({
+    mode: z.enum(['one', 'split']),
+    hotel: id,
+    room: id,
+    rooms: z.number().int().min(1),
+    split: z.array(id),
+  })),
+  removed: z.record(id, z.boolean()).describe('Included activities the traveller removed'),
+  added: z.record(id, z.boolean()).describe('Add-on activities the traveller added'),
+  actDay: z.record(id, z.number().int().positive()).describe('Day an add-on was moved to'),
+  notes: z.record(id, z.string()).describe('Notes on travel legs, by leg id'),
+  message: z.string().default('').describe('Message to the agent, sent with the revision'),
+});
+
+/** Where the quotation stands, as stored by the server. */
+export const ProgressSchema = z.object({
+  status: z.enum(['draft', 'sent', 'accepted']),
+  draft: DraftSchema.nullable(),
+  savedAt: z.number().nullable(),
+  sentAt: z.number().nullable().describe('When the revision was sent (ms since epoch)'),
+  acceptedAt: z.number().nullable(),
+});
+
+export type Draft = z.infer<typeof DraftSchema>;
+export type Progress = z.infer<typeof ProgressSchema>;

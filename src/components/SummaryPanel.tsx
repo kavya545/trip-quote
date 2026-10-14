@@ -3,7 +3,7 @@ import { MONO, linkButton } from '../styles';
 
 type Props = Pick<TripView,
   'totalWord' | 'perPerson' | 'total' | 'hasChanges' | 'noChanges' | 'totalDelta' | 'hasAwaiting' | 'awaitingTxt' |
-  'goReview' | 'changeCount' | 'accept' | 'toggleAll' | 'toggleAllLabel' | 'cats' | 'agent' | 'adultsLabel' | 'origTotal'>;
+  'goReview' | 'changeCount' | 'accept' | 'toggleAll' | 'toggleAllLabel' | 'cats' | 'agent' | 'adultsLabel' | 'origTotal' | 'accepting' | 'acceptError'>;
 
 const legendPill = { borderRadius: 999, padding: '6px 0', textAlign: 'center', fontSize: '0.8125rem', fontWeight: 600 } as const;
 const legendText = { fontSize: '0.875rem', color: '#5F6266' } as const;
@@ -39,7 +39,8 @@ export function SummaryPanel(v: Props) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {/* The prototype renders disabled="" which React treats as not disabled; aria-disabled keeps that exact look. */}
             <button aria-disabled="true" style={{ height: 56, border: 0, borderRadius: 999, background: '#6B6E72', color: '#FFFFFF', fontSize: '1rem', fontWeight: 600, cursor: 'not-allowed' }}>Make a change to review</button>
-            <button onClick={v.accept} className="hover-bg-f2" style={{ height: 48, border: '1px solid #CFCFCD', borderRadius: 999, background: '#FFFFFF', color: '#1E1F21', fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer' }}>Accept quotation as sent</button>
+            <button onClick={v.accept} disabled={v.accepting} className="hover-bg-f2" style={{ height: 48, border: '1px solid #CFCFCD', borderRadius: 999, background: '#FFFFFF', color: '#1E1F21', fontSize: '0.9375rem', fontWeight: 600 }}>{v.accepting ? 'Accepting…' : 'Accept quotation as sent'}</button>
+            {v.acceptError && <div role="alert" style={{ fontSize: '0.875rem', color: '#B8433B', lineHeight: 1.5 }}>{`Not accepted yet. ${v.acceptError} Try again.`}</div>}
           </div>
         )}
         <div style={{ borderTop: '2px solid #1E1F21', paddingTop: 10, display: 'flex', justifyContent: 'flex-end' }}>

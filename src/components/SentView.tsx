@@ -1,7 +1,7 @@
 import type { TripView } from '../model/useTripQuote';
 import { MONO, SERIF, linkButton } from '../styles';
 
-type Props = Pick<TripView, 'sentTitle' | 'sentPara' | 'hasChanges' | 'sentList' | 'sentTotalLabel' | 'total' | 'hasMessage' | 'message' | 'restart' | 'agent' | 'agentPossessive'>;
+type Props = Pick<TripView, 'sentTitle' | 'sentPara' | 'hasChanges' | 'sentList' | 'sentTotalLabel' | 'total' | 'hasMessage' | 'message' | 'restart' | 'restarting' | 'agent' | 'agentPossessive'>;
 
 export function SentView(v: Props) {
   return (
@@ -36,7 +36,7 @@ export function SentView(v: Props) {
         </div>
       )}
       <div style={{ fontSize: '0.875rem', color: '#5F6266' }}>{`This quotation is locked while ${v.agent} reviews it. To change anything else, reply to ${v.agentPossessive} email.`}</div>
-      <button onClick={v.restart} style={linkButton({ fontSize: '0.9375rem', fontWeight: 500 })}>Restart prototype</button>
+      <button onClick={v.restart} disabled={v.restarting} style={linkButton({ fontSize: '0.9375rem', fontWeight: 500, cursor: undefined })}>{v.restarting ? 'Restarting…' : 'Restart prototype'}</button>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import type { TripView } from '../model/useTripQuote';
 import { MONO, SERIF, linkButton } from '../styles';
 
-type Props = Pick<TripView, 'goTrip' | 'reviewCats' | 'total' | 'totalDelta' | 'hasNotes' | 'notesList' | 'message' | 'onMessage' | 'send' | 'agent' | 'adultsLabel' | 'origTotal'>;
+type Props = Pick<TripView, 'goTrip' | 'reviewCats' | 'total' | 'totalDelta' | 'hasNotes' | 'notesList' | 'message' | 'onMessage' | 'send' | 'sending' | 'sendError' | 'agent' | 'adultsLabel' | 'origTotal'>;
 
 const row = { display: 'grid', gridTemplateColumns: 'minmax(min(100%,220px),1fr) repeat(3,minmax(84px,140px))', gap: '12px clamp(12px,2vw,24px)' } as const;
 const pad = 'clamp(16px,3vw,32px)';
@@ -65,10 +65,11 @@ export function ReviewView(v: Props) {
         <textarea placeholder={`Anything ${v.agent} should know, e.g. flexibility on dates or a budget limit`} value={v.message} onChange={v.onMessage} style={{ minHeight: 118, background: '#FFFFFF', border: '1px solid #CFCFCD', borderRadius: 14, padding: '14px 16px', fontSize: '0.875rem', resize: 'vertical', color: '#1E1F21' }} />
       </div>
       <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
-        <button onClick={v.send} className="hover-bg-3e" style={{ height: 48, padding: '0 22px', border: 0, borderRadius: 999, background: '#1E1F21', color: '#FFFFFF', fontSize: '0.9375rem', fontWeight: 500, cursor: 'pointer' }}>{`Send revised quotation to ${v.agent}`}</button>
+        <button onClick={v.send} disabled={v.sending} className="hover-bg-3e" style={{ height: 48, padding: '0 22px', border: 0, borderRadius: 999, background: '#1E1F21', color: '#FFFFFF', fontSize: '0.9375rem', fontWeight: 500 }}>{v.sending ? 'Sending…' : `Send revised quotation to ${v.agent}`}</button>
         <button onClick={v.goTrip} className="hover-bg-f2" style={{ height: 48, padding: '0 20px', border: '1px solid #CFCFCD', borderRadius: 999, background: '#FFFFFF', color: '#1E1F21', fontSize: '0.9375rem', fontWeight: 500, cursor: 'pointer' }}>Keep editing</button>
         <span style={{ fontSize: '0.875rem', color: '#5F6266' }}>{`You won’t be charged. ${v.agent} confirms before anything is booked.`}</span>
       </div>
+      {v.sendError && <div role="alert" style={{ fontSize: '0.875rem', color: '#B8433B', lineHeight: 1.5 }}>{`Your changes weren’t sent. ${v.sendError} Try sending again.`}</div>}
     </div>
   );
 }

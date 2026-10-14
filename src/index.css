@@ -43,3 +43,8 @@ button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible
 .planner-summary{max-width:400px}
 @container trip (min-width:940px){.planner{grid-template-columns:minmax(0,1fr) 400px}}
 @container trip (max-width:563.98px){.planner-summary{max-width:none}}
+
+/* Save indicator */
+@keyframes save-spin{to{transform:rotate(360deg)}}
+.save-spinner{width:16px;height:16px;flex:none;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#FFFFFF;animation:save-spin .8s linear infinite}
+@media (prefers-reduced-motion: reduce){.save-spinner{animation:none}}

@@ -1,5 +1,9 @@
+import type { SaveMode } from '../api/progressApi';
+import type { Progress } from '../api/schema';
+import { useAutosave } from '../api/useAutosave';
 import type { TripData } from '../model/data';
 import { useTripQuote, type TripQuoteProps } from '../model/useTripQuote';
+import { SaveStatus } from './SaveStatus';
 import { Drawer } from './Drawer';
 import { Hero } from './Hero';
 import { Planner } from './Planner';
@@ -11,8 +15,11 @@ import { Toast } from './Toast';
 import { TopBar } from './TopBar';
 
 /** The loaded quotation: itinerary, review and sent screens, plus the toast and side panels. */
-export function TripQuote({ data, ...props }: TripQuoteProps & { data: TripData }) {
-  const v = useTripQuote(data, props);
+interface Props extends TripQuoteProps { data: TripData; quoteId: string; progress: Progress; saveMode: SaveMode }
+
+export function TripQuote({ data, quoteId, progress, saveMode, ...props }: Props) {
+  const autosave = useAutosave(quoteId, saveMode);
+  const v = useTripQuote(data, props, { quoteId, saveMode, progress, autosave });
   const t = v.trip;
   return <>
     <main style={{ minWidth: 0 }}>
@@ -28,5 +35,6 @@ export function TripQuote({ data, ...props }: TripQuoteProps & { data: TripData 
     </main>
     {v.hasToast && <Toast msg={v.toastMsg} total={v.toastTotal} onUndo={v.undoToast} onClose={v.closeToast} />}
     {v.drawerOpen && <Drawer {...v} />}
+    <SaveStatus status={autosave.status} onRetry={autosave.retry} />
   </>;
 }

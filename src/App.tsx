@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Scenario } from './api/mockApi';
+import type { SaveMode } from './api/progressApi';
 import { useQuote } from './api/useQuote';
 import { Sidebar } from './components/Sidebar';
 import { QuoteSkeleton, StatusMessage } from './components/StatusViews';
@@ -12,9 +13,11 @@ export interface AppProps extends TripQuoteProps {
   scenario?: Scenario;
   /** Fixed mock API delay in ms instead of the default short random one. */
   delayMs?: number;
+  /** Simulated save behaviour: slow, failing or flaky writes. */
+  saveMode?: SaveMode;
 }
 
-export default function App({ quoteId, scenario, delayMs, ...props }: AppProps) {
+export default function App({ quoteId, scenario, delayMs, saveMode = 'ok', ...props }: AppProps) {
   const [navOpen, setNavOpen] = useState(false);
   const q = useQuote(quoteId, scenario, delayMs);
   const data = q.status === 'ready' ? q.data : null;
@@ -39,7 +42,7 @@ export default function App({ quoteId, scenario, delayMs, ...props }: AppProps) 
           {data.agentFirstName} is still putting your {data.region} trip together. You’ll get an email when it’s ready to review.
         </StatusMessage>
       )}
-      {data && !data.isEmpty && <TripQuote data={data} {...props} />}
+      {q.status === 'ready' && !q.data.isEmpty && <TripQuote data={q.data} quoteId={quoteId} progress={q.progress} saveMode={saveMode} {...props} />}
     </div>
   );
 }

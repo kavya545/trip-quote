@@ -5,6 +5,9 @@ import {
 } from './data';
 import { daysBetween, fmtMoment, localToday } from './dates';
 import { demoChanges } from './demoChanges';
+import { acceptQuote, resetProgress, submitRevision, type SaveMode } from '../api/progressApi';
+import type { Draft, Progress } from '../api/schema';
+import type { Autosave } from '../api/useAutosave';
 
 export interface HotelCfg { mode: 'one' | 'split'; hotel: string; room: string; rooms: number; split: string[] }
 type View = 'trip' | 'changes' | 'review' | 'sent';
@@ -18,8 +21,11 @@ interface State extends Snapshot {
   view: View; accepted: boolean; closedStops: Record<string, boolean>; editing: string | null; draft: string;
   drawer: Drawer; draftRooms: Record<string, string>; filter: string; collapsed: Record<CatId, boolean>;
   message: string; toast: null | { msg: string; snap: Snapshot; id: number }; photoIdx: Record<string, number>;
-  /** When the revised quotation was sent, from the real clock. */
+  /** When the revised quotation was sent, as recorded by the server. */
   sentAt: number | null;
+  /** A request to the server that the UI is waiting on. */
+  busy: null | 'send' | 'accept' | 'restart';
+  actionError: null | { action: 'send' | 'accept'; message: string };
 }
 type Patch = Partial<State>;
 type Updater = (st: State) => Patch;
@@ -56,19 +62,34 @@ const hStatus = (s: Stop, c: HotelCfg): 'confirm' | 'locked' => { const ids = c.
 
 export const cfg = (h: string, r: string): HotelCfg => ({ mode: 'one', hotel: h, room: r, rooms: 1, split: [h, h] });
 
-function init(D: TripData, w: boolean, c: boolean): State {
-  const demo = w ? demoChanges(D) : null;
+/** Starting state: the saved draft and status if there is one, otherwise the quotation as sent. */
+function init(D: TripData, w: boolean, c: boolean, saved: Progress | null): State {
+  const d = saved?.draft, demo = !d && w ? demoChanges(D) : null;
+  const done = saved && saved.status !== 'draft';
   return {
-    view: 'trip', accepted: false,
-    hotels: { ...Object.fromEntries(D.stops.map(s => [s.id, cfg(s.orig.hotel, s.orig.room)])), ...demo?.hotels },
-    removed: demo?.removed ?? {}, added: demo?.added ?? {}, notes: demo?.notes ?? {},
+    view: done ? 'sent' : 'trip', accepted: saved?.status === 'accepted',
+    hotels: { ...Object.fromEntries(D.stops.map(s => [s.id, cfg(s.orig.hotel, s.orig.room)])), ...demo?.hotels, ...d?.hotels },
+    removed: d?.removed ?? demo?.removed ?? {}, added: d?.added ?? demo?.added ?? {}, notes: d?.notes ?? demo?.notes ?? {},
     closedStops: {}, editing: null, draft: '', drawer: null, draftRooms: {}, filter: 'all',
-    collapsed: { flights: c, hotels: c, transfers: c, activities: c }, message: '', toast: null, actDay: {}, photoIdx: {}, sentAt: null,
+    collapsed: { flights: c, hotels: c, transfers: c, activities: c }, message: d?.message ?? '', toast: null, actDay: d?.actDay ?? {}, photoIdx: {},
+    sentAt: saved?.sentAt ?? null, busy: null, actionError: null,
   };
 }
 
-export function useTripQuote(D: TripData, props: TripQuoteProps) {
-  const [S, setS] = useState<State>(() => init(D, !!props.startWithChanges, !!props.summaryCollapsed));
+/** The part of the state the server stores. */
+const toDraft = (S: State): Draft => ({ hotels: S.hotels, removed: S.removed, added: S.added, actDay: S.actDay, notes: S.notes, message: S.message });
+
+/** Connection to the mock API for saving the traveller's revision. */
+export interface Remote { quoteId: string; saveMode: SaveMode; progress: Progress; autosave: Autosave }
+
+const errorText = (e: unknown) => e instanceof Error ? e.message : String(e);
+
+export function useTripQuote(D: TripData, props: TripQuoteProps, remote: Remote) {
+  const [S, setS] = useState<State>(() => init(D, !!props.startWithChanges, !!props.summaryCollapsed, remote.progress));
+  const { queue: queueSave, lock: lockSave } = remote.autosave;
+  const autosave = remote.autosave;
+  /** After a failed send or accept: autosave again, re-queuing the edits that request would have carried. */
+  const resumeSaving = () => { autosave.unlock(); autosave.queue(toDraft(S)); };
   const ST = statusStyles(D.agentFirstName);
   const agent = D.agentFirstName, adults = D.adults, adultsLabel = D.adultsLabel;
   const stopOf = (id: string) => D.stops.find(s => s.id === id)!;
@@ -80,6 +101,12 @@ export function useTripQuote(D: TripData, props: TripQuoteProps) {
     window.addEventListener('keydown', onKey);
     return () => { window.removeEventListener('keydown', onKey); clearTimeout(timer.current); };
   }, []);
+
+  // Save every edit to the server while the quote is still a draft.
+  useEffect(() => {
+    if (S.view === 'sent') lockSave(); else queueSave(toDraft(S));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [S.hotels, S.removed, S.added, S.actDay, S.notes, S.message, S.view === 'sent', queueSave, lockSave]);
 
   const act = (msg: string, updater: Updater) => {
     if (!msg) { setState(updater); return; }
@@ -262,7 +289,8 @@ export function useTripQuote(D: TripData, props: TripQuoteProps) {
     drawerSub = `${pl(s.nights)} · ${s.subRange} · ${adultsLabel}`;
     hd = { canSplit: s.nights > 1, modeOne: one, modeSplit: !one, oneBg: one ? '#FFFFFF' : 'transparent', splitBg: one ? 'transparent' : '#FFFFFF', rooms: c.rooms,
       splitHint: one ? `Staying in two places? Split the ${s.nights} nights.` : 'Pick a place for each night.',
-      setOne: () => one ? null : setCfg(DR.stop, { mode: 'one', hotel: c.split[0] }, 'Back to one hotel'),
+      // Keep the room only if the first night's hotel has it; otherwise use that hotel's first room.
+      setOne: () => one ? null : setCfg(DR.stop, { mode: 'one', hotel: c.split[0], room: roomOf(hotelOf(s, c.split[0]), c.room).id }, 'Back to one hotel'),
       setSplit: () => one ? setCfg(DR.stop, { mode: 'split', split: [c.hotel, c.hotel] }, 'Split stay on · pick a place for each night') : null,
       dec: () => c.rooms > 1 && setCfg(DR.stop, { rooms: c.rooms - 1 }, `${c.rooms - 1} room for ${adultsLabel}`),
       inc: () => c.rooms < adults ? setCfg(DR.stop, { rooms: c.rooms + 1 }, `${c.rooms + 1} rooms · price updated`) : act(`${adultsLabel} can book up to ${adults} room${adults === 1 ? '' : 's'}`, () => ({})),
@@ -327,9 +355,35 @@ export function useTripQuote(D: TripData, props: TripQuoteProps) {
     notesList: D.segs.flatMap(g => g.legs.filter(l => S.notes[l.id]).map(l => ({ id: l.id, where: `${g.title} · ${l.mode} · ${l.t1}–${l.t2}`, text: S.notes[l.id] }))),
     hasNotes: Object.keys(S.notes).length > 0,
     message: S.message, onMessage: (e: ChangeEvent<HTMLTextAreaElement>) => setState({ message: e.target.value }), hasMessage: !!S.message.trim(),
-    send: () => { setState({ view: 'sent', accepted: false, sentAt: Date.now() }); window.scrollTo(0, 0); },
-    accept: () => { setState({ view: 'sent', accepted: true }); window.scrollTo(0, 0); },
-    restart: () => { setS(init(D, false, !!props.summaryCollapsed)); window.scrollTo(0, 0); },
+    send: async () => {
+      if (S.busy) return;
+      autosave.lock(); // this request carries the latest draft
+      setState({ busy: 'send', actionError: null });
+      try {
+        const p = await submitRevision(remote.quoteId, toDraft(S), remote.saveMode);
+        setState({ view: 'sent', accepted: false, sentAt: p.sentAt, busy: null }); window.scrollTo(0, 0);
+      } catch (e) { resumeSaving(); setState({ busy: null, actionError: { action: 'send', message: errorText(e) } }); }
+    },
+    accept: async () => {
+      if (S.busy) return;
+      autosave.lock();
+      setState({ busy: 'accept', actionError: null });
+      try {
+        await acceptQuote(remote.quoteId, remote.saveMode);
+        setState({ view: 'sent', accepted: true, busy: null }); window.scrollTo(0, 0);
+      } catch (e) { resumeSaving(); setState({ busy: null, actionError: { action: 'accept', message: errorText(e) } }); }
+    },
+    restart: async () => {
+      if (S.busy) return;
+      setState({ busy: 'restart' });
+      await resetProgress(remote.quoteId, remote.saveMode);
+      const fresh = init(D, false, !!props.summaryCollapsed, null);
+      autosave.unlock(toDraft(fresh));
+      setS(fresh); window.scrollTo(0, 0);
+    },
+    sending: S.busy === 'send', accepting: S.busy === 'accept', restarting: S.busy === 'restart',
+    sendError: S.actionError?.action === 'send' ? S.actionError.message : '',
+    acceptError: S.actionError?.action === 'accept' ? S.actionError.message : '',
     sentTitle: S.accepted ? `You’ve accepted ${agent}’s quotation` : `Your changes are with ${agent}`,
     sentPara: S.accepted ? `${agent} will start booking your trip as quoted and send payment details by email, usually within one working day.`
       : `Revision v${D.revision + 1} was sent on ${fmtMoment(new Date(S.sentAt ?? Date.now()))}. ` + (nConfirm ? `${agent} will check availability for ${nConfirm} change${nConfirm > 1 ? 's' : ''} marked “awaiting confirmation” and confirm the final price. ` : `Every change has a locked price, so ${agent} just needs to confirm. `) + 'You’ll get an email when the updated quotation is ready, usually within one working day.',
