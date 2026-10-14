@@ -27,7 +27,7 @@ export function Sidebar({ open, onToggle, user }: Props) {
         {open && <div style={{ display: 'flex', alignItems: 'center', gap: 10, whiteSpace: 'nowrap' }}><span style={{ fontFamily: SERIF, fontSize: '1.625rem', lineHeight: 1 }}>monsoon trails</span></div>}
       </div>
       <nav style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        {open && <div style={{ fontSize: '0.8125rem', fontWeight: 600, letterSpacing: '0.08em', color: '#98989B', padding: '0 8px 6px' }}>MENU</div>}
+        {open && <div style={{ fontSize: '0.8125rem', fontWeight: 600, letterSpacing: '0.08em', color: '#6B6E72', padding: '0 8px 6px' }}>MENU</div>}
         {NAV.map(item => (
           <a
             key={item.label}

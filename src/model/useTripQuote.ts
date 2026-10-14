@@ -187,7 +187,7 @@ export function useTripQuote(D: TripData, props: TripQuoteProps) {
           const sa = ST[a.status || 'included'];
           return { id: a.id, thumb: `#3E4145 center/cover url(${a.images[0] || s.img})`, name: a.name, time: `${a.start}–${a.end}`, isIncluded: !!a.included, isAdded: !a.included,
             priceLabel: rem ? 'Removed · ' + (a.credit ? R(a.credit) + ' credit' : 'no credit') : R(a.price) + ' · Included',
-            thumbOpacity: rem ? 0.45 : 1, nameColor: rem ? '#98989B' : '#1E1F21',
+            thumbOpacity: rem ? 0.45 : 1, nameColor: rem ? '#6B6E72' : '#1E1F21',
             stLabel: sa.label, stBg: sa.bg, stFg: sa.fg, deltaTxt: '↑ ' + R(a.price),
             actionLabel: rem ? 'Undo' : 'Remove',
             onAction: () => act(rem ? `${a.name} is back in your trip` : `${a.name} removed` + (a.included ? (a.credit ? ` · ${R(a.credit)} credit` : ' · no credit') : ''), st2 => a.included ? { removed: { ...st2.removed, [a.id]: !st2.removed[a.id] } } : { added: { ...st2.added, [a.id]: false } }) };

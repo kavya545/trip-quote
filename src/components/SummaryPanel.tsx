@@ -38,7 +38,7 @@ export function SummaryPanel(v: Props) {
         {v.noChanges && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {/* The prototype renders disabled="" which React treats as not disabled; aria-disabled keeps that exact look. */}
-            <button aria-disabled="true" style={{ height: 56, border: 0, borderRadius: 999, background: '#98989B', color: '#FFFFFF', fontSize: '1rem', fontWeight: 600, cursor: 'not-allowed' }}>Make a change to review</button>
+            <button aria-disabled="true" style={{ height: 56, border: 0, borderRadius: 999, background: '#6B6E72', color: '#FFFFFF', fontSize: '1rem', fontWeight: 600, cursor: 'not-allowed' }}>Make a change to review</button>
             <button onClick={v.accept} className="hover-bg-f2" style={{ height: 48, border: '1px solid #CFCFCD', borderRadius: 999, background: '#FFFFFF', color: '#1E1F21', fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer' }}>Accept quotation as sent</button>
           </div>
         )}

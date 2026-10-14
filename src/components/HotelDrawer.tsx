@@ -42,7 +42,7 @@ export function HotelDrawer({ hd }: { hd: HotelDrawerView }) {
                   {h.roomOpts.map(ro => <option key={ro.id} value={ro.id}>{ro.label}</option>)}
                 </select>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '1px solid #CFCFCD', borderRadius: 10, height: 42, padding: '0 4px' }}>
-                  <button onClick={hd.dec} aria-label="Fewer rooms" style={{ width: 30, height: 30, border: 0, background: 'none', fontSize: '1rem', color: '#98989B', cursor: 'pointer' }}>−</button>
+                  <button onClick={hd.dec} disabled={hd.rooms <= 1} aria-label="Fewer rooms" style={{ width: 30, height: 30, border: 0, background: 'none', fontSize: '1rem', color: '#1E1F21' }}>−</button>
                   <span style={{ fontFamily: MONO, fontSize: '0.875rem' }}>{hd.rooms} rm</span>
                   <button onClick={hd.inc} aria-label="More rooms" style={{ width: 30, height: 30, border: 0, background: 'none', fontSize: '1rem', color: '#1E1F21', cursor: 'pointer' }}>+</button>
                 </div>
