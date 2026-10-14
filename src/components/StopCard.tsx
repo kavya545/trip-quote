@@ -35,15 +35,16 @@ export function StopCard({ block: b }: { block: StopBlock }) {
                   <div><div style={label}>Price</div><div style={{ fontFamily: MONO, fontSize: '0.9375rem' }}>{h.price}</div></div>
                 </div>
                 {h.changed && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 10 }}>
                     <span style={{ fontSize: '0.875rem', color: '#5F6266', textDecoration: 'line-through' }}>Was {h.was}</span>
-                    {h.hasDelta && (
-                      <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15, color: h.deltaColor }}>
-                        <span style={{ fontFamily: MONO, fontSize: '0.875rem', fontWeight: 600 }}>{h.deltaTxt}</span>
-                        <span style={{ fontSize: '0.8125rem' }}>{h.deltaWord}</span>
-                      </span>
-                    )}
-                    <span style={{ borderRadius: 999, padding: '4px 12px', fontSize: '0.8125rem', fontWeight: 600, whiteSpace: 'nowrap', background: h.stBg, color: h.stFg }}>{h.stLabel}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px 14px', flexWrap: 'wrap' }}>
+                      {h.hasDelta && (
+                        <span style={{ fontSize: '0.875rem', color: h.deltaColor, whiteSpace: 'nowrap' }}>
+                          <span style={{ fontFamily: MONO, fontWeight: 600 }}>{h.deltaTxt}</span>{' ' + h.deltaWord.toLowerCase()}
+                        </span>
+                      )}
+                      <span style={{ borderRadius: 999, padding: '4px 12px', fontSize: '0.8125rem', fontWeight: 600, whiteSpace: 'nowrap', background: h.stBg, color: h.stFg }}>{h.stLabel}</span>
+                    </div>
                   </div>
                 )}
               </div>
