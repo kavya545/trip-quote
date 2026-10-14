@@ -67,4 +67,4 @@ The very first Claude Design conversation (steps 1 and 2) was lost, so those ear
 
 Claude Design for drafting, Figma for refinement and tokens, Claude Code for the real build and deployment.
 
-Made by Kavya Shrivastava.
+Made by Kavya Srivastava.
