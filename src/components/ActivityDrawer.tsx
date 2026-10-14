@@ -5,7 +5,7 @@ import { PhotoCarousel } from './PhotoCarousel';
 
 const time = { fontFamily: MONO, fontSize: 14, color: '#3E4145' } as const;
 
-export function ActivityDrawer({ ad }: { ad: ActDrawerView }) {
+export function ActivityDrawer({ ad, adultsLabel }: { ad: ActDrawerView; adultsLabel: string }) {
   return <>
     {ad.included.map(a => (
       <div key={a.id} style={card('2px solid #1E1F21')}>
@@ -34,7 +34,7 @@ export function ActivityDrawer({ ad }: { ad: ActDrawerView }) {
             <div style={{ textAlign: 'right', flex: 'none', lineHeight: 1.3 }}>
               <div style={{ fontFamily: MONO, fontSize: 18, fontWeight: 500, color: '#B8433B' }}>{o.deltaTxt}</div>
               <div style={{ fontSize: 13, color: '#B8433B' }}>Higher</div>
-              <div style={{ fontSize: 12, color: '#5F6266' }}>for 2 adults</div>
+              <div style={{ fontSize: 12, color: '#5F6266' }}>for {adultsLabel}</div>
             </div>
           </div>
           <div style={blurb}>{o.blurb}</div>

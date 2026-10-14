@@ -2,12 +2,12 @@ import type { ChangeEventHandler } from 'react';
 import type { SegBlock } from '../model/useTripQuote';
 import { MONO, linkButton } from '../styles';
 
-interface Props { block: SegBlock; draft: string; onDraft: ChangeEventHandler<HTMLTextAreaElement>; onCancel: () => void }
+interface Props { block: SegBlock; agent: string; draft: string; onDraft: ChangeEventHandler<HTMLTextAreaElement>; onCancel: () => void }
 
 const dot = <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#1E1F21' }} />;
 const rule = <span style={{ flex: 1, height: 1, background: '#B5B7BA' }} />;
 
-export function SegmentCard({ block: b, draft, onDraft, onCancel }: Props) {
+export function SegmentCard({ block: b, agent, draft, onDraft, onCancel }: Props) {
   return (
     <div style={{ background: '#E4E4E2', borderRadius: 24, padding: 10, display: 'flex', flexDirection: 'column', gap: 10 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', padding: '14px 18px 8px' }}>
@@ -39,7 +39,7 @@ export function SegmentCard({ block: b, draft, onDraft, onCancel }: Props) {
           )}
           {l.isEditing && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <textarea placeholder="This part is booked as planned. Ask Priya about timing, flexibility or special requests." value={draft} onChange={onDraft} style={{ minHeight: 76, border: '1px solid #CFCFCD', borderRadius: 12, padding: '10px 12px', fontSize: 14, resize: 'vertical', color: '#1E1F21' }} />
+              <textarea placeholder={`This part is booked as planned. Ask ${agent} about timing, flexibility or special requests.`} value={draft} onChange={onDraft} style={{ minHeight: 76, border: '1px solid #CFCFCD', borderRadius: 12, padding: '10px 12px', fontSize: 14, resize: 'vertical', color: '#1E1F21' }} />
               <div style={{ display: 'flex', gap: 8 }}>
                 <button onClick={l.onSave} style={{ background: '#1E1F21', color: '#FFFFFF', border: 0, borderRadius: 999, padding: '9px 18px', fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Save note</button>
                 <button onClick={onCancel} style={{ background: '#FFFFFF', color: '#1E1F21', border: '1px solid #CFCFCD', borderRadius: 999, padding: '9px 18px', fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Cancel</button>

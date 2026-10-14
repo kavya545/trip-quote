@@ -1,15 +1,16 @@
+import type { TripView } from '../model/useTripQuote';
 import { SERIF } from '../styles';
 
 interface Badge { has: boolean; label: string }
-interface Props { kochi: Badge; munnar: Badge; alleppey: Badge }
+interface Props { route: TripView['route']; homeCity: string; startDay: string; endDay: string }
 
 const col = { display: 'flex', flexDirection: 'column', alignItems: 'center' } as const;
 
-function Endpoint({ date }: { date: string }) {
+function Endpoint({ city, date }: { city: string; date: string }) {
   return (
     <div style={{ ...col, gap: 4, minWidth: 80 }}>
       <span style={{ width: 12, height: 12, border: '1.5px solid #1E1F21', borderRadius: '50%', margin: '8px 0 6px' }} />
-      <span style={{ fontSize: 15, fontWeight: 600 }}>Bengaluru</span>
+      <span style={{ fontSize: 15, fontWeight: 600 }}>{city}</span>
       <span style={{ fontSize: 12, color: '#5F6266' }}>{date}</span>
     </div>
   );
@@ -39,18 +40,18 @@ function Connector({ label, when, nowrap }: { label: string; when: string; nowra
   );
 }
 
-export function RouteStrip({ kochi, munnar, alleppey }: Props) {
+/** Long connector labels ("Car + cruise · 6 h") get a wider minimum column, as in the design. */
+const legColumn = (label: string) => `minmax(${label.length > 16 ? 140 : 120}px,1fr)`;
+
+export function RouteStrip({ route, homeCity, startDay, endDay }: Props) {
+  const columns = ['auto', ...route.map(r => r.kind === 'leg' ? legColumn(r.label) : 'auto'), 'auto'].join(' ');
   return (
-    <section style={{ margin: '32px clamp(16px,4vw,40px)', background: '#FFFFFF', borderRadius: 24, padding: 'clamp(20px,4vw,36px) clamp(20px,4vw,48px)', display: 'grid', gridTemplateColumns: 'auto minmax(120px,1fr) auto minmax(120px,1fr) auto minmax(140px,1fr) auto minmax(120px,1fr) auto', alignItems: 'start', gap: 12, overflowX: 'auto' }}>
-      <Endpoint date="Tue 10 Nov" />
-      <Connector label="Flight · 1h 10m" when="10 Nov · 10:50" nowrap />
-      <City name="Kochi" dates="10–12 Nov" badge={kochi} />
-      <Connector label="Car · 4.5 h" when="12 Nov" />
-      <City name="Munnar" dates="12–14 Nov" badge={munnar} />
-      <Connector label="Car + cruise · 6 h" when="14 Nov" />
-      <City name="Alleppey" dates="14–15 Nov" badge={alleppey} />
-      <Connector label="Train + flight" when="15 Nov · 14:20" nowrap />
-      <Endpoint date="Sun 15 Nov" />
+    <section style={{ margin: '32px clamp(16px,4vw,40px)', background: '#FFFFFF', borderRadius: 24, padding: 'clamp(20px,4vw,36px) clamp(20px,4vw,48px)', display: 'grid', gridTemplateColumns: columns, alignItems: 'start', gap: 12, overflowX: 'auto' }}>
+      <Endpoint city={homeCity} date={startDay} />
+      {route.map(r => r.kind === 'leg'
+        ? <Connector key={r.key} label={r.label} when={r.when} nowrap={r.hasTime} />
+        : <City key={r.key} name={r.name} dates={r.dates} badge={r.badge} />)}
+      <Endpoint city={homeCity} date={endDay} />
     </section>
   );
 }

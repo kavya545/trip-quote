@@ -17,3 +17,9 @@ button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible
 .hover-bg-3e:hover{background:#3E4145 !important}
 .hover-bg-e4:hover{background:#E4E4E2 !important}
 .hover-underline:hover{text-decoration:underline !important}
+
+/* Loading placeholders */
+@keyframes skeleton-pulse{0%,100%{opacity:1}50%{opacity:.55}}
+.skeleton{display:block;animation:skeleton-pulse 1.4s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.skeleton{animation:none}}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}

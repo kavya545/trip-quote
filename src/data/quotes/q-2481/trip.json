@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schema/trip.schema.json",
+  "id": "Q-2481",
+  "revision": 1,
+  "title": "Kerala: coast, tea hills & backwaters",
+  "region": "Kerala",
+  "heroImage": "assets/hero-backwaters.jpg",
+  "homeCity": "Bengaluru",
+  "startDate": "2026-11-10",
+  "endDate": "2026-11-15",
+  "sentAt": "2026-09-28",
+  "validUntil": "2026-10-06",
+  "includes": [
+    "Flights",
+    "stays",
+    "transfers",
+    "activities"
+  ],
+  "travellers": [
+    {
+      "name": "Ananya",
+      "initials": "AR",
+      "type": "adult"
+    },
+    {
+      "name": "Rohan",
+      "initials": "R",
+      "type": "adult"
+    }
+  ],
+  "agent": {
+    "name": "Priya Nair",
+    "possessive": "her"
+  },
+  "itinerary": [
+    "seg:arr",
+    "stop:kochi",
+    "seg:km",
+    "stop:munnar",
+    "seg:ma",
+    "stop:alleppey",
+    "seg:dep"
+  ]
+}

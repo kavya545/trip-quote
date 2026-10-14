@@ -1,0 +1,268 @@
+{
+  "$schema": "../../schema/stops.schema.json",
+  "stops": [
+    {
+      "id": "kochi",
+      "name": "Kochi",
+      "image": "assets/stop-kochi.jpg",
+      "checkIn": "2026-11-10",
+      "checkOut": "2026-11-12",
+      "kind": "hotel",
+      "original": {
+        "hotel": "harbour",
+        "room": "deluxe"
+      },
+      "dayTitles": [
+        "Arrive and settle in",
+        "Old Fort Kochi"
+      ],
+      "hotels": [
+        {
+          "id": "harbour",
+          "name": "Harbour House",
+          "image": "assets/hotel-harbour-house.jpg",
+          "meta": "4★ heritage · Fort Kochi heritage quarter",
+          "meals": "Breakfast",
+          "status": "locked",
+          "blurb": "A restored colonial house a short walk from the Chinese fishing nets.",
+          "features": [
+            "Sea view",
+            "Walk to sights"
+          ],
+          "rooms": [
+            {
+              "id": "deluxe",
+              "name": "Deluxe sea-facing",
+              "rate": 9500
+            },
+            {
+              "id": "court",
+              "name": "Heritage courtyard room",
+              "rate": 8200
+            }
+          ]
+        },
+        {
+          "id": "lagoon",
+          "name": "Lagoon View Inn",
+          "image": "assets/hotel-lagoon-view.jpg",
+          "meta": "3★ · Willingdon Island, 10 min drive",
+          "meals": "Breakfast",
+          "status": "locked",
+          "blurb": "A quiet, modern inn on the island with a pool, a short drive from the old town.",
+          "features": [
+            "Pool",
+            "Quiet"
+          ],
+          "rooms": [
+            {
+              "id": "std",
+              "name": "Standard double",
+              "rate": 7400
+            },
+            {
+              "id": "sup",
+              "name": "Superior lagoon-facing",
+              "rate": 8600
+            }
+          ]
+        },
+        {
+          "id": "spiceQuay",
+          "name": "Spice Quay Residency",
+          "image": "assets/stop-kochi.jpg",
+          "meta": "4★ · Mattancherry, by the old spice warehouses",
+          "meals": "Breakfast",
+          "status": "confirm",
+          "blurb": "A converted spice godown on the water, a short walk from Jew Town and the Dutch Palace.",
+          "features": [
+            "Waterfront",
+            "Pool"
+          ],
+          "rooms": [
+            {
+              "id": "quay",
+              "name": "Quay-view room",
+              "rate": 10800
+            },
+            {
+              "id": "loft",
+              "name": "Warehouse loft",
+              "rate": 12400
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "munnar",
+      "name": "Munnar",
+      "image": "assets/stop-munnar.jpg",
+      "checkIn": "2026-11-12",
+      "checkOut": "2026-11-14",
+      "kind": "hotel",
+      "original": {
+        "hotel": "teaRidge",
+        "room": "valley"
+      },
+      "dayTitles": [
+        "Afternoon in the tea hills",
+        "Parks and plantations"
+      ],
+      "hotels": [
+        {
+          "id": "teaRidge",
+          "name": "Tea Ridge Resort",
+          "image": "assets/act-eravikulam.jpg",
+          "meta": "4★ · Chithirapuram, 15 min from town",
+          "meals": "Breakfast",
+          "status": "locked",
+          "blurb": "A hillside resort with terraced rooms looking over the tea valley.",
+          "features": [
+            "Valley view",
+            "Restaurant"
+          ],
+          "rooms": [
+            {
+              "id": "valley",
+              "name": "Valley-view room",
+              "rate": 11000
+            },
+            {
+              "id": "suite",
+              "name": "Valley suite",
+              "rate": 13800
+            }
+          ]
+        },
+        {
+          "id": "misty",
+          "name": "Misty Hills Plantation Bungalow",
+          "image": "assets/stop-munnar.jpg",
+          "meta": "Boutique · Pothamedu, on a cardamom estate",
+          "meals": "Breakfast & dinner",
+          "status": "confirm",
+          "blurb": "Four cottages on a working cardamom estate, with estate walks and dinner on the verandah.",
+          "features": [
+            "Estate walks",
+            "Very quiet"
+          ],
+          "rooms": [
+            {
+              "id": "cottage",
+              "name": "Private cottage",
+              "rate": 16800
+            }
+          ]
+        },
+        {
+          "id": "copperHill",
+          "name": "Copper Hill Retreat",
+          "image": "assets/act-sunrise-jeep.jpg",
+          "meta": "3★ · Anachal, 20 min from town",
+          "meals": "Breakfast",
+          "status": "locked",
+          "blurb": "A simple, friendly hillside stay with balconies facing the sunrise over the valley.",
+          "features": [
+            "Sunrise view",
+            "Good value"
+          ],
+          "rooms": [
+            {
+              "id": "std",
+              "name": "Standard room",
+              "rate": 7600
+            },
+            {
+              "id": "view",
+              "name": "Valley balcony room",
+              "rate": 8900
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alleppey",
+      "name": "Alleppey",
+      "image": "assets/stop-alleppey.jpg",
+      "checkIn": "2026-11-14",
+      "checkOut": "2026-11-15",
+      "kind": "houseboat",
+      "original": {
+        "hotel": "kettu",
+        "room": "one"
+      },
+      "dayTitles": [
+        "On the backwaters"
+      ],
+      "hotels": [
+        {
+          "id": "kettu",
+          "name": "Kettuvallam houseboat",
+          "image": "assets/hero-backwaters.jpg",
+          "meta": "Private boat · Vembanad Lake",
+          "meals": "All meals",
+          "status": "locked",
+          "blurb": "A private rice-barge houseboat with its own crew and cook, moored overnight on the lake.",
+          "features": [
+            "Private crew",
+            "Lake views"
+          ],
+          "rooms": [
+            {
+              "id": "one",
+              "name": "1-bedroom boat",
+              "rate": 12500
+            },
+            {
+              "id": "deck",
+              "name": "1-bedroom boat with upper deck",
+              "rate": 15200
+            }
+          ]
+        },
+        {
+          "id": "kayal",
+          "name": "Kayal Lakeside Villas",
+          "image": "assets/stop-alleppey.jpg",
+          "meta": "4★ · Punnamada, on the lakefront",
+          "meals": "Breakfast",
+          "status": "confirm",
+          "blurb": "Stay on land instead: villas on the lake edge, with a sunset shikara ride included.",
+          "features": [
+            "Pool",
+            "Shikara ride"
+          ],
+          "rooms": [
+            {
+              "id": "villa",
+              "name": "Lake-view villa",
+              "rate": 11200
+            }
+          ]
+        },
+        {
+          "id": "kainakary",
+          "name": "Kainakary Island Homestay",
+          "image": "assets/hotel-lagoon-view.jpg",
+          "meta": "Homestay · Kainakary, reached by boat",
+          "meals": "All meals",
+          "status": "locked",
+          "blurb": "A family-run homestay on a paddy island, with home-cooked Kerala meals and village walks.",
+          "features": [
+            "Home cooking",
+            "Village walks"
+          ],
+          "rooms": [
+            {
+              "id": "garden",
+              "name": "Garden room",
+              "rate": 6800
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

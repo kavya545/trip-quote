@@ -33,10 +33,10 @@ export function Planner({ v }: { v: TripView }) {
         </div>
 
         {v.isTrip && v.blocks.map(b => b.isSeg
-          ? <SegmentCard key={b.key} block={b} draft={v.draft} onDraft={v.onDraft} onCancel={v.cancelNote} />
+          ? <SegmentCard key={b.key} block={b} agent={v.agent} draft={v.draft} onDraft={v.onDraft} onCancel={v.cancelNote} />
           : <StopCard key={b.key} block={b} />)}
 
-        {v.isChanges && <ChangesView compare={v.compare} noChanges={v.noChanges} />}
+        {v.isChanges && <ChangesView compare={v.compare} noChanges={v.noChanges} agent={v.agent} />}
       </div>
 
       <SummaryPanel {...v} />

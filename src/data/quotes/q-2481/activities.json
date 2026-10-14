@@ -1,0 +1,239 @@
+{
+  "$schema": "../../schema/activities.schema.json",
+  "activities": [
+    {
+      "id": "kathakali",
+      "stop": "kochi",
+      "date": "2026-11-10",
+      "name": "Kathakali performance",
+      "start": "18:00",
+      "end": "19:30",
+      "price": 2400,
+      "included": true,
+      "credit": 0,
+      "blurb": "Classical dance-drama at a small Fort Kochi theatre; come early to watch the make-up.",
+      "images": [
+        "assets/a/kathakali.jpg",
+        "assets/a/kathakali-2.jpg"
+      ]
+    },
+    {
+      "id": "harbourCruise",
+      "stop": "kochi",
+      "date": "2026-11-10",
+      "name": "Sunset harbour cruise",
+      "start": "16:30",
+      "end": "17:45",
+      "price": 2200,
+      "status": "locked",
+      "blurb": "An hour on the harbour, past the Chinese fishing nets as the light goes.",
+      "images": [
+        "assets/a/harbourCruise.jpg",
+        "assets/a/harbourCruise-2.jpg"
+      ]
+    },
+    {
+      "id": "heritage",
+      "stop": "kochi",
+      "date": "2026-11-11",
+      "name": "Fort Kochi heritage walk",
+      "start": "08:30",
+      "end": "11:00",
+      "price": 1800,
+      "included": true,
+      "credit": 0,
+      "blurb": "A guided walk through the Dutch Palace lanes, old churches and spice warehouses.",
+      "images": [
+        "assets/a/heritage.jpg",
+        "assets/a/heritage-2.jpg"
+      ]
+    },
+    {
+      "id": "cooking",
+      "stop": "kochi",
+      "date": "2026-11-11",
+      "name": "Kerala home cooking class",
+      "start": "17:00",
+      "end": "19:30",
+      "price": 3200,
+      "status": "locked",
+      "blurb": "Cook and share a Kerala dinner with a family in Mattancherry.",
+      "images": [
+        "assets/a/cooking.jpg",
+        "assets/a/cooking-2.jpg"
+      ]
+    },
+    {
+      "id": "tea",
+      "stop": "munnar",
+      "date": "2026-11-12",
+      "name": "Tea museum & factory visit",
+      "start": "15:00",
+      "end": "16:30",
+      "price": 1000,
+      "included": true,
+      "credit": 1000,
+      "blurb": "See leaf turn into tea at a working factory, then taste the estate’s grades.",
+      "images": [
+        "assets/a/tea.jpg",
+        "assets/a/tea-2.jpg"
+      ]
+    },
+    {
+      "id": "eravikulam",
+      "stop": "munnar",
+      "date": "2026-11-13",
+      "name": "Eravikulam National Park",
+      "start": "09:00",
+      "end": "12:00",
+      "price": 1600,
+      "included": true,
+      "credit": 1600,
+      "blurb": "Park shuttle and entry to the Nilgiri tahr grasslands.",
+      "images": [
+        "assets/a/eravikulam.jpg",
+        "assets/a/eravikulam-2.jpg"
+      ]
+    },
+    {
+      "id": "jeep",
+      "stop": "munnar",
+      "date": "2026-11-13",
+      "name": "Sunrise jeep & trek, Kolukkumalai",
+      "start": "04:30",
+      "end": "10:00",
+      "price": 6400,
+      "status": "confirm",
+      "extra": "few spots",
+      "warn": "Weather-dependent; the operator confirms the day before.",
+      "blurb": "A jeep up to Kolukkumalai for sunrise over the tea estates, then a guided trek.",
+      "images": [
+        "assets/a/sunrise-jeep.jpg",
+        "assets/a/sunrise-jeep-2.jpg"
+      ]
+    },
+    {
+      "id": "spice",
+      "stop": "munnar",
+      "date": "2026-11-13",
+      "name": "Cardamom estate walk",
+      "start": "15:00",
+      "end": "17:00",
+      "price": 1400,
+      "status": "locked",
+      "blurb": "A planter walks you through cardamom, pepper and coffee growing under shade trees.",
+      "images": [
+        "assets/a/spice.jpg",
+        "assets/a/spice-2.jpg"
+      ]
+    },
+    {
+      "id": "chinesenets",
+      "stop": "kochi",
+      "date": "2026-11-10",
+      "name": "Chinese fishing nets at dawn",
+      "start": "06:00",
+      "end": "07:30",
+      "price": 1200,
+      "status": "locked",
+      "blurb": "Help the fishermen haul the giant cantilevered nets, then breakfast on the beach.",
+      "images": [
+        "assets/a/chinesenets.jpg",
+        "assets/a/chinesenets-2.jpg"
+      ]
+    },
+    {
+      "id": "spicemarket",
+      "stop": "kochi",
+      "date": "2026-11-11",
+      "name": "Jew Town spice market trail",
+      "start": "12:00",
+      "end": "14:00",
+      "price": 1600,
+      "status": "locked",
+      "blurb": "Taste pepper, cardamom and cinnamon with a local guide, ending at the Paradesi synagogue.",
+      "images": [
+        "assets/a/spicemarket.jpg",
+        "assets/a/spicemarket-2.jpg"
+      ]
+    },
+    {
+      "id": "mattupetty",
+      "stop": "munnar",
+      "date": "2026-11-12",
+      "name": "Mattupetty dam & echo point",
+      "start": "09:30",
+      "end": "12:30",
+      "price": 2200,
+      "status": "locked",
+      "blurb": "A drive up to the lake for a short boat ride and a walk to the echo point.",
+      "images": [
+        "assets/a/mattupetty.jpg",
+        "assets/a/mattupetty-2.jpg"
+      ]
+    },
+    {
+      "id": "ayurveda",
+      "stop": "munnar",
+      "date": "2026-11-13",
+      "name": "Ayurvedic massage",
+      "start": "18:00",
+      "end": "19:30",
+      "price": 4800,
+      "status": "confirm",
+      "extra": "pick a time slot",
+      "blurb": "A 75-minute abhyanga oil massage for two at a certified centre near town.",
+      "images": [
+        "assets/a/ayurveda.jpg",
+        "assets/a/ayurveda-2.jpg"
+      ]
+    },
+    {
+      "id": "toddy",
+      "stop": "alleppey",
+      "date": "2026-11-14",
+      "name": "Toddy shop lunch",
+      "start": "12:30",
+      "end": "14:00",
+      "price": 1400,
+      "status": "locked",
+      "blurb": "Karimeen fry, tapioca and fish curry at a canal-side toddy shop, reached by boat.",
+      "images": [
+        "assets/a/toddy.jpg",
+        "assets/a/toddy-2.jpg"
+      ]
+    },
+    {
+      "id": "sunsetshikara",
+      "stop": "alleppey",
+      "date": "2026-11-14",
+      "name": "Sunset shikara ride",
+      "start": "17:30",
+      "end": "18:30",
+      "price": 2000,
+      "status": "confirm",
+      "extra": "weather-dependent",
+      "blurb": "A covered shikara out to Vembanad Lake to watch the sun go down over the paddy fields.",
+      "images": [
+        "assets/a/sunsetshikara.jpg",
+        "assets/a/sunsetshikara-2.jpg"
+      ]
+    },
+    {
+      "id": "canoe",
+      "stop": "alleppey",
+      "date": "2026-11-14",
+      "name": "Village canoe ride",
+      "start": "16:00",
+      "end": "17:30",
+      "price": 1800,
+      "status": "confirm",
+      "extra": "paddled by a local boatman",
+      "blurb": "A narrow canoe through village canals too small for the houseboats.",
+      "images": [
+        "assets/a/canoe.jpg",
+        "assets/a/canoe-2.jpg"
+      ]
+    }
+  ]
+}

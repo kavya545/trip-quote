@@ -3,13 +3,13 @@ import { MONO, SERIF } from '../styles';
 
 const grid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,130px),1fr))' } as const;
 
-export function ChangesView({ compare, noChanges }: { compare: TripView['compare']; noChanges: boolean }) {
+export function ChangesView({ compare, noChanges, agent }: { compare: TripView['compare']; noChanges: boolean; agent: string }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       <div style={{ ...grid, gap: '8px 24px', fontSize: 14, color: '#5F6266', padding: '4px clamp(16px,3vw,28px) 0' }}>
         <span /><span>Original · v1</span><span>Revised</span><span style={{ textAlign: 'right' }}>Difference</span>
       </div>
-      {noChanges && <div style={{ fontSize: 14, color: '#5F6266', padding: '0 20px' }}>No changes yet. This is Priya’s plan as sent.</div>}
+      {noChanges && <div style={{ fontSize: 14, color: '#5F6266', padding: '0 20px' }}>No changes yet. This is {agent}’s plan as sent.</div>}
       {compare.map(c => (
         <div key={c.title} style={{ background: '#FFFFFF', border: '1px solid #E4E4E2', borderRadius: 16, overflow: 'hidden' }}>
           <div style={{ background: '#F2F2F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px 12px', padding: 'clamp(16px,2.5vw,22px) clamp(16px,3vw,28px)' }}>

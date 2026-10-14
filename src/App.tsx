@@ -1,33 +1,45 @@
-import { useTripQuote, type TripQuoteProps } from './model/useTripQuote';
-import { Drawer } from './components/Drawer';
-import { Hero } from './components/Hero';
-import { Planner } from './components/Planner';
-import { ReviewView } from './components/ReviewView';
-import { RouteStrip } from './components/RouteStrip';
-import { SentView } from './components/SentView';
+import { useState } from 'react';
+import type { Scenario } from './api/mockApi';
+import { useQuote } from './api/useQuote';
 import { Sidebar } from './components/Sidebar';
-import { StepBar } from './components/StepBar';
-import { Toast } from './components/Toast';
-import { TopBar } from './components/TopBar';
+import { QuoteSkeleton, StatusMessage } from './components/StatusViews';
+import { TripQuote } from './components/TripQuote';
+import type { TripQuoteProps } from './model/useTripQuote';
 
-export default function App(props: TripQuoteProps) {
-  const v = useTripQuote(props);
+export interface AppProps extends TripQuoteProps {
+  quoteId: string;
+  /** Forces a mock API response, e.g. to see the error state. */
+  scenario?: Scenario;
+  /** Fixed mock API delay in ms instead of the default short random one. */
+  delayMs?: number;
+}
+
+export default function App({ quoteId, scenario, delayMs, ...props }: AppProps) {
+  const [navOpen, setNavOpen] = useState(false);
+  const q = useQuote(quoteId, scenario, delayMs);
+  const data = q.status === 'ready' ? q.data : null;
+  const user = data && { ...data.user, subtitle: `${data.id} · ${data.region}` };
+
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: `${v.navW} minmax(0,1fr)`, transition: 'grid-template-columns .2s ease', minHeight: '100vh', background: '#F2F2F2', color: '#1E1F21', fontFamily: 'Manrope,system-ui,sans-serif' }}>
-      <Sidebar open={v.navOpen} padX={v.navPadX} justify={v.navJustify} toggleLabel={v.navToggleLabel} chevron={v.navChevron} onToggle={v.toggleNav} />
-      <main style={{ minWidth: 0 }}>
-        <TopBar />
-        <Hero quoteLabel={v.quoteLabel} perPerson={v.perPerson} totalLine={v.totalLine} />
-        <RouteStrip kochi={v.routeKochi} munnar={v.routeMunnar} alleppey={v.routeAlleppey} />
-        <StepBar steps={v.steps} />
-        <div style={{ padding: 'clamp(28px,4vw,48px) clamp(16px,4vw,40px) 112px', maxWidth: 1520 }}>
-          {v.isPlanner && <Planner v={v} />}
-          {v.isReview && <ReviewView {...v} />}
-          {v.isSent && <SentView {...v} />}
-        </div>
-      </main>
-      {v.hasToast && <Toast msg={v.toastMsg} total={v.toastTotal} onUndo={v.undoToast} onClose={v.closeToast} />}
-      {v.drawerOpen && <Drawer {...v} />}
+    <div style={{ display: 'grid', gridTemplateColumns: `${navOpen ? '232px' : '80px'} minmax(0,1fr)`, transition: 'grid-template-columns .2s ease', minHeight: '100vh', background: '#F2F2F2', color: '#1E1F21', fontFamily: 'Manrope,system-ui,sans-serif' }}>
+      <Sidebar open={navOpen} onToggle={() => setNavOpen(o => !o)} user={user} />
+      {q.status === 'loading' && <QuoteSkeleton />}
+      {q.status === 'error' && (
+        <StatusMessage kind="error" title="We couldn’t load your quotation" action={{ label: 'Try again', onClick: q.retry }}>
+          {q.error.message} Check your connection and try again.
+        </StatusMessage>
+      )}
+      {q.status === 'notfound' && (
+        <StatusMessage kind="empty" title="We couldn’t find this quotation">
+          The link may be out of date. Ask your travel planner to send it again.
+        </StatusMessage>
+      )}
+      {data && data.isEmpty && (
+        <StatusMessage kind="empty" title="Nothing in this quotation yet">
+          {data.agentFirstName} is still putting your {data.region} trip together. You’ll get an email when it’s ready to review.
+        </StatusMessage>
+      )}
+      {data && !data.isEmpty && <TripQuote data={data} {...props} />}
     </div>
   );
 }

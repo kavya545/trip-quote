@@ -1,0 +1,214 @@
+{
+  "$schema": "../../schema/segments.schema.json",
+  "segments": [
+    {
+      "id": "arr",
+      "date": "2026-11-10",
+      "title": "Arrive in Kochi",
+      "mode": "Flight + airport pickup",
+      "category": "flights",
+      "summaryLabel": "Arrival in Kochi",
+      "strip": {
+        "label": "Flight",
+        "durationLegs": [
+          "f1"
+        ],
+        "timeLeg": {
+          "leg": "f1",
+          "at": "arrival"
+        }
+      },
+      "legs": [
+        {
+          "id": "f1",
+          "mode": "Flight",
+          "from": {
+            "code": "BLR",
+            "place": "Bengaluru",
+            "time": "09:40"
+          },
+          "to": {
+            "code": "COK",
+            "place": "Kochi",
+            "time": "10:50"
+          },
+          "price": 8600,
+          "description": "IndiGo · 6E 614 · Economy",
+          "comparison": "Bengaluru → Kochi, IndiGo 6E 614 · economy"
+        },
+        {
+          "id": "c1",
+          "mode": "Car",
+          "from": {
+            "code": "COK",
+            "place": "Kochi airport",
+            "time": "11:30"
+          },
+          "to": {
+            "code": "Fort Kochi",
+            "place": "Your hotel",
+            "time": "12:30"
+          },
+          "approximate": true,
+          "price": 1900,
+          "description": "Sedan · English-speaking driver",
+          "comparison": "Private car, Kochi airport → your hotel"
+        }
+      ]
+    },
+    {
+      "id": "km",
+      "date": "2026-11-12",
+      "title": "Kochi → Munnar",
+      "mode": "By private car",
+      "category": "transfers",
+      "summaryLabel": "Kochi → Munnar",
+      "strip": {
+        "label": "Car",
+        "durationLegs": [
+          "c2"
+        ]
+      },
+      "legs": [
+        {
+          "id": "c2",
+          "mode": "Car",
+          "from": {
+            "code": "Kochi",
+            "place": "Your hotel",
+            "time": "08:30"
+          },
+          "to": {
+            "code": "Munnar",
+            "place": "Your hotel",
+            "time": "13:00"
+          },
+          "price": 4800,
+          "description": "Private SUV · Waterfall + lunch stop",
+          "comparison": "Private SUV, Kochi → Munnar"
+        }
+      ]
+    },
+    {
+      "id": "ma",
+      "date": "2026-11-14",
+      "title": "Munnar → Alleppey",
+      "mode": "By car, then a backwater cruise",
+      "category": "transfers",
+      "summaryLabel": "Munnar → Alleppey",
+      "strip": {
+        "label": "Car + cruise",
+        "durationLegs": [
+          "c3",
+          "b1"
+        ]
+      },
+      "legs": [
+        {
+          "id": "c3",
+          "mode": "Car",
+          "from": {
+            "code": "Munnar",
+            "place": "Your hotel",
+            "time": "07:30"
+          },
+          "to": {
+            "code": "Kottayam",
+            "place": "Boat jetty",
+            "time": "11:00"
+          },
+          "price": 3600,
+          "description": "Private SUV · Tea break",
+          "comparison": "Private SUV, Munnar → Kottayam jetty"
+        },
+        {
+          "id": "b1",
+          "mode": "Cruise",
+          "from": {
+            "code": "Kottayam",
+            "place": "Boat jetty",
+            "time": "11:30"
+          },
+          "to": {
+            "code": "Alleppey",
+            "place": "Houseboat",
+            "time": "14:00"
+          },
+          "price": 1400,
+          "description": "Shared cruiser · Lunch on board",
+          "comparison": "Shared cruiser, Kottayam → Alleppey"
+        }
+      ]
+    },
+    {
+      "id": "dep",
+      "date": "2026-11-15",
+      "title": "Fly home from Kochi",
+      "mode": "Train, car + flight home",
+      "category": "flights",
+      "summaryLabel": "Departure from Kochi",
+      "strip": {
+        "label": "Train + flight",
+        "durationLegs": [],
+        "timeLeg": {
+          "leg": "f2",
+          "at": "departure"
+        }
+      },
+      "legs": [
+        {
+          "id": "t1",
+          "mode": "Train",
+          "from": {
+            "code": "ALLP",
+            "place": "Alleppey",
+            "time": "09:05"
+          },
+          "to": {
+            "code": "ERS",
+            "place": "Ernakulam Jn",
+            "time": "10:15"
+          },
+          "price": 900,
+          "description": "Intercity Express · AC chair car",
+          "comparison": "Intercity Express, Alleppey → Ernakulam"
+        },
+        {
+          "id": "c4",
+          "mode": "Car",
+          "from": {
+            "code": "ERS",
+            "place": "Ernakulam Jn",
+            "time": "10:30"
+          },
+          "to": {
+            "code": "COK",
+            "place": "Kochi airport",
+            "time": "11:30"
+          },
+          "approximate": true,
+          "price": 1600,
+          "description": "Sedan · English-speaking driver",
+          "comparison": "Private car, Ernakulam → Kochi airport"
+        },
+        {
+          "id": "f2",
+          "mode": "Flight",
+          "from": {
+            "code": "COK",
+            "place": "Kochi",
+            "time": "14:20"
+          },
+          "to": {
+            "code": "BLR",
+            "place": "Bengaluru",
+            "time": "15:30"
+          },
+          "price": 10100,
+          "description": "IndiGo · 6E 615 · Economy",
+          "comparison": "Kochi → Bengaluru, IndiGo 6E 615 · economy"
+        }
+      ]
+    }
+  ]
+}

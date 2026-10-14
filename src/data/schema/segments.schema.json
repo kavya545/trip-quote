@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "flights",
+              "transfers"
+            ]
+          },
+          "summaryLabel": {
+            "type": "string"
+          },
+          "strip": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "durationLegs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": "Legs whose durations add up to the route-strip duration"
+              },
+              "timeLeg": {
+                "type": "object",
+                "properties": {
+                  "leg": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "at": {
+                    "type": "string",
+                    "enum": [
+                      "departure",
+                      "arrival"
+                    ]
+                  }
+                },
+                "required": [
+                  "leg",
+                  "at"
+                ]
+              }
+            },
+            "required": [
+              "label",
+              "durationLegs"
+            ]
+          },
+          "legs": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "from": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "place": {
+                      "type": "string"
+                    },
+                    "time": {
+                      "type": "string",
+                      "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "place",
+                    "time"
+                  ]
+                },
+                "to": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "place": {
+                      "type": "string"
+                    },
+                    "time": {
+                      "type": "string",
+                      "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "place",
+                    "time"
+                  ]
+                },
+                "approximate": {
+                  "default": false,
+                  "description": "Show the duration as \"about N h\"",
+                  "type": "boolean"
+                },
+                "price": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "description": {
+                  "type": "string"
+                },
+                "comparison": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "mode",
+                "from",
+                "to",
+                "price",
+                "description",
+                "comparison"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "title",
+          "mode",
+          "category",
+          "summaryLabel",
+          "strip",
+          "legs"
+        ]
+      }
+    }
+  },
+  "required": [
+    "segments"
+  ]
+}

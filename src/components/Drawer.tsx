@@ -3,14 +3,14 @@ import { SERIF } from '../styles';
 import { ActivityDrawer } from './ActivityDrawer';
 import { HotelDrawer } from './HotelDrawer';
 
-type Props = Pick<TripView, 'drawerW' | 'drawerTitle' | 'drawerSub' | 'closeDrawer' | 'hd' | 'ad'>;
+type Props = Pick<TripView, 'drawerW' | 'drawerTitle' | 'drawerSub' | 'closeDrawer' | 'hd' | 'ad' | 'adultsLabel'>;
 
 const segmented = { display: 'flex', background: '#EBEBEA', borderRadius: 999, padding: 4 } as const;
 const segBtn = (bg: string) => ({ border: 0, borderRadius: 999, padding: '8px 18px', fontSize: 15, fontWeight: 500, color: '#1E1F21', cursor: 'pointer', whiteSpace: 'nowrap', background: bg } as const);
 const hint = { fontSize: 14, color: '#5F6266' } as const;
 const toolbar = { display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' } as const;
 
-export function Drawer({ drawerW, drawerTitle, drawerSub, closeDrawer, hd, ad }: Props) {
+export function Drawer({ drawerW, drawerTitle, drawerSub, closeDrawer, hd, ad, adultsLabel }: Props) {
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', justifyContent: 'flex-end' }}>
       <div onClick={closeDrawer} style={{ position: 'absolute', inset: 0, background: 'rgba(30,31,33,.45)' }} />
@@ -45,7 +45,7 @@ export function Drawer({ drawerW, drawerTitle, drawerSub, closeDrawer, hd, ad }:
         </div>
         <div style={{ flex: 1, overflowY: 'auto', padding: 'clamp(18px,3vw,28px) clamp(16px,3vw,36px) 40px', display: 'flex', flexDirection: 'column', gap: 24 }}>
           {hd && <HotelDrawer hd={hd} />}
-          {ad && <ActivityDrawer ad={ad} />}
+          {ad && <ActivityDrawer ad={ad} adultsLabel={adultsLabel} />}
         </div>
       </div>
     </div>

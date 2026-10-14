@@ -12,10 +12,14 @@ const NAV: { label: string; active?: boolean; icon: ReactNode }[] = [
 ];
 
 interface Props {
-  open: boolean; padX: string; justify: string; toggleLabel: string; chevron: string; onToggle: () => void;
+  open: boolean; onToggle: () => void;
+  /** Signed-in traveller; null while the quote is loading. */
+  user: { name: string; initials: string; subtitle: string } | null;
 }
 
-export function Sidebar({ open, padX, justify, toggleLabel, chevron, onToggle }: Props) {
+export function Sidebar({ open, onToggle, user }: Props) {
+  const padX = open ? '16px' : '12px', justify = open ? 'flex-start' : 'center';
+  const toggleLabel = open ? 'Collapse menu' : 'Expand menu', chevron = open ? 'm16 15-3-3 3-3' : 'm14 9 3 3-3 3';
   return (
     <aside style={{ background: '#FFFFFF', borderRight: '1px solid #E4E4E2', padding: `24px ${padX}`, display: 'flex', flexDirection: 'column', gap: 28, overflow: 'hidden', position: 'sticky', top: 0, height: '100vh' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: justify, gap: 10, minHeight: 40, padding: '0 4px' }}>
@@ -43,8 +47,8 @@ export function Sidebar({ open, padX, justify, toggleLabel, chevron, onToggle }:
         </button>
       </div>
       <div style={{ borderTop: '1px solid #E4E4E2', padding: '16px 0 0', display: 'flex', alignItems: 'center', justifyContent: justify, gap: 10 }}>
-        <span style={{ width: 32, height: 32, borderRadius: '50%', background: '#EBEBEA', display: 'grid', placeItems: 'center', fontSize: 12, fontWeight: 700 }}>AR</span>
-        {open && <div style={{ whiteSpace: 'nowrap' }}><div style={{ fontSize: 14, fontWeight: 700 }}>Ananya</div><div style={{ fontSize: 12, color: '#5F6266' }}>Q-2481 · Kerala</div></div>}
+        <span style={{ width: 32, height: 32, borderRadius: '50%', background: '#EBEBEA', display: 'grid', placeItems: 'center', fontSize: 12, fontWeight: 700 }}>{user?.initials}</span>
+        {open && user && <div style={{ whiteSpace: 'nowrap' }}><div style={{ fontSize: 14, fontWeight: 700 }}>{user.name}</div><div style={{ fontSize: 12, color: '#5F6266' }}>{user.subtitle}</div></div>}
       </div>
     </aside>
   );
