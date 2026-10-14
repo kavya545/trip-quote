@@ -10,7 +10,7 @@ const legendText = { fontSize: 12, color: '#5F6266' } as const;
 
 export function SummaryPanel(v: Props) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24, position: 'sticky', top: 24, flex: '1 1 min(100%,340px)', maxWidth: 400, minWidth: 0, maxHeight: 'calc(100vh - 48px)', overflowY: 'auto', overscrollBehavior: 'contain', scrollbarWidth: 'thin', paddingBottom: 4 }}>
+    <div className="planner-summary" style={{ display: 'flex', flexDirection: 'column', gap: 24, position: 'sticky', top: 24, minWidth: 0, maxHeight: 'calc(100vh - 48px)', overflowY: 'auto', overscrollBehavior: 'contain', scrollbarWidth: 'thin', paddingBottom: 4 }}>
       <div style={{ background: '#FFFFFF', borderRadius: 20, padding: '24px 26px', display: 'grid', gridTemplateColumns: '130px minmax(0,1fr)', gap: '18px 18px', alignItems: 'center' }}>
         <span style={{ ...legendPill, background: '#EBEBEA' }}>Locked price</span><span style={legendText}>Swap freely, this price is held for you</span>
         <span style={{ ...legendPill, background: '#1E1F21', color: '#FFFFFF' }}>{`${v.agent} will confirm`}</span><span style={legendText}>Depends on availability, price may shift</span>

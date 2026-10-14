@@ -20,7 +20,7 @@ export function TripQuote({ data, ...props }: TripQuoteProps & { data: TripData 
       <Hero trip={t} quoteLabel={v.quoteLabel} perPerson={v.perPerson} totalLine={v.totalLine} />
       <RouteStrip route={v.route} homeCity={t.homeCity} startDay={t.startDay} endDay={t.endDay} />
       <StepBar steps={v.steps} />
-      <div style={{ padding: 'clamp(28px,4vw,48px) clamp(16px,4vw,40px) 112px', maxWidth: 1520 }}>
+      <div className="trip-content" style={{ padding: 'clamp(28px,4vw,48px) clamp(16px,4vw,40px) 112px' }}>
         {v.isPlanner && <Planner v={v} />}
         {v.isReview && <ReviewView {...v} />}
         {v.isSent && <SentView {...v} />}

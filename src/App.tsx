@@ -21,7 +21,7 @@ export default function App({ quoteId, scenario, delayMs, ...props }: AppProps) 
   const user = data && { ...data.user, subtitle: `${data.id} · ${data.region}` };
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: `${navOpen ? '232px' : '80px'} minmax(0,1fr)`, transition: 'grid-template-columns .2s ease', minHeight: '100vh', background: '#F2F2F2', color: '#1E1F21', fontFamily: 'Manrope,system-ui,sans-serif' }}>
+    <div className="app-shell" data-nav={navOpen ? 'open' : 'closed'} style={{ minHeight: '100vh', background: '#F2F2F2', color: '#1E1F21', fontFamily: 'Manrope,system-ui,sans-serif' }}>
       <Sidebar open={navOpen} onToggle={() => setNavOpen(o => !o)} user={user} />
       {q.status === 'loading' && <QuoteSkeleton />}
       {q.status === 'error' && (

@@ -8,8 +8,8 @@ const tab = { border: 0, borderRadius: 999, padding: '8px 16px', fontSize: 14, f
 
 export function Planner({ v }: { v: TripView }) {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(24px,3vw,40px)', alignItems: 'flex-start' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 36, minWidth: 0, flex: '1 1 min(100%,600px)' }}>
+    <div className="planner">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 36, minWidth: 0 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', background: '#E4E4E2', borderRadius: 999, padding: 4 }}>
             <button onClick={v.goTrip} style={{ ...tab, background: v.tabTripBg, boxShadow: v.tabTripSh }}>My trip</button>

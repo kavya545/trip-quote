@@ -15,17 +15,17 @@ export function QuoteSkeleton() {
       <div className="skeleton" style={block({ minHeight: 'clamp(380px,50vw,470px)', borderRadius: '0 0 28px 28px', background: '#D9D9D7' })} />
       <div className="skeleton" style={block({ margin: '32px clamp(16px,4vw,40px)', height: 148, borderRadius: 24, background: '#FFFFFF' })} />
       <div style={{ background: '#1E1F21', height: 68 }} />
-      <div style={{ padding: 'clamp(28px,4vw,48px) clamp(16px,4vw,40px) 112px', maxWidth: 1520, display: 'flex', flexWrap: 'wrap', gap: 'clamp(24px,3vw,40px)', alignItems: 'flex-start' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 36, flex: '1 1 min(100%,600px)' }}>
+      <div className="trip-content" style={{ padding: 'clamp(28px,4vw,48px) clamp(16px,4vw,40px) 112px' }}><div className="planner">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 36, minWidth: 0 }}>
           <span className="skeleton" style={block({ width: 240, height: 44, borderRadius: 999 })} />
           <span className="skeleton" style={block({ height: 220, borderRadius: 24 })} />
           <span className="skeleton" style={block({ height: 420, borderRadius: 22, background: '#FFFFFF' })} />
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 24, flex: '1 1 min(100%,340px)', maxWidth: 400 }}>
+        <div className="planner-summary" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           <span className="skeleton" style={block({ height: 210, borderRadius: 20, background: '#FFFFFF' })} />
           <span className="skeleton" style={block({ height: 360, borderRadius: 20, background: '#FFFFFF' })} />
         </div>
-      </div>
+      </div></div>
     </main>
   );
 }
