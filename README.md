@@ -1,25 +1,76 @@
-# CODING AGENTS: READ THIS FIRST
+# Monsoon Trails: Trip Quote
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+**Live:** https://kavya545.github.io/trip-quote/
+<!-- Figma: add link -->
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## How this was made
 
-## What you should do — IMPORTANT
+Monsoon Trails (Trip Quote) is a consumer-facing travel quotation customizer. I built it as an AI-native design and engineering exploration: I wrote the requirements, directed the AI tools, judged every result, and made the final calls.
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+### The idea
 
-**Read `project/Trip Quote v2.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+A customer gets a quotation from a travel agent. Instead of just accepting or rejecting it, they review the itinerary, change a few things, see the price impact, check every change against the original, and send it back.
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+### My requirements (written by me, before any design)
 
-## About the design files
+Core flow:
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+1. Customer opens the quotation
+2. Reviews the itinerary day by day
+3. Customizes selected parts
+4. Sees the price impact and the updated total
+5. Reviews all changes against the original
+6. Submits the revised quotation
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+The first version should allow:
 
-## Bundle contents
+- Replacing a hotel from available alternatives
+- Adding or removing activities from predefined options
+- Showing price differences and the updated total
+- Telling apart changes made directly from changes that need the agent to confirm
+- Comparing the original with the modified quotation
+- Final review and submission
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Trip Quote Prototype` project files (HTML prototypes, assets, components)
+Deliberately not built: login, payment, real inventory, agent dashboard, chatbot, AI recommendations, a huge travel platform.
+
+Desktop-first responsive web app.
+
+### What happened, in order
+
+1. **First version (Claude Design).** I sent the requirements and a PDF of the source quotation. I got a first version in green.
+2. **My critique and changes.** I tested it, listed what was wrong, and sent changes: a left side nav, a collapsible price summary, green and red arrows for lower and higher prices, accessibility fixes, tighter spacing, prices on transfer and activity cards.
+3. **Figma refinement by hand.** I rebuilt the screens in Figma and edited them myself: moved the progress bar under the hero, made the hero full-bleed, trimmed the journey snapshot.
+4. **Carried back into code.** The decisions from Figma went back into the HTML prototype.
+5. **Rebuilt as a real app (Claude Code).** Vite + React + TypeScript, split into components. Checked against the prototype with screenshot comparisons across 12 flows at 1440, 1024 and 390px.
+6. **Real data.** Trip data moved into validated JSON, behind a mock API. Dates, nights and totals are calculated, not typed. Loading, empty, not-found and error states added.
+7. **Fluid layout.** The page now fills any screen width and adapts down to phone size.
+8. **Readability.** Nothing under 13px, and light-grey text darkened to pass contrast checks. This was my call, and it means the app no longer matches the first prototype pixel for pixel.
+9. **Saving.** Changes survive a refresh. Send and Accept update the quote's status through the mock API.
+10. **Deployed** on GitHub Pages.
+
+### Decisions I made
+
+- **The agent stays in control.** Nothing is final until the agent confirms.
+- **Price states, not just prices:** locked, needs agent confirmation, or included.
+- **Changes shown as a comparison** against the original quotation.
+- **Edge cases designed early:** time clashes, split stays in one city, expired quotes.
+- **Scoped on purpose,** so it stays a focused product and not a platform.
+
+## In this repo
+
+| Path | What it is |
+| --- | --- |
+| `src/` | The app: components, trip state, mock API |
+| `src/data/` | Quote data as JSON, its schema, and how the mock API works |
+| `chats/chat1.md` | The Claude Design conversation from step 4, where the Figma screens became a working prototype. The chat from steps 1–2 was lost. |
+| `project/` | The prototype and screen exports from Claude Design, kept for reference |
+| `CLAUDE.md` | Conventions for working on the code with Claude Code |
+
+## Run it locally
+
+```sh
+npm install
+npm run dev
+```
+
+`npm run build` type-checks and builds to `dist/`. Every push to `real-data` redeploys the live site.
