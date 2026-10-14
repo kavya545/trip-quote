@@ -3,7 +3,7 @@
 **Monsoon Trails (Trip Quote)** is a consumer-facing travel quotation customizer. I built it as an AI-native design + engineering exploration: I wrote the requirements, directed the AI tools, judged every result, and made the final calls.
 
 **Live:** https://kavya545.github.io/trip-quote/
-**Figma:** [Fleeguide file, Trip Quote (built) page](https://www.figma.com/design/FFULIvAdvUc29HzIiLXXla/Untitled?node-id=6-2)
+**Figma:** [Figma file, Built app page](https://www.figma.com/design/FFULIvAdvUc29HzIiLXXla/Untitled?node-id=6-2)
 
 ## The idea
 
