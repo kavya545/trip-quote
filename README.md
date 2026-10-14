@@ -1,28 +1,25 @@
-# Monsoon Trails: Trip Quote
+# How this was made
 
-**Live:** https://kavya545.github.io/trip-quote/
-<!-- Figma: add link -->
+Monsoon Trails (Trip Quote) is a consumer-facing travel quotation customizer. I built it as an AI-native design + engineering exploration: I wrote the requirements, directed the AI tools, judged every result, and made the final calls.
 
-## How this was made
+**Live:** https://kavya545.github.io/trip-quote/ · **Figma:** [Fleeguide file, Trip Quote (built) page](https://www.figma.com/design/FFULIvAdvUc29HzIiLXXla/Untitled?node-id=6-2)
 
-Monsoon Trails (Trip Quote) is a consumer-facing travel quotation customizer. I built it as an AI-native design and engineering exploration: I wrote the requirements, directed the AI tools, judged every result, and made the final calls.
-
-### The idea
+## The idea
 
 A customer gets a quotation from a travel agent. Instead of just accepting or rejecting it, they review the itinerary, change a few things, see the price impact, check every change against the original, and send it back.
 
-### My requirements (written by me, before any design)
+## My requirements (written by me, before any design)
 
 Core flow:
 
 1. Customer opens the quotation
 2. Reviews the itinerary day by day
 3. Customizes selected parts
-4. Sees the price impact and the updated total
+4. Sees price impact and the updated total
 5. Reviews all changes against the original
 6. Submits the revised quotation
 
-The first version should allow:
+First version should allow:
 
 - Replacing a hotel from available alternatives
 - Adding or removing activities from predefined options
@@ -35,7 +32,7 @@ Deliberately not built: login, payment, real inventory, agent dashboard, chatbot
 
 Desktop-first responsive web app.
 
-### What happened, in order
+## What happened, in order
 
 1. **First version (Claude Design).** I sent the requirements and a PDF of the source quotation. I got a first version in green.
 2. **My critique and changes.** I tested it, listed what was wrong, and sent changes: a left side nav, a collapsible price summary, green and red arrows for lower and higher prices, accessibility fixes, tighter spacing, prices on transfer and activity cards.
@@ -47,8 +44,10 @@ Desktop-first responsive web app.
 8. **Readability.** Nothing under 13px, and light-grey text darkened to pass contrast checks. This was my call, and it means the app no longer matches the first prototype pixel for pixel.
 9. **Saving.** Changes survive a refresh. Send and Accept update the quote's status through the mock API.
 10. **Deployed** on GitHub Pages.
+11. **Back into Figma.** The built app rebuilt in Figma as editable screens with components, plus a 7-screen prototype of the core flow: swap a hotel, review the changes, send them to the agent.
+12. **Design tokens.** Every colour moved into one tokens file, each token tied to a Figma variable, with a build check that rejects hardcoded colours.
 
-### Decisions I made
+## Decisions I made
 
 - **The agent stays in control.** Nothing is final until the agent confirms.
 - **Price states, not just prices:** locked, needs agent confirmation, or included.
@@ -61,6 +60,7 @@ Desktop-first responsive web app.
 | Path | What it is |
 | --- | --- |
 | `src/` | The app: components, trip state, mock API |
+| `src/tokens.ts` | Design tokens: every colour, each tied to a Figma variable |
 | `src/data/` | Quote data as JSON, its schema, and how the mock API works |
 | `chats/chat1.md` | The Claude Design conversation from step 4, where the Figma screens became a working prototype. The chat from steps 1–2 was lost. |
 | `project/` | The prototype and screen exports from Claude Design, kept for reference |
