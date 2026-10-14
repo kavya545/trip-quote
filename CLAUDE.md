@@ -14,7 +14,7 @@ Vite 8 + React 19 + TypeScript 5.9, zod 4. Styling is inline `style` objects plu
 - `src/model/`: `data.ts` (display types, `R()`, status styles) · `derive.ts` (JSON → display data) · `dates.ts` · `useTripQuote.ts` (all trip state and the view model) · `demoChanges.ts`
 - `src/components/`: one file per page section; `TripQuote.tsx` assembles the loaded page, `App.tsx` handles loading/empty/error and the menu.
 - `src/data/quotes/<id>/{trip,stops,activities,segments}.json`: quote data. `src/data/README.md` documents the data, the mock API and the URL switches in full.
-- `public/assets/`: photos (`a/credits.txt` lists the licence for every activity photo and is linked from the "Photo credits" footer; use only photos that allow commercial use and changes, and add each one to `credits.txt`).
+- `public/assets/`: photos (`a/` holds the activity photos).
 
 ## Data and mock API contract
 - JSON stores only raw values: ISO dates (`2026-11-10`), 24-hour times, rupee integers, ids. Never store display text such as "Tue 10 Nov", "Days 1–2", durations or totals; compute them in `derive.ts`. Date helpers in `dates.ts` work in UTC so weekdays never shift with the viewer's time zone.

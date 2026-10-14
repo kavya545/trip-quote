@@ -13,8 +13,8 @@
       "credit": 0,
       "blurb": "Classical dance-drama at a small Fort Kochi theatre; come early to watch the make-up.",
       "images": [
-        "assets/a/heritage.jpg",
-        "assets/a/chinesenets-2.jpg"
+        "assets/a/kathakali.jpg",
+        "assets/a/kathakali-2.jpg"
       ]
     },
     {
@@ -28,8 +28,8 @@
       "status": "locked",
       "blurb": "An hour on the harbour, past the Chinese fishing nets as the light goes.",
       "images": [
-        "assets/a/chinesenets-2.jpg",
-        "assets/a/sunsetshikara.jpg"
+        "assets/a/harbourCruise.jpg",
+        "assets/a/harbourCruise-2.jpg"
       ]
     },
     {
@@ -45,7 +45,7 @@
       "blurb": "A guided walk through the Dutch Palace lanes, old churches and spice warehouses.",
       "images": [
         "assets/a/heritage.jpg",
-        "assets/a/chinesenets-2.jpg"
+        "assets/a/heritage-2.jpg"
       ]
     },
     {
@@ -75,8 +75,8 @@
       "credit": 1000,
       "blurb": "See leaf turn into tea at a working factory, then taste the estate’s grades.",
       "images": [
-        "assets/a/sunrise-jeep.jpg",
-        "assets/a/sunrise-jeep-2.jpg"
+        "assets/a/tea.jpg",
+        "assets/a/tea-2.jpg"
       ]
     },
     {
@@ -91,8 +91,8 @@
       "credit": 1600,
       "blurb": "Park shuttle and entry to the Nilgiri tahr grasslands.",
       "images": [
-        "assets/a/eravikulam-2.jpg",
-        "assets/a/sunrise-jeep-2.jpg"
+        "assets/a/eravikulam.jpg",
+        "assets/a/eravikulam-2.jpg"
       ]
     },
     {
@@ -123,8 +123,8 @@
       "status": "locked",
       "blurb": "A planter walks you through cardamom, pepper and coffee growing under shade trees.",
       "images": [
-        "assets/a/sunrise-jeep-2.jpg",
-        "assets/a/cooking.jpg"
+        "assets/a/spice.jpg",
+        "assets/a/spice-2.jpg"
       ]
     },
     {
@@ -138,8 +138,8 @@
       "status": "locked",
       "blurb": "Help the fishermen haul the giant cantilevered nets, then breakfast on the beach.",
       "images": [
-        "assets/a/chinesenets-2.jpg",
-        "assets/a/heritage.jpg"
+        "assets/a/chinesenets.jpg",
+        "assets/a/chinesenets-2.jpg"
       ]
     },
     {
@@ -153,8 +153,8 @@
       "status": "locked",
       "blurb": "Taste pepper, cardamom and cinnamon with a local guide, ending at the Paradesi synagogue.",
       "images": [
-        "assets/a/cooking.jpg",
-        "assets/a/cooking-2.jpg"
+        "assets/a/spicemarket.jpg",
+        "assets/a/spicemarket-2.jpg"
       ]
     },
     {
@@ -199,8 +199,8 @@
       "status": "locked",
       "blurb": "Karimeen fry, tapioca and fish curry at a canal-side toddy shop, reached by boat.",
       "images": [
-        "assets/a/cooking-2.jpg",
-        "assets/a/sunsetshikara.jpg"
+        "assets/a/toddy.jpg",
+        "assets/a/toddy-2.jpg"
       ]
     },
     {
@@ -216,7 +216,7 @@
       "blurb": "A covered shikara out to Vembanad Lake to watch the sun go down over the paddy fields.",
       "images": [
         "assets/a/sunsetshikara.jpg",
-        "assets/a/mattupetty-2.jpg"
+        "assets/a/sunsetshikara-2.jpg"
       ]
     },
     {
@@ -231,8 +231,8 @@
       "extra": "paddled by a local boatman",
       "blurb": "A narrow canoe through village canals too small for the houseboats.",
       "images": [
-        "assets/a/sunsetshikara.jpg",
-        "assets/a/mattupetty-2.jpg"
+        "assets/a/canoe.jpg",
+        "assets/a/canoe-2.jpg"
       ]
     }
   ]
