@@ -1,0 +1,291 @@
+{
+  "$description": "Trip Quote colour tokens, generated from src/tokens.ts. Each token is bound to a variable in the Fleeguide Figma file.",
+  "color": {
+    "ink": {
+      "$type": "color",
+      "$value": "#1E1F21",
+      "$description": "Primary text, dark buttons, step bar, toast",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/gray-950",
+          "variableId": "VariableID:1:9392"
+        }
+      }
+    },
+    "inkSoft": {
+      "$type": "color",
+      "$value": "#3E4145",
+      "$description": "Body copy in panels, photo placeholder, dark-button hover",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/gray-800",
+          "variableId": "VariableID:1:9370"
+        }
+      }
+    },
+    "textSecondary": {
+      "$type": "color",
+      "$value": "#5F6266",
+      "$description": "Secondary text (4.8–6.1:1 on light surfaces)",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/gray-600",
+          "variableId": "VariableID:1:9388"
+        }
+      }
+    },
+    "textMuted": {
+      "$type": "color",
+      "$value": "#6B6E72",
+      "$description": "Lightest grey allowed for text (≥ 4.57:1)",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/text-muted",
+          "variableId": "VariableID:8:3"
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": "#98989B",
+      "$description": "Disabled controls and borders only, never readable text",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/disabled",
+          "variableId": "VariableID:16:979"
+        }
+      }
+    },
+    "onDarkMuted": {
+      "$type": "color",
+      "$value": "#B5B7BA",
+      "$description": "Muted text on ink",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/gray-400",
+          "variableId": "VariableID:1:9393"
+        }
+      }
+    },
+    "borderStrong": {
+      "$type": "color",
+      "$value": "#CFCFCD",
+      "$description": "Input and button borders",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/gray-300",
+          "variableId": "VariableID:1:9384"
+        }
+      }
+    },
+    "skeleton": {
+      "$type": "color",
+      "$value": "#D9D9D7",
+      "$description": "Loading placeholder (hero)",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/skeleton",
+          "variableId": "VariableID:8:6"
+        }
+      }
+    },
+    "border": {
+      "$type": "color",
+      "$value": "#E4E4E2",
+      "$description": "Card borders, dividers, segment card background",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/gray-200",
+          "variableId": "VariableID:1:9386"
+        }
+      }
+    },
+    "chip": {
+      "$type": "color",
+      "$value": "#EBEBEA",
+      "$description": "Chips, avatars, segmented controls",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/gray-150",
+          "variableId": "VariableID:1:9377"
+        }
+      }
+    },
+    "pillLocked": {
+      "$type": "color",
+      "$value": "#EFEFEE",
+      "$description": "Locked-price status pill",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/pill-locked",
+          "variableId": "VariableID:29:2"
+        }
+      }
+    },
+    "surfaceAlt": {
+      "$type": "color",
+      "$value": "#F2F2F0",
+      "$description": "Feature tags, comparison stop header, empty-state icon",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/surface-alt",
+          "variableId": "VariableID:8:5"
+        }
+      }
+    },
+    "page": {
+      "$type": "color",
+      "$value": "#F2F2F2",
+      "$description": "Page background, light hover",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/page",
+          "variableId": "VariableID:8:4"
+        }
+      }
+    },
+    "rowHighlight": {
+      "$type": "color",
+      "$value": "#F4F4F3",
+      "$description": "Changed line in the review table",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/gray-50",
+          "variableId": "VariableID:1:9398"
+        }
+      }
+    },
+    "drawer": {
+      "$type": "color",
+      "$value": "#F5F5F4",
+      "$description": "Side panel (drawer) background",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/drawer",
+          "variableId": "VariableID:29:3"
+        }
+      }
+    },
+    "rowChanged": {
+      "$type": "color",
+      "$value": "#F8F8F7",
+      "$description": "Changed row in the What’s changed comparison",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/row-changed",
+          "variableId": "VariableID:29:4"
+        }
+      }
+    },
+    "surfaceRaised": {
+      "$type": "color",
+      "$value": "#FAFAF9",
+      "$description": "Hotel and activity rows, drawer header",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/gray-25",
+          "variableId": "VariableID:1:9374"
+        }
+      }
+    },
+    "white": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Cards, text on ink",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Colors",
+          "variable": "project/white",
+          "variableId": "VariableID:1:9385"
+        }
+      }
+    },
+    "lower": {
+      "$type": "color",
+      "$value": "#197047",
+      "$description": "Cheaper than the original quote",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Primitives",
+          "variable": "color/positive/600",
+          "variableId": "VariableID:1:9389"
+        }
+      }
+    },
+    "higher": {
+      "$type": "color",
+      "$value": "#B8433B",
+      "$description": "Costs more than the original quote, errors",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Primitives",
+          "variable": "color/negative/600",
+          "variableId": "VariableID:1:9390"
+        }
+      }
+    },
+    "errorBg": {
+      "$type": "color",
+      "$value": "#FBE9E7",
+      "$description": "Error icon circle",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/error-bg",
+          "variableId": "VariableID:8:8"
+        }
+      }
+    },
+    "success": {
+      "$type": "color",
+      "$value": "#3DAA4F",
+      "$description": "Confirmation icons",
+      "$extensions": {
+        "com.figma": {
+          "file": "FFULIvAdvUc29HzIiLXXla",
+          "collection": "Trip Quote (built)",
+          "variable": "color/success",
+          "variableId": "VariableID:8:7"
+        }
+      }
+    }
+  }
+}

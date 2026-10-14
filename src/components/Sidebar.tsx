@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { SERIF } from '../styles';
+import { color } from '../tokens';
 
 const ICON = { width: 18, height: 18, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
 
@@ -21,20 +22,20 @@ export function Sidebar({ open, onToggle, user }: Props) {
   const padX = open ? '16px' : '12px', justify = open ? 'flex-start' : 'center';
   const toggleLabel = open ? 'Collapse menu' : 'Expand menu', chevron = open ? 'm16 15-3-3 3-3' : 'm14 9 3 3-3 3';
   return (
-    <aside style={{ background: '#FFFFFF', borderRight: '1px solid #E4E4E2', padding: `24px ${padX}`, display: 'flex', flexDirection: 'column', gap: 28, overflow: 'hidden', position: 'sticky', top: 0, height: '100vh' }}>
+    <aside style={{ background: color.white, borderRight: `1px solid ${color.border}`, padding: `24px ${padX}`, display: 'flex', flexDirection: 'column', gap: 28, overflow: 'hidden', position: 'sticky', top: 0, height: '100vh' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: justify, gap: 10, minHeight: 40, padding: '0 4px' }}>
-        <span style={{ width: 40, height: 40, borderRadius: 12, background: '#1E1F21', color: '#FFFFFF', display: 'grid', placeItems: 'center', fontSize: '1.25rem', fontWeight: 700, flex: 'none' }}>≈</span>
+        <span style={{ width: 40, height: 40, borderRadius: 12, background: color.ink, color: color.white, display: 'grid', placeItems: 'center', fontSize: '1.25rem', fontWeight: 700, flex: 'none' }}>≈</span>
         {open && <div style={{ display: 'flex', alignItems: 'center', gap: 10, whiteSpace: 'nowrap' }}><span style={{ fontFamily: SERIF, fontSize: '1.625rem', lineHeight: 1 }}>monsoon trails</span></div>}
       </div>
       <nav style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        {open && <div style={{ fontSize: '0.8125rem', fontWeight: 600, letterSpacing: '0.08em', color: '#6B6E72', padding: '0 8px 6px' }}>MENU</div>}
+        {open && <div style={{ fontSize: '0.8125rem', fontWeight: 600, letterSpacing: '0.08em', color: color.textMuted, padding: '0 8px 6px' }}>MENU</div>}
         {NAV.map(item => (
           <a
             key={item.label}
             href="#"
             title={item.label}
             className={item.active ? undefined : 'hover-bg-f2'}
-            style={{ display: 'flex', alignItems: 'center', justifyContent: justify, gap: 12, padding: '10px 12px', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: item.active ? 600 : 500, color: item.active ? '#FFFFFF' : '#1E1F21', ...(item.active ? { background: '#1E1F21' } : {}) }}
+            style={{ display: 'flex', alignItems: 'center', justifyContent: justify, gap: 12, padding: '10px 12px', borderRadius: 10, textDecoration: 'none', fontSize: '0.875rem', fontWeight: item.active ? 600 : 500, color: item.active ? color.white : color.ink, ...(item.active ? { background: color.ink } : {}) }}
           >
             {item.icon}
             {open && <span style={{ whiteSpace: 'nowrap' }}>{item.label}</span>}
@@ -42,13 +43,13 @@ export function Sidebar({ open, onToggle, user }: Props) {
         ))}
       </nav>
       <div style={{ marginTop: 'auto', display: 'flex', justifyContent: justify, padding: '0 4px' }}>
-        <button onClick={onToggle} aria-label={toggleLabel} title={toggleLabel} className="hover-bg-f2" style={{ width: 40, height: 40, borderRadius: 10, border: '1px solid #E4E4E2', background: '#FFFFFF', display: 'grid', placeItems: 'center', cursor: 'pointer', flex: 'none', margin: 0 }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E1F21" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M9 4v16" /><path d={chevron} /></svg>
+        <button onClick={onToggle} aria-label={toggleLabel} title={toggleLabel} className="hover-bg-f2" style={{ width: 40, height: 40, borderRadius: 10, border: `1px solid ${color.border}`, background: color.white, display: 'grid', placeItems: 'center', cursor: 'pointer', flex: 'none', margin: 0 }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color.ink} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M9 4v16" /><path d={chevron} /></svg>
         </button>
       </div>
-      <div style={{ borderTop: '1px solid #E4E4E2', padding: '16px 0 0', display: 'flex', alignItems: 'center', justifyContent: justify, gap: 10 }}>
-        <span style={{ width: 32, height: 32, borderRadius: '50%', background: '#EBEBEA', display: 'grid', placeItems: 'center', fontSize: '0.8125rem', fontWeight: 700 }}>{user?.initials}</span>
-        {open && user && <div style={{ whiteSpace: 'nowrap' }}><div style={{ fontSize: '0.875rem', fontWeight: 700 }}>{user.name}</div><div style={{ fontSize: '0.875rem', color: '#5F6266' }}>{user.subtitle}</div></div>}
+      <div style={{ borderTop: `1px solid ${color.border}`, padding: '16px 0 0', display: 'flex', alignItems: 'center', justifyContent: justify, gap: 10 }}>
+        <span style={{ width: 32, height: 32, borderRadius: '50%', background: color.chip, display: 'grid', placeItems: 'center', fontSize: '0.8125rem', fontWeight: 700 }}>{user?.initials}</span>
+        {open && user && <div style={{ whiteSpace: 'nowrap' }}><div style={{ fontSize: '0.875rem', fontWeight: 700 }}>{user.name}</div><div style={{ fontSize: '0.875rem', color: color.textSecondary }}>{user.subtitle}</div></div>}
       </div>
     </aside>
   );

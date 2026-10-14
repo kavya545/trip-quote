@@ -1,3 +1,4 @@
+import { color } from '../tokens';
 // Display-ready shapes of the quote, built from the API data by derive.ts, plus formatting helpers.
 
 export type StatusKey = 'locked' | 'confirm' | 'included' | 'note';
@@ -55,12 +56,12 @@ export interface TripData {
 
 export const R = (n: number) => '₹' + Math.round(Math.abs(n)).toLocaleString('en-IN');
 export const statusStyles = (agent: string): Record<StatusKey, Status> => ({
-  locked: { label: 'Locked price', bg: '#EFEFEE', fg: '#1E1F21' },
-  confirm: { label: `${agent} will confirm`, bg: '#1E1F21', fg: '#FFFFFF' },
-  included: { label: 'Included', bg: '#EBEBEA', fg: '#5F6266' },
-  note: { label: 'Note sent', bg: '#EBEBEA', fg: '#5F6266' },
+  locked: { label: 'Locked price', bg: color.pillLocked, fg: color.ink },
+  confirm: { label: `${agent} will confirm`, bg: color.ink, fg: color.white },
+  included: { label: 'Included', bg: color.chip, fg: color.textSecondary },
+  note: { label: 'Note sent', bg: color.chip, fg: color.textSecondary },
 });
-export const LOWER = '#197047', HIGHER = '#B8433B', FLAT = '#5F6266';
+export const LOWER = color.lower, HIGHER = color.higher, FLAT = color.textSecondary;
 export interface Delta { txt: string; word: string; color: string; has: boolean }
 export const dl = (d: number): Delta => !d ? { txt: '—', word: '', color: FLAT, has: false } : d < 0 ? { txt: '↓ ' + R(d), word: 'Lower', color: LOWER, has: true } : { txt: '↑ ' + R(d), word: 'Higher', color: HIGHER, has: true };
 export const pl = (n: number) => n + ' night' + (n > 1 ? 's' : '');
