@@ -25,7 +25,7 @@ export function Sidebar({ open, onToggle, user }: Props) {
     <aside style={{ background: color.white, borderRight: `1px solid ${color.border}`, padding: `24px ${padX}`, display: 'flex', flexDirection: 'column', gap: 28, overflow: 'hidden', position: 'sticky', top: 0, height: '100vh' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: justify, gap: 10, minHeight: 40, padding: '0 4px' }}>
         <span style={{ width: 40, height: 40, borderRadius: 12, background: color.ink, color: color.white, display: 'grid', placeItems: 'center', fontSize: '1.25rem', fontWeight: 700, flex: 'none' }}>≈</span>
-        {open && <div style={{ display: 'flex', alignItems: 'center', gap: 10, whiteSpace: 'nowrap' }}><span style={{ fontFamily: SERIF, fontSize: '1.625rem', lineHeight: 1 }}>monsoon trails</span></div>}
+        {open && <div style={{ display: 'flex', alignItems: 'center', gap: 10, whiteSpace: 'nowrap' }}><span style={{ fontFamily: SERIF, fontSize: '1.625rem', lineHeight: 1 }}>trip quote</span></div>}
       </div>
       <nav style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         {open && <div style={{ fontSize: '0.8125rem', fontWeight: 600, letterSpacing: '0.08em', color: color.textMuted, padding: '0 8px 6px' }}>MENU</div>}
