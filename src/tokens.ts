@@ -2,7 +2,7 @@
  * Design tokens: the only place colours are defined.
  *
  * Every token is tied to a colour variable in the AI-Native Workflow Figma file
- * (https://www.figma.com/design/FFULIvAdvUc29HzIiLXXla), so a value changed here can be matched there
+ * (https://www.figma.com/design/zumDgCHXNaI8hGBQOulLoy/AI-Native-Workflow), so a value changed here can be matched there
  * by name. `npm run tokens` writes src/tokens.css (CSS custom properties for index.css) and
  * design-tokens.json (the same map in W3C design-token format, with the Figma variable for each).
  */

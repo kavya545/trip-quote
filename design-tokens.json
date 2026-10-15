@@ -7,7 +7,7 @@
       "$description": "Primary text, dark buttons, step bar, toast",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/gray-950",
           "variableId": "VariableID:1:9392"
@@ -20,7 +20,7 @@
       "$description": "Body copy in panels, photo placeholder, dark-button hover",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/gray-800",
           "variableId": "VariableID:1:9370"
@@ -33,7 +33,7 @@
       "$description": "Secondary text (4.8–6.1:1 on light surfaces)",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/gray-600",
           "variableId": "VariableID:1:9388"
@@ -46,7 +46,7 @@
       "$description": "Lightest grey allowed for text (≥ 4.57:1)",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/text-muted",
           "variableId": "VariableID:8:3"
@@ -59,7 +59,7 @@
       "$description": "Disabled controls and borders only, never readable text",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/disabled",
           "variableId": "VariableID:16:979"
@@ -72,7 +72,7 @@
       "$description": "Muted text on ink",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/gray-400",
           "variableId": "VariableID:1:9393"
@@ -85,7 +85,7 @@
       "$description": "Input and button borders",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/gray-300",
           "variableId": "VariableID:1:9384"
@@ -98,7 +98,7 @@
       "$description": "Loading placeholder (hero)",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/skeleton",
           "variableId": "VariableID:8:6"
@@ -111,7 +111,7 @@
       "$description": "Card borders, dividers, segment card background",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/gray-200",
           "variableId": "VariableID:1:9386"
@@ -124,7 +124,7 @@
       "$description": "Chips, avatars, segmented controls",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/gray-150",
           "variableId": "VariableID:1:9377"
@@ -137,7 +137,7 @@
       "$description": "Locked-price status pill",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/pill-locked",
           "variableId": "VariableID:29:2"
@@ -150,7 +150,7 @@
       "$description": "Feature tags, comparison stop header, empty-state icon",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/surface-alt",
           "variableId": "VariableID:8:5"
@@ -163,7 +163,7 @@
       "$description": "Page background, light hover",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/page",
           "variableId": "VariableID:8:4"
@@ -176,7 +176,7 @@
       "$description": "Changed line in the review table",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/gray-50",
           "variableId": "VariableID:1:9398"
@@ -189,7 +189,7 @@
       "$description": "Side panel (drawer) background",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/drawer",
           "variableId": "VariableID:29:3"
@@ -202,7 +202,7 @@
       "$description": "Changed row in the What’s changed comparison",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/row-changed",
           "variableId": "VariableID:29:4"
@@ -215,7 +215,7 @@
       "$description": "Hotel and activity rows, drawer header",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/gray-25",
           "variableId": "VariableID:1:9374"
@@ -228,7 +228,7 @@
       "$description": "Cards, text on ink",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Colors",
           "variable": "project/white",
           "variableId": "VariableID:1:9385"
@@ -241,7 +241,7 @@
       "$description": "Cheaper than the original quote",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Primitives",
           "variable": "color/positive/600",
           "variableId": "VariableID:1:9389"
@@ -254,7 +254,7 @@
       "$description": "Costs more than the original quote, errors",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Primitives",
           "variable": "color/negative/600",
           "variableId": "VariableID:1:9390"
@@ -267,7 +267,7 @@
       "$description": "Error icon circle",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/error-bg",
           "variableId": "VariableID:8:8"
@@ -280,7 +280,7 @@
       "$description": "Confirmation icons",
       "$extensions": {
         "com.figma": {
-          "file": "FFULIvAdvUc29HzIiLXXla",
+          "file": "zumDgCHXNaI8hGBQOulLoy",
           "collection": "Trip Quote (built)",
           "variable": "color/success",
           "variableId": "VariableID:8:7"

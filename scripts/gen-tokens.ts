@@ -12,7 +12,7 @@ const json = {
   $description: 'Trip Quote colour tokens, generated from src/tokens.ts. Each token is bound to a variable in the AI-Native Workflow Figma file.',
   color: Object.fromEntries(names.map(n => [n, {
     $type: 'color', $value: tokens[n].value, $description: tokens[n].use,
-    $extensions: { 'com.figma': { file: 'FFULIvAdvUc29HzIiLXXla', collection: tokens[n].figma.collection, variable: tokens[n].figma.name, variableId: tokens[n].figma.id } },
+    $extensions: { 'com.figma': { file: 'zumDgCHXNaI8hGBQOulLoy', collection: tokens[n].figma.collection, variable: tokens[n].figma.name, variableId: tokens[n].figma.id } },
   }])),
 };
 writeFileSync(new URL('../design-tokens.json', import.meta.url), JSON.stringify(json, null, 2) + '\n');
