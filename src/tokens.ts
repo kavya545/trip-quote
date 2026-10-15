@@ -1,7 +1,7 @@
 /**
  * Design tokens: the only place colours are defined.
  *
- * Every token is tied to a colour variable in the Fleeguide Figma file
+ * Every token is tied to a colour variable in the AI-Native Workflow Figma file
  * (https://www.figma.com/design/FFULIvAdvUc29HzIiLXXla), so a value changed here can be matched there
  * by name. `npm run tokens` writes src/tokens.css (CSS custom properties for index.css) and
  * design-tokens.json (the same map in W3C design-token format, with the Figma variable for each).

@@ -1,5 +1,5 @@
 {
-  "$description": "Trip Quote colour tokens, generated from src/tokens.ts. Each token is bound to a variable in the Fleeguide Figma file.",
+  "$description": "Trip Quote colour tokens, generated from src/tokens.ts. Each token is bound to a variable in the AI-Native Workflow Figma file.",
   "color": {
     "ink": {
       "$type": "color",

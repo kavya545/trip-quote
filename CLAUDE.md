@@ -27,7 +27,7 @@ Vite 8 + React 19 + TypeScript 5.9, zod 4. Styling is inline `style` objects plu
 Push to `real-data` (the default branch) → `.github/workflows/deploy-pages.yml` builds and publishes https://kavya545.github.io/trip-quote/. Also runnable from Actions → **Run workflow**. `vite.config.ts` uses `base: './'` so the build works from the `/trip-quote/` sub-path.
 
 ## Standing rules
-1. **Design tokens, no hardcoded colours.** Colours live only in `src/tokens.ts`; use `color.<token>` (and `alpha(color.ink, 0.45)` for translucency) in code and `var(--color-<token>)` in CSS. Each token is bound to a variable in the Fleeguide Figma file (name and id in `tokens.ts`). To add or change one: edit `tokens.ts`, run `npm run tokens` (regenerates `src/tokens.css` and `design-tokens.json`), and update the matching Figma variable.
+1. **Design tokens, no hardcoded colours.** Colours live only in `src/tokens.ts`; use `color.<token>` (and `alpha(color.ink, 0.45)` for translucency) in code and `var(--color-<token>)` in CSS. Each token is bound to a variable in the AI-Native Workflow Figma file (name and id in `tokens.ts`). To add or change one: edit `tokens.ts`, run `npm run tokens` (regenerates `src/tokens.css` and `design-tokens.json`), and update the matching Figma variable.
 2. **Rupees** always go through `R()` in `src/model/data.ts` (`₹` + `toLocaleString('en-IN')`, rounded, e.g. ₹1,02,400). Never format amounts by hand. Differences use `dl()`.
 3. **Every change goes on a new branch** cut from `real-data`, then is merged into `real-data` only when asked. Commit messages explain why, not just what.
 4. **Re-run the screenshot comparison before every push** and report the result.
